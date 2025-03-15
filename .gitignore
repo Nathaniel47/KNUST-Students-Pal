@@ -1,0 +1,9 @@
+# Ignore Python virtual environment
+chatbot/tflearn_env/
+
+# Ignore TensorFlow library files
+*.pyd
+
+# Ignore common system files
+.DS_Store
+Thumbs.db
