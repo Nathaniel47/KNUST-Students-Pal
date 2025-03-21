@@ -5,9 +5,7 @@ import Main from "./components/Main";
 const App = () => {
   return (
     <SafeAreaProvider>
-      <NavigationContainer>
-        <Main />
-      </NavigationContainer>
+      <Main />
     </SafeAreaProvider>
   );
 };

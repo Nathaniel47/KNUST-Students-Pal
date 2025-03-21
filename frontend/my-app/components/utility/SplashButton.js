@@ -7,7 +7,7 @@ import {
   Animated,
 } from "react-native";
 
-const SplashButton = ({ children }) => {
+const SplashButton = ({ children, navigation }) => {
   const highlightAnim = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
@@ -32,7 +32,7 @@ const SplashButton = ({ children }) => {
       <TouchableOpacity
         style={styles.button}
         activeOpacity={0.7}
-        onPress={() => console.log("Button Pressed")}
+        onPress={() => navigation.navigate("Login")}
       >
         <Animated.View
           style={[

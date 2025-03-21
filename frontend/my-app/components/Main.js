@@ -1,8 +1,11 @@
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Platform } from "react-native";
+import { useEffect, useState } from "react";
+import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import OnBoardContainer from "./OnBoardContainer";
 import SplashLogo from "./SplashLogo";
-import { useEffect, useState } from "react";
+import LogIn from "./LogIn";
+import SignUp from "./SignUp";
 
 const Stack = createStackNavigator();
 
@@ -12,20 +15,53 @@ const Main = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsReady(true);
-    }, 3000);
+    }, 4000);
     return () => clearTimeout(timer);
   }, []);
 
   return (
-    <View style={styles.container}>
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
+    <NavigationContainer>
+      <Stack.Navigator>
         {isReady ? (
-          <Stack.Screen name="main" component={OnBoardContainer} />
+          <Stack.Screen
+            name="Main"
+            component={OnBoardContainer}
+            options={{ headerShown: false, animation: "slide_from_right" }}
+          />
         ) : (
-          <Stack.Screen name="logo" component={SplashLogo} />
+          <Stack.Screen
+            name="logo"
+            component={SplashLogo}
+            options={{
+              headerShown: false,
+              headerTitle: "",
+              animation: "slide_from_right",
+            }}
+          />
         )}
+        <Stack.Screen
+          name="Login"
+          component={LogIn}
+          options={{
+            headerShown: Platform.OS === "ios",
+            headerBackTitle: false,
+            headerTintColor: "black",
+            animation: "slide_from_right",
+          }}
+        ></Stack.Screen>
+
+        <Stack.Screen
+          name="Signup"
+          component={SignUp}
+          options={{
+            headerShown: Platform.OS === "ios",
+            headerBackTitle: false,
+            headerTintColor: "black",
+            animation: "slide_from_right",
+          }}
+        ></Stack.Screen>
       </Stack.Navigator>
-    </View>
+    </NavigationContainer>
   );
 };
 
