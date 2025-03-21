@@ -1,3 +1,4 @@
+
 # Ignore Python virtual environment
 chatbot/tflearn_env/
 
@@ -7,7 +8,6 @@ chatbot/tflearn_env/
 # Ignore common system files
 .DS_Store
 Thumbs.db
-<<<<<<< HEAD
+
+# Ignore environment variables
 .env
-=======
->>>>>>> d98c52a478820b0c4d43107ab99ae23ae7ee364d
