@@ -15,6 +15,6 @@ async def upload_file(file: UploadFile = File(...)):
     file_url = upload_file_to_s3(file.file, file.filename)
 
     if file_url:
-        return{"message": "File uploaded successfully", "url": file_url}
+        return {"message": "File uploaded successfully", "url": file_url}
     else:
         raise HTTPException(status_code=500, detail="File upload failed")

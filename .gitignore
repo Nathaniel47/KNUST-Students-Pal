@@ -7,4 +7,7 @@ chatbot/tflearn_env/
 # Ignore common system files
 .DS_Store
 Thumbs.db
+<<<<<<< HEAD
 .env
+=======
+>>>>>>> d98c52a478820b0c4d43107ab99ae23ae7ee364d
