@@ -54,7 +54,7 @@ const Main = () => {
           name="Signup"
           component={SignUp}
           options={{
-            headerShown: Platform.OS === "ios",
+            // headerShown: Platform.OS === "ios",
             headerBackTitle: false,
             headerTintColor: "black",
             animation: "slide_from_right",
