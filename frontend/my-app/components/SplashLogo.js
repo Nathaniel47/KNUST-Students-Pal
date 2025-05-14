@@ -1,22 +1,28 @@
-import { View, Image } from "react-native";
+import { View, Image, StyleSheet } from "react-native";
 
 const SplashLogo = () => {
   return (
-    <View
-      style={{
-        flex: 1,
-        alignItems: "center",
-        justifyContent: "center",
-        width: "100%",
-      }}
-    >
+    <View style={styles.container}>
       <Image
-        source={require("../assets/uguhi.gif")}
-        style={{ width: "100%" }}
+        source={require("../assets/uguhi.gif")} // Your GIF file
+        style={styles.gif}
         resizeMode="contain"
-      ></Image>
+      />
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#fff", // Background color for splash screen
+  },
+  gif: {
+    width: "80%", // Adjust as needed
+    height: "50%", // Adjust as needed
+  },
+});
 
 export default SplashLogo;

@@ -57,17 +57,19 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   text: {
-    fontSize: 20,
+    fontSize: 18,
     textAlign: "center",
   },
   titleText: {
-    fontSize: 35,
+    fontSize: 25,
+    fontWeight: "bold",
     textTransform: "capitalize",
+    textAlign: "center",
   },
 
   greenText: {
     color: "#00BF63",
-    fontSize: 30,
+    fontSize: 25,
     marginBottom: 30,
     textTransform: "capitalize",
   },

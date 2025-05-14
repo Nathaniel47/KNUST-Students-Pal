@@ -5,6 +5,8 @@ import {
   TouchableHighlight,
   Text,
   Animated,
+  StatusBar,
+  Platform,
 } from "react-native";
 import { QuestionPage, SchedulePage, RemainderPage } from "./OnboardingPages";
 import { useState, useRef, useEffect } from "react";
@@ -31,6 +33,7 @@ const OnBoardContainer = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.mainContainer}>
       <View style={styles.container}>
+        <StatusBar></StatusBar>
         <PagerView
           style={styles.pagerView}
           initialPage={0}
@@ -64,12 +67,15 @@ const styles = StyleSheet.create({
     width: "100%",
     justifyContent: "center",
     alignItems: "center",
-    marginBottom: 50,
+    marginBottom: 70,
   },
 
   mainContainer: {
     flex: 1,
-    padding: 20,
+    paddingHorizontal: 20,
+    paddingVertical: 50,
+
+    backgroundColor: "#fff",
   },
 
   container: {

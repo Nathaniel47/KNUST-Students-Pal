@@ -4,8 +4,10 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import OnBoardContainer from "./OnBoardContainer";
 import SplashLogo from "./SplashLogo";
+import HomeScreen from "./HomeScreen";
 import LogIn from "./LogIn";
 import SignUp from "./SignUp";
+import { AuthProvider } from "./utility/AuthProvider";
 
 const Stack = createStackNavigator();
 
@@ -20,48 +22,53 @@ const Main = () => {
   }, []);
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        {isReady ? (
+    <AuthProvider>
+      <NavigationContainer>
+        <Stack.Navigator>
+          {isReady ? (
+            <Stack.Screen
+              name="Main"
+              component={OnBoardContainer}
+              options={{ headerShown: false, animation: "slide_from_right" }}
+            />
+          ) : (
+            <Stack.Screen
+              name="logo"
+              component={SplashLogo}
+              options={{
+                headerShown: false,
+                headerTitle: "",
+                animation: "slide_from_right",
+              }}
+            />
+          )}
           <Stack.Screen
-            name="Main"
-            component={OnBoardContainer}
-            options={{ headerShown: false, animation: "slide_from_right" }}
-          />
-        ) : (
-          <Stack.Screen
-            name="logo"
-            component={SplashLogo}
+            name="Login"
+            component={LogIn}
             options={{
-              headerShown: false,
-              headerTitle: "",
+              // headerShown: Platform.OS === "ios",
+              headerBackTitle: false,
+              headerTintColor: "black",
               animation: "slide_from_right",
+              headerTitleAlign: "center",
             }}
-          />
-        )}
-        <Stack.Screen
-          name="Login"
-          component={LogIn}
-          options={{
-            headerShown: Platform.OS === "ios",
-            headerBackTitle: false,
-            headerTintColor: "black",
-            animation: "slide_from_right",
-          }}
-        ></Stack.Screen>
+          ></Stack.Screen>
 
-        <Stack.Screen
-          name="Signup"
-          component={SignUp}
-          options={{
-            // headerShown: Platform.OS === "ios",
-            headerBackTitle: false,
-            headerTintColor: "black",
-            animation: "slide_from_right",
-          }}
-        ></Stack.Screen>
-      </Stack.Navigator>
-    </NavigationContainer>
+          <Stack.Screen
+            name="Signup"
+            component={SignUp}
+            options={{
+              // headerShown: Platform.OS === "ios",
+              headerBackTitle: false,
+              headerTintColor: "black",
+              animation: "slide_from_right",
+              headerTitleAlign: "center",
+            }}
+          ></Stack.Screen>
+          <Stack.Screen name="Home" component={HomeScreen}></Stack.Screen>
+        </Stack.Navigator>
+      </NavigationContainer>
+    </AuthProvider>
   );
 };
 
