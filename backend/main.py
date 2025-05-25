@@ -1,7 +1,19 @@
 from fastapi import FastAPI
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import Session
+from fastapi.middleware.cors import CORSMiddleware
 
 
-app = FastAPI
 
+app = FastAPI()
+
+origins = [
+    "http://localhost",
+    "http://127.0.0.1:3000",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,  
+    allow_credentials=True,
+    allow_methods=["*"],  
+    allow_headers=["*"],
+)
