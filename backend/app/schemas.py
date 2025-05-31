@@ -5,6 +5,7 @@ class Usercreate(BaseModel):
     mail: str
     id: int
     password: str
+    username: str
 
 class UserResponse(Usercreate):
 
@@ -13,5 +14,4 @@ class UserResponse(Usercreate):
 
 class LoginSchema(BaseModel):
     mail: str
-    id: int
     password: str

@@ -35,6 +35,7 @@ const Link = ({ children }) => {
 
 const SignUp = ({ navigation }) => {
   const [showPassword, setShowPassword] = useState(false); // Toggle password visibility
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [id, setID] = useState("");
@@ -106,6 +107,14 @@ const SignUp = ({ navigation }) => {
 
               {/* Input Fields */}
               <View style={styles.inputContainer}>
+                <TextInput
+                  placeholder="Name"
+                  style={styles.textInput}
+                  value={username}
+                  onChangeText={(value) => {
+                    setUsername(value);
+                  }}
+                />
                 <TextInput
                   placeholder="Student mail"
                   style={styles.textInput}

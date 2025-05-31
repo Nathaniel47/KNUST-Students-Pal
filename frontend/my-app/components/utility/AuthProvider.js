@@ -2,6 +2,7 @@ import { useState, createContext } from "react";
 import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import jwtDecode from "jwt-decode";
+import { BASE_URL } from "./config";
 
 const AuthContext = createContext();
 
@@ -22,9 +23,10 @@ const AuthProvider = ({ children }) => {
     const data = { success: false, error: "" };
     const mail = email.trim();
     try {
-      const response = await axios.post("http://127.0.0.1:8000/auth/login", {
-        student_mail: mail,
+      const response = await axios.post(`${BASE_URL}/auth/login`, {
+        email: mail,
         password: password,
+        id: id,
       });
 
       const tokens = response.data;
@@ -48,10 +50,10 @@ const AuthProvider = ({ children }) => {
         const username = mail.split("@")[0];
         try {
           const response = await axios.post(
-            "http://172.20.10.5:8000/auth/register",
+            `${BASE_URL}/auth/register`,
             {
-              student_mail: mail,
-              student_id: id,
+              mail: mail,
+              id: id,
               password: password,
               username: username,
             }
@@ -91,7 +93,7 @@ const AuthProvider = ({ children }) => {
   const getNewTokens = async (refreshToken) => {
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8000/auth/refresh/token",
+        `${BASE_URL}/auth/refresh/token`,
         {
           refresh_token: refreshToken,
         }
@@ -129,7 +131,7 @@ const AuthProvider = ({ children }) => {
 
       if (isTokenExpired) {
         const response = await axios.post(
-          "http://127.0.0.1:8000/auth/refresh",
+          `${BASE_URL}/auth/refresh`,
           {
             refresh_token: refreshToken,
           }
