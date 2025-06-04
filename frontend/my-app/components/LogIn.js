@@ -36,6 +36,7 @@ const LogIn = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isError, setIsError] = useState({ error: false, message: "" });
+  const [successMessage, setSuccessMessage] = useState("");
   const { login } = useContext(AuthContext);
 
   // Refresh state
@@ -55,13 +56,15 @@ const LogIn = ({ navigation }) => {
   }, []);
 
   const handleLogin = async () => {
-    let result = await login({ email, password });
+     setSuccessMessage("");
+    setIsError({ error: false, message: "" });
+
+    let result = await login({ mail:email, password });
     if (result.success) {
-      // show a successful login message
+       setSuccessMessage("Login successful!");
+       navigation.navigate("HomeTabs"); // optional navigation after success
     } else {
-      setIsError((prev) => {
-        return { ...prev, error: true, message: result.error };
-      });
+      setIsError({error: true, message: result.error});
     }
   };
 
@@ -89,9 +92,15 @@ const LogIn = ({ navigation }) => {
               {/* Title */}
               <Text style={styles.title}>Login to your account</Text>
 
-              {isError.error ? (
+               {isError.error && (
                 <View style={styles.errorView}>
                   <Text style={styles.errorText}>{isError.message}</Text>
+                </View>
+              )}
+
+              {successMessage ? (
+                <View style={styles.successView}>
+                  <Text style={styles.successText}>{successMessage}</Text>
                 </View>
               ) : null}
 
@@ -139,7 +148,7 @@ const LogIn = ({ navigation }) => {
   );
 };
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     backgroundColor: "#fff",
@@ -235,6 +244,19 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   errorText: {
+    color: "#fff",
+    padding: 10,
+    fontSize: 16,
+  },
+  successView: {
+    backgroundColor: "#4BB543", 
+    width: 310,
+    borderRadius: 5,
+    justifyContent: "center",
+    alignItems: "center",
+    marginBottom: 10,
+  },
+  successText: {
     color: "#fff",
     padding: 10,
     fontSize: 16,

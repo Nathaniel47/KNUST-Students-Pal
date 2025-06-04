@@ -7,7 +7,11 @@ class Usercreate(BaseModel):
     password: str
     username: str
 
-class UserResponse(Usercreate):
+class UserResponse(BaseModel):
+   id: int
+   mail: str
+   username: str
+   msg: str
 
    class Config:
     from_attributes = True

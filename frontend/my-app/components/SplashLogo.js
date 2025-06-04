@@ -1,13 +1,14 @@
-import { View, Image, StyleSheet } from "react-native";
+import { View, Image, StyleSheet, Text } from "react-native";
 
 const SplashLogo = () => {
   return (
     <View style={styles.container}>
       <Image
-        source={require("../assets/uguhi.gif")} // Your GIF file
+        source={require("../assets/logo.jpeg")} // Your GIF file
         style={styles.gif}
         resizeMode="contain"
       />
+      <Text style={{position:'absolute', bottom:30, fontSize:18}}>chat with AI pal</Text>
     </View>
   );
 };

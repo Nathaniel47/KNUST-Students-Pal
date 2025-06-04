@@ -8,6 +8,7 @@ import HomeScreen from "./HomeScreen";
 import LogIn from "./LogIn";
 import SignUp from "./SignUp";
 import { AuthProvider } from "./utility/AuthProvider";
+import HomeTabs from "./HomeTab";
 
 const Stack = createStackNavigator();
 
@@ -24,7 +25,7 @@ const Main = () => {
   return (
     <AuthProvider>
       <NavigationContainer>
-        <Stack.Navigator>
+        <Stack.Navigator screenOptions={{headerShown:false}}>
           {isReady ? (
             <Stack.Screen
               name="Main"
@@ -65,7 +66,7 @@ const Main = () => {
               headerTitleAlign: "center",
             }}
           ></Stack.Screen>
-          <Stack.Screen name="Home" component={HomeScreen}></Stack.Screen>
+          <Stack.Screen name="HomeTabs" component={HomeTabs} options={{headerShown:false}}></Stack.Screen>
         </Stack.Navigator>
       </NavigationContainer>
     </AuthProvider>

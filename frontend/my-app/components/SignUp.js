@@ -18,6 +18,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { useNavigation } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons"; // Importing Icon for Eye
 import { AuthContext } from "./utility/AuthProvider";
+import { styles as loginStyles } from "./LogIn"; // Renamed styles from LogIn
 
 const Link = ({ children }) => {
   const navigation = useNavigation();
@@ -28,7 +29,7 @@ const Link = ({ children }) => {
       }}
       underlayColor={null}
     >
-      <Text style={styles.link}>{children}</Text>
+      <Text style={loginStyles.link}>{children}</Text>
     </TouchableHighlight>
   );
 };
@@ -36,39 +37,41 @@ const Link = ({ children }) => {
 const SignUp = ({ navigation }) => {
   const [showPassword, setShowPassword] = useState(false); // Toggle password visibility
   const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
+  const [mail, setMail] = useState("");
   const [password, setPassword] = useState("");
   const [id, setID] = useState("");
   const [isError, setIsError] = useState({ error: false, message: "" });
+  const [successMessage, setSuccessMessage] = useState("");
   const { signup } = useContext(AuthContext);
 
   const [refreshing, setRefreshing] = useState(false);
 
-  // Function to refresh the component
   const onRefresh = useCallback(() => {
     setRefreshing(true);
-
-    // Reset states or fetch fresh data
-    setEmail("");
+    setMail("");
     setIsError({ error: false, message: "" });
     setID("");
-
     setTimeout(() => {
-      setRefreshing(false); // Stop refreshing after a delay
+      setRefreshing(false);
     }, 1000);
   }, []);
 
   const handleSignup = async () => {
-    let result = await signup({ email, password, id });
-    console.log("handlesignup method called");
+    console.log("handleSignup method called");
+    const result = await signup({ mail, password, id, username });
+
     if (result.success) {
-      // show a successful login message
-      console.log("login successful");
-      navigation.navigate("Home");
+      setIsError({ error: false, message: "" });
+      setSuccessMessage("Welcome Pal!");
+      navigation.navigate("HomeTabs")
+
+      setTimeout(() => {
+      
+        setSuccessMessage("");
+      }, 1500);
     } else {
-      setIsError((prev) => {
-        return { ...prev, error: true, message: result.error };
-      });
+      setIsError({ error: true, message: result.error });
+      setSuccessMessage("");
     }
   };
 
@@ -85,63 +88,57 @@ const SignUp = ({ navigation }) => {
               <RefreshControl
                 onRefresh={onRefresh}
                 refreshing={refreshing}
-              ></RefreshControl>
+              />
             }
           >
             <View style={styles.container}>
-              {/* Logo at the Top */}
               <Image
                 source={require("../assets/logo.jpeg")}
                 style={styles.img}
                 resizeMode="cover"
               />
 
-              {/* Title */}
               <Text style={styles.title}>Create your account</Text>
 
-              {isError.error ? (
+              {isError.error && (
                 <View style={styles.errorView}>
                   <Text style={styles.errorText}>{isError.message}</Text>
                 </View>
+              )}
+
+              {successMessage ? (
+                <View style={styles.successView}>
+                  <Text style={styles.successText}>{successMessage}</Text>
+                </View>
               ) : null}
 
-              {/* Input Fields */}
               <View style={styles.inputContainer}>
                 <TextInput
                   placeholder="Name"
                   style={styles.textInput}
                   value={username}
-                  onChangeText={(value) => {
-                    setUsername(value);
-                  }}
+                  onChangeText={(value) => setUsername(value)}
                 />
                 <TextInput
                   placeholder="Student mail"
                   style={styles.textInput}
-                  value={email}
-                  onChangeText={(value) => {
-                    setEmail(value);
-                  }}
+                  value={mail}
+                  onChangeText={(value) => setMail(value)}
                 />
                 <TextInput
                   placeholder="Student ID"
                   style={styles.textInput}
                   keyboardType="numeric"
                   value={id}
-                  onChangeText={(value) => {
-                    setID(value);
-                  }}
+                  onChangeText={(value) => setID(value)}
                 />
 
-                {/* Password Input Field */}
                 <View style={styles.passwordContainer}>
                   <TextInput
                     placeholder="Password"
                     style={styles.passwordInput}
                     secureTextEntry={!showPassword}
-                    onChangeText={(value) => {
-                      setPassword(value);
-                    }}
+                    onChangeText={(value) => setPassword(value)}
                     onSubmitEditing={handleSignup}
                   />
                   <TouchableOpacity
@@ -156,12 +153,10 @@ const SignUp = ({ navigation }) => {
                 </View>
               </View>
 
-              {/* Buttons */}
               <TouchableOpacity style={styles.button1} onPress={handleSignup}>
                 <Text style={styles.buttonText1}>Sign Up</Text>
               </TouchableOpacity>
 
-              {/* Bottom Text */}
               <View style={styles.bottomContainer}>
                 <Text style={styles.bottomText}>
                   Already have an account? <Link> Sign in</Link>
@@ -257,12 +252,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     textAlign: "center",
   },
-  link: {
-    fontSize: 18,
-    color: "#00BF63",
-    position: "relative",
-    top: 4,
-  },
   errorView: {
     flex: 1,
     justifyContent: "center",
@@ -272,6 +261,20 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   errorText: {
+    color: "#fff",
+    padding: 10,
+    fontSize: 16,
+  },
+  successView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#00BF63",
+    width: 310,
+    borderRadius: 5,
+    marginBottom: 10,
+  },
+  successText: {
     color: "#fff",
     padding: 10,
     fontSize: 16,

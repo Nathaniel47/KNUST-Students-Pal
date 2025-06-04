@@ -1,7 +1,7 @@
 import { useState, createContext } from "react";
 import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import jwtDecode from "jwt-decode";
+import jwt_decode from "jwt-decode";
 import { BASE_URL } from "./config";
 
 const AuthContext = createContext();
@@ -15,18 +15,25 @@ const AuthProvider = ({ children }) => {
   };
 
   const getUserName = (accessToken) => {
-    const decode = jwtDecode(accessToken);
-    setUser(decode.username);
+    try {
+      const decoded = jwt_decode(accessToken);
+      console.log("Decoded JWT:", decoded);
+      setUser(decoded.username);
+    } catch (err) {
+      console.error("JWT Decode Error:", err);
+    }
   };
 
-  const login = async ({ email, password }) => {
+  const login = async ({ mail, password }) => {
     const data = { success: false, error: "" };
-    const mail = email.trim();
+    const trimmedMail = mail.trim();
+
     try {
+      console.log(`POST → ${BASE_URL}/auth/login`);
+
       const response = await axios.post(`${BASE_URL}/auth/login`, {
-        email: mail,
+        mail: trimmedMail,
         password: password,
-        id: id,
       });
 
       const tokens = response.data;
@@ -34,28 +41,28 @@ const AuthProvider = ({ children }) => {
       getUserName(tokens.access_token);
       data.success = true;
     } catch (error) {
-      data.error = "Invalid password or email"; // Logs the entire error
+      console.error("Login error:", error.response?.data || error.message);
+      data.error = error.response?.data?.detail || "Something went wrong";
     }
     return data;
   };
 
-  const signup = async ({ email, password, id }) => {
+  const signup = async ({ mail, password, id, username }) => {
     const data = { success: false, error: "" };
-    const emailFormat = /(\b^\w*@st.knust.edu.gh\b$)/;
+    const mailFormat = /^\w+@(st|idl)\.knust\.edu\.gh$/;
 
-    const mail = email.trim();
-    let checkEmail = emailFormat.test(mail);
+    const trimmedMail = mail.trim();
+    let checkMail = mailFormat.test(trimmedMail);
     try {
-      if (checkEmail) {
-        const username = mail.split("@")[0];
+      if (checkMail) {
         try {
           const response = await axios.post(
             `${BASE_URL}/auth/register`,
             {
-              mail: mail,
+              username: username,
+              mail: trimmedMail,
               id: id,
               password: password,
-              username: username,
             }
           );
 
@@ -70,7 +77,7 @@ const AuthProvider = ({ children }) => {
         }
       } else {
         throw new Error(
-          "Invalid Email. Kindly add the appropraite suffic @st.knust.edu.gh or @idl.knust.edu.gh"
+          "Invalid Email. Kindly add the appropriate suffix @st.knust.edu.gh or @idl.knust.edu.gh"
         );
       }
     } catch (err) {
@@ -126,7 +133,7 @@ const AuthProvider = ({ children }) => {
 
       if (!accessToken || !refreshToken) return;
 
-      const decoded = jwtDecode(accessToken);
+      const decoded = jwt_decode(accessToken);
       const isTokenExpired = decoded.exp * 1000 < Date.now();
 
       if (isTokenExpired) {
