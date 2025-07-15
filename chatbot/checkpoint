@@ -1,0 +1,2 @@
+model_checkpoint_path: "C:\\Projects\\KNUST-Students-Pal\\chatbot\\model.tfl"
+all_model_checkpoint_paths: "C:\\Projects\\KNUST-Students-Pal\\chatbot\\model.tfl"

@@ -1,7 +1,7 @@
 import { useState, createContext } from "react";
 import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import jwt_decode from "jwt-decode";
+import jwtDecode from "jwt-decode";
 import { BASE_URL } from "./config";
 
 const AuthContext = createContext();
@@ -16,7 +16,7 @@ const AuthProvider = ({ children }) => {
 
   const getUserName = (accessToken) => {
     try {
-      const decoded = jwt_decode(accessToken);
+      const decoded = jwtDecode(accessToken);
       console.log("Decoded JWT:", decoded);
       setUser(decoded.username);
     } catch (err) {
@@ -133,7 +133,7 @@ const AuthProvider = ({ children }) => {
 
       if (!accessToken || !refreshToken) return;
 
-      const decoded = jwt_decode(accessToken);
+      const decoded = jwtDecode(accessToken);
       const isTokenExpired = decoded.exp * 1000 < Date.now();
 
       if (isTokenExpired) {

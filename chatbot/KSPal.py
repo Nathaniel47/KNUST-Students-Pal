@@ -67,6 +67,28 @@ net = tflearn.regression(net)
 model = tflearn.DNN(net)
 model.fit(x_train, y_train, n_epoch=200, batch_size=8, show_metric=True)
 
+# Save the trained model
+model.save("model.tfl")
+print("✅ Model saved as model.tfl")
+
+# Save the VocabularyProcessor
+import pickle
+
+with open("vocab_processor.pkl", "wb") as f:
+    pickle.dump(vocab_processor, f)
+print("✅ VocabularyProcessor saved as vocab_processor.pkl")
+
+# Save the LabelEncoder
+with open("label_encoder.pkl", "wb") as f:
+    pickle.dump(le, f)
+print("✅ LabelEncoder saved as label_encoder.pkl")
+
+# Save the responses dictionary
+with open("responses.pkl", "wb") as f:
+    pickle.dump(responses, f)
+print("✅ Responses saved as responses.pkl")
+
+
 # Chatbot Interaction
 import random
 

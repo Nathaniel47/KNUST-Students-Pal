@@ -3,17 +3,24 @@ import {
   Text,
   TouchableWithoutFeedback,
   TouchableOpacity,
+  Pressable,
 } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { createDrawerNavigator } from "@react-navigation/drawer";
+import { createDrawerNavigator, DrawerItem } from "@react-navigation/drawer";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
-import Pal from "./Pal";
 import Scheduler from "./Scheduler";
 import Resources from "./Resources";
 import CareerHub from "./CareerHub";
-import Updates from "./Updates";
 import { LinearGradient } from "expo-linear-gradient";
+import PalStack from "./Pal/PalStack";
+import UpdateStack from "./Updates/UpdateStack";
+import { DrawerContentScrollView } from "@react-navigation/drawer";
+import CustomBottomTabBar from "./CustomBottomTabBar";
+import SearchPage from "./SearchPage";
+import { useDrawerHeaderContext } from "./utility/DrawerHeaderContext";
+
+const BOTTOM_TAB_BAR_HEIGHT = 70;
 
 const Tabs = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
@@ -26,8 +33,13 @@ const NoHighlightTabButton = (props) => {
   );
 };
 
-const CustomDrawerIcon = () => (
-  <View style={{ marginLeft: 15, padding: 4 }}>
+const CustomDrawerIcon = ({ navigation }) => (
+  <Pressable
+    style={{ marginLeft: 15, padding: 4 }}
+    onPress={() => {
+      navigation.openDrawer();
+    }}
+  >
     <View
       style={{
         width: 24,
@@ -54,12 +66,15 @@ const CustomDrawerIcon = () => (
         borderRadius: 2,
       }}
     />
-  </View>
+  </Pressable>
 );
 
 const BottomTab = () => {
+  const navigation = useNavigation();
+
   return (
     <Tabs.Navigator
+      tabBar={(props) => <CustomBottomTabBar {...props} />}
       screenOptions={({ route: { name } }) => ({
         tabBarIcon: ({ focused, size, color }) => {
           let iconName;
@@ -83,6 +98,7 @@ const BottomTab = () => {
               iconName = focused ? "calendar" : "calendar-outline";
               break;
             default:
+              iconName = "help-circle-outline"; // Fallback icon
           }
 
           if (isPal) {
@@ -104,7 +120,7 @@ const BottomTab = () => {
                   elevation: 5,
                 }}
               >
-                <Ionicons name={iconName} size={32} color="white" />
+                <Ionicons name={iconName} size={28} color="white" />
               </View>
             );
           }
@@ -117,20 +133,25 @@ const BottomTab = () => {
                 borderBottomColor: focused ? "#00BF63" : "transparent",
               }}
             >
-              <Ionicons name={iconName} color={color} size={28} />
+              <Ionicons name={iconName} color={color} size={24} />
             </View>
           );
         },
         tabBarInactiveTintColor: "gray",
         tabBarActiveTintColor: "#00BF63",
-        tabBarStyle: { height: 70 },
-
-        headerShown: false,
+        // tabBarStyle is now set dynamically by the useEffect above
+        // Remove the fixed height: 70 here, as it will be managed by tabBarAnimatedStyle
+        tabBarStyle: {
+          // Default styles, these can be overridden by the animated style
+          backgroundColor: "white",
+          height: BOTTOM_TAB_BAR_HEIGHT,
+        },
+        headerShown: false, // Ensure headers are handled by nested navigators
       })}
     >
       <Tabs.Screen
         name="Updates"
-        component={Updates}
+        component={UpdateStack} // Your UpdateStack component
         options={{
           tabBarButton: (props) => <NoHighlightTabButton {...props} />,
         }}
@@ -144,7 +165,7 @@ const BottomTab = () => {
       />
       <Tabs.Screen
         name="Pal"
-        component={Pal}
+        component={PalStack} // Your PalStack component
         options={{
           tabBarLabel: () => null,
           tabBarButton: (props) => <NoHighlightTabButton {...props} />,
@@ -168,35 +189,78 @@ const BottomTab = () => {
   );
 };
 
-const HomeTabs = ({ navigation }) => {
+const HomeTabs = () => {
   return (
     <Drawer.Navigator
-      screenOptions={{
-        headerTitle: "",
-        headerStyle: {
-          elevation: 0,
-          shadowOpacity: 0,
-          borderBottomWidth: 0,
-        },
-        headerBackground: () => (
-          <LinearGradient
-            colors={["#fff", "#fff", "rgba(0, 191, 99, 0.08)"]}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 0, y: 1 }}
-            style={{ flex: 1 }}
-          />
-        ),
-
-        headerRight: () => (
-          <View style={{ marginRight: 20, flexDirection: "row", gap: 10 }}>
-            <TouchableOpacity>
-              <Ionicons name="notifications-outline" size={24}></Ionicons>
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <Ionicons name="person-circle-outline" size={24}></Ionicons>
-            </TouchableOpacity>
+      drawerContent={(props) => (
+        <DrawerContentScrollView {...props}>
+          <View>
+            <Text>hello people</Text>
           </View>
-        ),
+          <DrawerItem label="Settings" />
+        </DrawerContentScrollView>
+      )}
+      screenOptions={({ navigation }) => {
+        return {
+          headerTitle: "",
+          headerStyle: {
+            elevation: 0,
+            shadowOpacity: 0,
+            borderBottomWidth: 0,
+            height: 80,
+          },
+          headerBackground: () => (
+            <LinearGradient
+              colors={["#fff", "#fff", "rgba(0, 191, 99, 0.05)"]}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 0, y: 1 }}
+              style={{ flex: 1 }}
+            />
+          ),
+
+          headerRight: () => (
+            <View
+              style={{
+                marginRight: 20,
+                flexDirection: "row",
+                gap: 10,
+                alignItems: "center",
+                justifyContent: "center",
+                paddingVertical: 10,
+              }}
+            >
+              <TouchableOpacity
+                onPress={() => {
+                  navigation.navigate("Search");
+                }}
+                style={{
+                  flexDirection: "row",
+                  gap: 10,
+                  alignItems: "center",
+                  borderWidth: 1,
+                  borderRadius: 20,
+                  paddingHorizontal: 20,
+                  alignSelf: "center",
+                  width: 230,
+                  marginTop: 2,
+                  backgroundColor: "#fff",
+                  paddingVertical: 10,
+                  height: 40,
+                }}
+              >
+                <Ionicons name="search-outline" size={20} />
+                <Text>Search updates....</Text>
+              </TouchableOpacity>
+              <TouchableOpacity>
+                <Ionicons name="notifications-outline" size={24}></Ionicons>
+              </TouchableOpacity>
+              <TouchableOpacity>
+                <Ionicons name="person-circle-outline" size={24}></Ionicons>
+              </TouchableOpacity>
+            </View>
+          ),
+          headerLeft: () => <CustomDrawerIcon navigation={navigation} />,
+        };
       }}
     >
       <Drawer.Screen
@@ -204,6 +268,7 @@ const HomeTabs = ({ navigation }) => {
         component={BottomTab}
         options={{ headerTitle: "" }}
       />
+      <Drawer.Screen name="Search" component={SearchPage} />
     </Drawer.Navigator>
   );
 };

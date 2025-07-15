@@ -2,9 +2,24 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.database import Base
 from app import models, database
-from routes.login import router as login_router
-from routes.register import router as signup_router
-from routes import all_routers
+import logging
+
+# Configure global logging
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(message)s",
+    handlers=[
+        logging.FileHandler("app.log"),  # Logs to a file in your project root
+        logging.StreamHandler()         # Also logs to the terminal
+    ]
+)
+
+
+from routes.auth import router as auth_router
+from routes.updates import router as updates_router
+from app.cores.scraper_utils import sync_updates
+# from routes.chatbot import router as chatbot_router
+
 
 app = FastAPI(title="KNUST Students Pal API")
 
@@ -27,9 +42,20 @@ app.add_middleware(
 )
 
 # for router in all_routers:
-app.include_router(login_router)
-app.include_router(signup_router)
+app.include_router(auth_router)
+app.include_router(updates_router)
+# app.include_router(chatbot_router)
+
+
+
+
+# Run sync_updates at startup
+@app.on_event("startup")
+def run_sync_on_startup():
+    logging.info("🚀 Running sync_updates at startup...")
+    sync_updates()
 
 import socket
 ip = socket.gethostbyname(socket.gethostname())
-print(f"Your server is running on: http://{ip}:8000")
+logging.info(f"🌐 Your server is running on: http://{ip}:8000")
+

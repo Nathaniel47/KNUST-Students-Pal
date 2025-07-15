@@ -70,6 +70,234 @@
             "tag": "goodbye",
             "input": ["Bye", "See you later"],
             "responses": ["Goodbye!", "Take care!", "See you soon!"]
-        }
+        },
+    {
+      "tag": "get_location_main_library",
+      "input": [
+        "Where is the main library?",
+        "How do I get to the main library?",
+        "Location of the KNUST library",
+        "Directions to the main library"
+      ],
+      "responses": [
+        "The main library is located at the heart of campus near the Library Mall."
+      ]
+    },
+    {
+      "tag": "get_location_great_hall",
+      "input": [
+        "Where is the Great Hall?",
+        "How do I get to Great Hall?",
+        "Great Hall location",
+        "Find Great Hall on campus"
+      ],
+      "responses": [
+        "The Great Hall is near the KNUST administration block and hosts major events."
+      ]
+    },
+    {
+      "tag": "get_location_administration",
+      "input": [
+        "Where is the administration block?",
+        "Location of administration",
+        "Directions to admin office",
+        "How to get to the admin block"
+      ],
+      "responses": [
+        "The administration block is located close to the Great Hall."
+      ]
+    },
+    {
+      "tag": "get_location_dosa",
+      "input": [
+        "Where is DOSA?",
+        "How do I get to the Dean of Students office?",
+        "Locate DOSA on campus",
+        "Where is the DOSA building?"
+      ],
+      "responses": [
+        "DOSA (Dean of Students Affairs) is located opposite the KCCR junction."
+      ]
+    },
+    {
+      "tag": "get_location_casely_hayford",
+      "input": [
+        "Where is Casely Hayford Hall?",
+        "Directions to Casely Hall",
+        "Find Casely Hayford hostel",
+        "Location of Casely Hayford"
+      ],
+      "responses": [
+        "Casely Hayford Hall is one of the traditional halls, located near the School of Business."
+      ]
+    },
+    {
+      "tag": "get_location_elearning_center",
+      "input": [
+        "Where is the e-learning center?",
+        "Location of KNUST E-Learning center",
+        "How to get to e-learning building",
+        "Find the e-learning center"
+      ],
+      "responses": [
+        "The E-Learning Center is close to the College of Science."
+      ]
+    },
+    {
+      "tag": "get_location_library_mall",
+      "input": [
+        "Where is Library Mall?",
+        "Directions to the library mall",
+        "Locate the KNUST mall",
+        "Library Mall location"
+      ],
+      "responses": [
+        "Library Mall is situated right in front of the main library, with various shops and ATMs."
+      ]
+    },
+    {
+      "tag": "get_location_college_science",
+      "input": [
+        "Where is the College of Science?",
+        "Directions to College of Science",
+        "Locate Science College",
+        "How to find College of Science"
+      ],
+      "responses": [
+        "The College of Science is located near the Natural Sciences complex."
+      ]
+    },
+    {
+      "tag": "get_location_college_engineering",
+      "input": [
+        "Where is the College of Engineering?",
+        "Engineering faculty location",
+        "How do I get to College of Engineering?",
+        "Directions to Engineering block"
+      ],
+      "responses": [
+        "The College of Engineering is along the road leading from the library to the engineering gate."
+      ]
+    },
+    {
+      "tag": "get_location_college_health_sciences",
+      "input": [
+        "Where is the College of Health Sciences?",
+        "Health Sciences block location",
+        "Directions to Health Sciences College",
+        "Locate Health Sciences faculty"
+      ],
+      "responses": [
+        "The College of Health Sciences is located near the KNUST Hospital and School of Medical Sciences."
+      ]
+    },
+    {
+      "tag": "get_location_school_pharmacy",
+      "input": [
+        "Where is the School of Pharmacy?",
+        "Pharmacy building location",
+        "Directions to School of Pharmacy",
+        "Locate Pharmacy School"
+      ],
+      "responses": [
+        "The School of Pharmacy is part of the College of Health Sciences and is located near the medical village."
+      ]
+    },
+    {
+      "tag": "get_location_medical_village",
+      "input": [
+        "Where is Medical Village?",
+        "Directions to Medical Village",
+        "Locate Medical Village hostel",
+        "Medical Village location on campus"
+      ],
+      "responses": [
+        "Medical Village is a hostel and staff residential area near the School of Medical Sciences."
+      ]
+    },
+    {
+      "tag": "get_location_school_business",
+      "input": [
+        "Where is the School of Business?",
+        "Business School location",
+        "Directions to KNUST Business School",
+        "Locate School of Business"
+      ],
+      "responses": [
+        "The School of Business is located near the Casely Hayford Hall."
+      ]
+    },
+    {
+      "tag": "get_location_school_medical_sciences",
+      "input": [
+        "Where is the School of Medical Sciences?",
+        "Locate Medical Sciences building",
+        "How to find School of Medical Sciences",
+        "Directions to SMS"
+      ],
+      "responses": [
+        "The School of Medical Sciences is part of the College of Health Sciences and is near the hospital."
+      ]
+    },
+    {
+      "tag": "get_location_poolside",
+      "input": [
+        "Where is the KNUST poolside?",
+        "Pool location on campus",
+        "How do I get to the swimming pool?",
+        "Find poolside"
+      ],
+      "responses": [
+        "The KNUST poolside is behind the gym complex near Republic Hall."
+      ]
+    },
+    {
+      "tag": "get_location_allotey_auditorium",
+      "input": [
+        "Where is Allotey Auditorium?",
+        "Location of Allotey Hall",
+        "How to get to Allotey Auditorium",
+        "Directions to Allotey auditorium"
+      ],
+      "responses": [
+        "Allotey Auditorium is located within the College of Science, often used for lectures and events."
+      ]
+    },
+    {
+      "tag": "get_location_college_art_built_env",
+      "input": [
+        "Where is the College of Art and Built Environment?",
+        "Find Art and Built Environment faculty",
+        "Locate CABE",
+        "Directions to College of Art"
+      ],
+      "responses": [
+        "The College of Art and Built Environment is located near the Engineering College and Unity Hall."
+      ]
+    },
+    {
+      "tag": "get_location_college_agriculture_natural_resources",
+      "input": [
+        "Where is the College of Agriculture and Natural Resources?",
+        "Locate Agriculture faculty",
+        "How to get to CANR",
+        "Find Agriculture and Natural Resources College"
+      ],
+      "responses": [
+        "The College of Agriculture and Natural Resources is near the KNUST Police Station and Bomso gate."
+      ]
+    },
+    {
+      "tag": "get_location_bush_canteen",
+      "input": [
+        "Where is Bush Canteen?",
+        "How to get to Bush Canteen",
+        "Locate Bush Canteen",
+        "Bush Canteen location"
+      ],
+      "responses": [
+        "Bush Canteen is located between the College of Science and the College of Agriculture — a popular food hub."
+      ]
+    }
     ]
 }
