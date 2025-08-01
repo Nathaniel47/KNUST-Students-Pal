@@ -17,8 +17,9 @@ import { LinearGradient } from "expo-linear-gradient";
 import { Ionicons } from "@expo/vector-icons";
 import { SafeAreaView } from "react-native-safe-area-context";
 import LottieView from "lottie-react-native";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { useNavigation } from "@react-navigation/native";
+import { useFocusEffect } from "@react-navigation/native";
 
 const options = [
   { icon: "information-circle-outline", text: "KNUST Campus Info" },
@@ -41,6 +42,80 @@ const PalIntroPage = ({}) => {
   const [resent, setResent] = useState(false);
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const navigation = useNavigation();
+
+  useFocusEffect(useCallback(()=>{
+    const parent = navigation?.getParent();
+    const grandParent = parent?.getParent();
+
+    if(grandParent){
+      grandParent.setOptions({
+         headerRight: () => (
+                    <View
+                      style={{
+                        marginRight: 20,
+                        flexDirection: 'row',
+                        gap: 10,
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        paddingVertical: 10,
+                      }}>
+                      <TouchableOpacity>
+                        <Ionicons name="notifications-outline" size={24}></Ionicons>
+                      </TouchableOpacity>
+                      <TouchableOpacity>
+                        <Ionicons name="person-circle-outline" size={24}></Ionicons>
+                      </TouchableOpacity>
+            </View>
+        ),
+      })
+    }
+
+    return ()=>{
+      if(grandParent){
+        grandParent.setOptions({
+          headerRight: () => ( // Set back to your default headerRight for other tabs
+                        <View
+                          style={{
+                            marginRight: 20,
+                            flexDirection: 'row',
+                            gap: 10,
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            paddingVertical: 10,
+                          }}>
+                          <TouchableOpacity
+                            onPress={() => {
+                              navigation.navigate('Search');
+                            }}
+                            style={{
+                              flexDirection: 'row',
+                              gap: 10,
+                              alignItems: 'center',
+                              borderWidth: 1,
+                              borderRadius: 20,
+                              paddingHorizontal: 20,
+                              alignSelf: 'center',
+                              width: 230,
+                              marginTop: 2,
+                              backgroundColor: '#fff',
+                              paddingVertical: 10,
+                              height: 40,
+                            }}>
+                            <Ionicons name="search-outline" size={20} />
+                            <Text>Search updates....</Text>
+                          </TouchableOpacity>
+                          <TouchableOpacity>
+                            <Ionicons name="notifications-outline" size={24}></Ionicons>
+                          </TouchableOpacity>
+                          <TouchableOpacity>
+                            <Ionicons name="person-circle-outline" size={24}></Ionicons>
+                          </TouchableOpacity>
+                        </View>
+                      ),
+        })
+      }
+    }
+  }, [navigation]))
 
   const fadeIn = () => {
     fadeAnim.setValue(0); // Reset

@@ -57,3 +57,23 @@ class LikeWithUser(BaseModel):
 
 class UserImageUpdate(BaseModel):
     image: str  # Base64 encoded string
+
+class ChatRequest(BaseModel):
+    message: str
+
+class ChatResponse(BaseModel):
+    response: str
+
+
+class BulletinBase(BaseModel):
+    message: str
+    tag: str
+
+class BulletinCreate(BulletinBase):
+    pass
+
+class BulletinOut(BulletinBase):
+    id: int
+
+    class Config:
+       from_attributes = True

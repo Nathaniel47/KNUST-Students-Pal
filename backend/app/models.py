@@ -1,4 +1,5 @@
 from .database import Base
+from datetime import datetime
 from sqlalchemy import Column, String, Integer, Boolean, DateTime, func, Text, ForeignKey, LargeBinary
 
 
@@ -43,5 +44,11 @@ class Like(Base):
     user_id = Column(Integer, ForeignKey("users.id"))
 
 
-
-
+class Careerhub(Base):
+    __tablename__ = 'careerhub'
+    id = Column(Integer, primary_key=True, index=True)
+    category = Column(String, nullable=False)
+    title = Column(String)
+    description = Column(Text)
+    duration = Column(String, nullable=True)
+    posted_at = Column(DateTime, default=datetime.utcnow)

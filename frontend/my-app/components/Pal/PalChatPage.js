@@ -27,6 +27,9 @@ import { Ionicons } from "@expo/vector-icons";
 import LottieView from "lottie-react-native";
 import { useTabBarVisibility } from "../utility/TabBarVisibilityContext";
 import BottomSheet from "@gorhom/bottom-sheet";
+import axios from "axios";
+import { BASE_URL } from "../utility/config";
+
 
 const AnimatedTouchableOpacity =
   Animated.createAnimatedComponent(TouchableOpacity);
@@ -116,7 +119,7 @@ const PalChatPage = () => {
     setMessages((prev) => prev.filter((msg) => msg.id !== "loading"));
   }, []);
 
-  const handleSend = () => {
+  const handleSend = async () => {
     if (!message.trim()) return;
 
     Keyboard.dismiss();
@@ -139,23 +142,39 @@ const PalChatPage = () => {
     setEnableNewChat(true);
     setLoading(true);
 
-    // --- MODIFIED PART ---
-    responseTimeoutRef.current = setTimeout(() => {
+    //pal's response
+
+    try{
+     const  palResponse = await axios.post(`${BASE_URL}/chatbot/`,{message:message});
+     console.log("Pal response: ", palResponse.data);
+     if(palResponse.data && palResponse.data.response){
+      const responseText = palResponse.data.response;
+          // --- MODIFIED PART ---
+    responseTimeoutRef.current = 
+
       setMessages((prev) => {
         // Filter out ONLY the loading message, then add the new message
         return [
           ...prev.filter((m) => m.id !== "loading"),
           {
             id: (Date.now() + 1).toString(),
-            text: "Hello I'm Pal. I can assist you with campus-related questions. How can I help you today?",
+            text: responseText,
             type: "received",
           },
         ];
       });
       setLoading(false);
       responseTimeoutRef.current = null; // Clear the ref after timeout completes
-    }, 4000);
+  
+  }
     // --- END MODIFIED PART ---
+
+    }catch(error){
+       console.log("Error sending message to Pal: ", error);
+    }
+
+
+
   };
 
   useFocusEffect(
@@ -165,15 +184,21 @@ const PalChatPage = () => {
 
       grandParent?.setOptions({
         headerTitle: "Pal",
+        headerTitleStyle: {padding:10},
         headerRight: () => (
-          <View style={styles.headerRight}>
+          <View style={[styles.headerRight, {
+            flexDirection:'row',
+            gap:10,
+            marginRight:10,
+            alignItems:'center'
+          }]}>
             <TouchableOpacity onPress={() => setModalVisible(true)}>
               <Ionicons name="chatbox-outline" size={24} />
             </TouchableOpacity>
             <TouchableOpacity disabled={!enableNewChat} onPress={handleClear}>
               <Ionicons
                 name="create-outline"
-                size={25}
+                size={26}
                 color={enableNewChat ? "#000" : "#999"}
               />
             </TouchableOpacity>
@@ -186,16 +211,25 @@ const PalChatPage = () => {
       return () => {
         grandParent?.setOptions({
           headerTitle: "",
-          headerRight: () => (
-            <View style={styles.headerRight}>
-              <TouchableOpacity>
-                <Ionicons name="notifications-outline" size={24} />
-              </TouchableOpacity>
-              <TouchableOpacity>
-                <Ionicons name="person-circle-outline" size={24} />
-              </TouchableOpacity>
+          headerTitleStyle:{},
+           headerRight: () => (
+                    <View
+                      style={{
+                        marginRight: 20,
+                        flexDirection: 'row',
+                        gap: 10,
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        paddingVertical: 10,
+                      }}>
+                      <TouchableOpacity>
+                        <Ionicons name="notifications-outline" size={24}></Ionicons>
+                      </TouchableOpacity>
+                      <TouchableOpacity>
+                        <Ionicons name="person-circle-outline" size={24}></Ionicons>
+                      </TouchableOpacity>
             </View>
-          ),
+        ),
         });
         setTabBarVisible(true);
 
@@ -578,14 +612,14 @@ const styles = StyleSheet.create({
     bottom: 0,
     borderRadius: 20,
   },
-  headerRight: {
-    flexDirection: "row",
-    justifyContent: "center",
-    gap: 20,
-    padding: 10,
-    alignItems: "center",
-    margin: 10,
-  },
+  // headerRight: {
+  //   flexDirection: "row",
+  //   justifyContent: "center",
+  //   gap: 20,
+  //   padding: 10,
+  //   alignItems: "center",
+  //   margin: 10,
+  // },
   modalContainer: { backgroundColor: "#f0f0f0", flex: 1 },
   modalClose: { padding: 20 },
   modalTitle: { padding: 20, fontSize: 16 },

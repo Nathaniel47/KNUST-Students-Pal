@@ -79,7 +79,6 @@ def scrape_section(url_path: str):
                 content_div = article_soup.select_one("div.ann-info")
             else:
                 content_div = article_soup.select_one(".article-content")
-
             content = str(content_div) if content_div else ""
             content = make_image_urls_absolute(content, BASE_URL)
         except Exception as e:
@@ -90,7 +89,7 @@ def scrape_section(url_path: str):
         data.append({
             "title": title_tag.text.strip() if title_tag else "",
             "summary": summary_tag.text.strip() if summary_tag else "",
-            "image": BASE_URL + image_tag['src'] if image_tag else "",
+            "image": BASE_URL + image_tag['src'] if image_tag else "https://imgur.com/a/6NNGgGJ",
             "date": date_tag.text.replace("Published:", "").strip() if date_tag else "",
             "category": category_tag.text.strip() if category_tag else "",
             "link": link,

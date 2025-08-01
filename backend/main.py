@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.database import Base
 from app import models, database
 import logging
+from fastapi.staticfiles import StaticFiles
 
 # Configure global logging
 logging.basicConfig(
@@ -18,7 +19,7 @@ logging.basicConfig(
 from routes.auth import router as auth_router
 from routes.updates import router as updates_router
 from app.cores.scraper_utils import sync_updates
-# from routes.chatbot import router as chatbot_router
+from routes.chatbot import router as chatbot_router
 
 
 app = FastAPI(title="KNUST Students Pal API")
@@ -44,9 +45,9 @@ app.add_middleware(
 # for router in all_routers:
 app.include_router(auth_router)
 app.include_router(updates_router)
-# app.include_router(chatbot_router)
+app.include_router(chatbot_router)
 
-
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 
 # Run sync_updates at startup
