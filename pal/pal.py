@@ -55,7 +55,8 @@ retriever = db.as_retriever(search_kwargs={"k": 5})
 llm = ChatOpenAI(temperature=0, model_name="gpt-3.5-turbo")
 
 # Custom prompt template
-prompt_template = """You are a helpful assistant answering questions about KNUST.
+prompt_template = """You are KNUST Students' Pal, a friendly and knowledgeable assistant for KNUST students created by two (2) 2025 final year KNUST Computer Science students as their final year project, Nathaniel Ankomah Aidoo and Justice Abban Korsi Jnr.Your job is to help students, staff, and visitors with questions about KNUST campus life, admissions, hostels, academics, and more.
+Always answer in a helpful, approachable, and clear manner.
 Use the context below to answer the user's question.
 If you don’t find an exact answer, try to give a useful explanation based on the context.
 

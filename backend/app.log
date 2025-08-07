@@ -521,3 +521,625 @@
 2025-07-31 11:29:01,215 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-07-31 11:29:01,218 [INFO] LLM response: Yes, there is a taxi station at the Tech Junction and Brunei Hostel, which are located near the Commercial area on the KNUST campus.
 2025-07-31 11:29:01,218 [INFO] Chatbot response: Yes, there is a taxi station at the Tech Junction and Brunei Hostel, which are located near the Commercial area on the KNUST campus.
+2025-08-04 17:02:25,625 [INFO] Loading dataset from: C:\Projects\KNUST-Students-Pal\pal\dataset.csv
+2025-08-04 17:02:25,659 [INFO] Loaded 117 documents from CSV.
+2025-08-04 17:02:25,699 [INFO] Split documents into 121 chunks.
+2025-08-04 17:02:28,585 [INFO] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-08-04 17:02:32,544 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-04 17:02:34,828 [INFO] Saved documents to Chroma vector DB.
+2025-08-04 17:03:24,548 [INFO] Loading dataset from: C:\Projects\KNUST-Students-Pal\pal\dataset.csv
+2025-08-04 17:03:24,551 [INFO] Loaded 117 documents from CSV.
+2025-08-04 17:03:24,557 [INFO] Split documents into 121 chunks.
+2025-08-04 17:03:26,617 [INFO] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-08-04 17:03:28,669 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-04 17:03:29,868 [INFO] Saved documents to Chroma vector DB.
+2025-08-04 17:07:40,158 [INFO] Received message: Hi
+2025-08-04 17:07:40,158 [INFO] Received user query: Hi
+2025-08-04 17:07:41,081 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-04 17:07:41,255 [INFO] Retrieved 5 documents:
+2025-08-04 17:07:41,256 [INFO] Doc 1: content: Currently, about 60% of the total student population is non-resident....
+2025-08-04 17:07:41,257 [INFO] Doc 2: content: Currently, about 60% of the total student population is non-resident....
+2025-08-04 17:07:41,257 [INFO] Doc 3: content: Currently, about 60% of the total student population is non-resident....
+2025-08-04 17:07:41,258 [INFO] Doc 4: content: FRONTLINE COURT — Location: AYEDUASE-KOTEI — Contact: 0276907186. This is one of the non-residential hostels around KNUST campus....
+2025-08-04 17:07:41,258 [INFO] Doc 5: content: FRONTLINE COURT — Location: AYEDUASE-KOTEI — Contact: 0276907186. This is one of the non-residential hostels around KNUST campus....
+2025-08-04 17:07:41,576 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-04 17:07:42,550 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-04 17:07:42,578 [INFO] LLM response: Hello! How can I assist you today?
+2025-08-04 17:07:42,609 [INFO] Chatbot response: Hello! How can I assist you today?
+2025-08-04 17:07:50,806 [INFO] Received message: Who are you?
+2025-08-04 17:07:50,807 [INFO] Received user query: Who are you?
+2025-08-04 17:07:52,296 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-04 17:07:52,305 [INFO] Retrieved 5 documents:
+2025-08-04 17:07:52,306 [INFO] Doc 1: content: BY HIS GRACE — Location: AYEDUASE — Contact: 0277090109. This is one of the non-residential hostels around KNUST campus....
+2025-08-04 17:07:52,307 [INFO] Doc 2: content: BY HIS GRACE — Location: AYEDUASE — Contact: 0277090109. This is one of the non-residential hostels around KNUST campus....
+2025-08-04 17:07:52,308 [INFO] Doc 3: content: SHALOM KIBUTZ — Location: AYEDUASE — Contact: 0244756911. This is one of the non-residential hostels around KNUST campus....
+2025-08-04 17:07:52,309 [INFO] Doc 4: content: SHALOM KIBUTZ — Location: AYEDUASE — Contact: 0244756911. This is one of the non-residential hostels around KNUST campus....
+2025-08-04 17:07:52,311 [INFO] Doc 5: content: GEORGE EMPIRE (AMANDA) — Location: BEHIND P.III — Contact: 0208142263. This is one of the non-residential hostels around KNUST campus....
+2025-08-04 17:07:52,781 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-04 17:07:54,241 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-04 17:07:54,244 [INFO] LLM response: I am a helpful assistant providing information about non-residential hostels around the KNUST campus.
+2025-08-04 17:07:54,245 [INFO] Chatbot response: I am a helpful assistant providing information about non-residential hostels around the KNUST campus.
+2025-08-04 17:09:17,323 [INFO] Received message: Where can I find a taxi station on campus?
+2025-08-04 17:09:17,323 [INFO] Received user query: Where can I find a taxi station on campus?
+2025-08-04 17:09:20,200 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-04 17:09:20,213 [INFO] Retrieved 5 documents:
+2025-08-04 17:09:20,213 [INFO] Doc 1: content: ThereÂ are a number of shuttlesÂ at the CommercialÂ area, which stops at various Bus stops on  and around campus. A taxiÂ station can also be found at Tech Junction and Brunei Hostel....
+2025-08-04 17:09:20,214 [INFO] Doc 2: content: A taxi station can be found at Tech Junction and Brunei Hostel....
+2025-08-04 17:09:20,214 [INFO] Doc 3: content: A taxi station can be found at Tech Junction and Brunei Hostel....
+2025-08-04 17:09:20,215 [INFO] Doc 4: content: There are a number of shuttles at the Commercial area, which stops at various Bus stops on  and around campus....
+2025-08-04 17:09:20,215 [INFO] Doc 5: content: There are a number of shuttles at the Commercial area, which stops at various Bus stops on  and around campus....
+2025-08-04 17:09:20,935 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-04 17:09:22,203 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-04 17:09:22,205 [INFO] LLM response: You can find a taxi station at Tech Junction and Brunei Hostel on the KNUST campus.
+2025-08-04 17:09:22,205 [INFO] Chatbot response: You can find a taxi station at Tech Junction and Brunei Hostel on the KNUST campus.
+2025-08-04 17:09:47,341 [INFO] Received message: Whe is medical village?
+2025-08-04 17:09:47,342 [INFO] Received user query: Whe is medical village?
+2025-08-04 17:09:48,208 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-04 17:09:48,218 [INFO] Retrieved 5 documents:
+2025-08-04 17:09:48,347 [INFO] Doc 2: content: SHEPHERDSVILLE — Location: AYEDUASE — Contact: 0544341084. This is one of the non-residential hostels around KNUST campus....
+2025-08-04 17:09:48,348 [INFO] Doc 3: content: SHEPHERDSVILLE — Location: AYEDUASE — Contact: 0544341084. This is one of the non-residential hostels around KNUST campus....
+2025-08-04 17:09:48,348 [INFO] Doc 4: content: WHITPAM A — Location: KOTEI — Contact: 0547105598. This is one of the non-residential hostels around KNUST campus....
+2025-08-04 17:09:48,349 [INFO] Doc 5: content: WHITPAM A — Location: KOTEI — Contact: 0547105598. This is one of the non-residential hostels around KNUST campus....
+2025-08-04 17:09:49,865 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-04 17:09:51,748 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-04 17:09:51,760 [INFO] LLM response: Medical Village is not mentioned in the provided context. However, it is possible that it is another non-residential hostel around the KNUST campus. You may need to inquire further or check with the university for more information on the location of Medical Village.
+2025-08-04 17:09:51,760 [INFO] Chatbot response: Medical Village is not mentioned in the provided context. However, it is possible that it is another non-residential hostel around the KNUST campus. You may need to inquire further or check with the university for more information on the location of Medical Village.
+2025-08-04 17:17:14,094 [INFO] Loading dataset from: C:\Projects\KNUST-Students-Pal\pal\dataset.csv
+2025-08-04 17:17:14,099 [INFO] Loaded 117 documents from CSV.
+2025-08-04 17:17:14,133 [INFO] Split documents into 121 chunks.
+2025-08-04 17:17:16,357 [INFO] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-08-04 17:17:18,487 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-04 17:17:20,007 [INFO] Saved documents to Chroma vector DB.
+2025-08-04 17:18:02,254 [INFO] Received message: Hi
+2025-08-04 17:18:02,255 [INFO] Received user query: Hi
+2025-08-04 17:18:03,293 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-04 17:18:03,431 [INFO] Retrieved 5 documents:
+2025-08-04 17:18:03,432 [INFO] Doc 1: content: Currently, about 60% of the total student population is non-resident....
+2025-08-04 17:18:03,432 [INFO] Doc 2: content: FRONTLINE COURT — Location: AYEDUASE-KOTEI — Contact: 0276907186. This is one of the non-residential hostels around KNUST campus....
+2025-08-04 17:18:03,432 [INFO] Doc 3: content: FRONTLINE INN — Location: AYEDUASE — Contact: 0276907186. This is one of the non-residential hostels around KNUST campus....
+2025-08-04 17:18:03,433 [INFO] Doc 4: established in 1997 to provide the needed necessary welfare support services for students during their period of study at KNUST. The office, over the years, has sought to fulfil its mission by assisti...
+2025-08-04 17:18:03,433 [INFO] Doc 5: content: BY HIS GRACE — Location: AYEDUASE — Contact: 0277090109. This is one of the non-residential hostels around KNUST campus....
+2025-08-04 17:18:03,897 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-04 17:18:05,353 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-04 17:18:05,410 [INFO] LLM response: Hello! How can I assist you today?
+2025-08-04 17:18:05,411 [INFO] Chatbot response: Hello! How can I assist you today?
+2025-08-04 17:18:11,963 [INFO] Received message: Who are you?
+2025-08-04 17:18:11,963 [INFO] Received user query: Who are you?
+2025-08-04 17:18:13,749 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-04 17:18:13,759 [INFO] Retrieved 5 documents:
+2025-08-04 17:18:13,760 [INFO] Doc 1: content: BY HIS GRACE — Location: AYEDUASE — Contact: 0277090109. This is one of the non-residential hostels around KNUST campus....
+2025-08-04 17:18:13,764 [INFO] Doc 2: content: SHALOM KIBUTZ — Location: AYEDUASE — Contact: 0244756911. This is one of the non-residential hostels around KNUST campus....
+2025-08-04 17:18:13,765 [INFO] Doc 3: content: GEORGE EMPIRE (AMANDA) — Location: BEHIND P.III — Contact: 0208142263. This is one of the non-residential hostels around KNUST campus....
+2025-08-04 17:18:13,766 [INFO] Doc 4: content: FRONTLINE INN — Location: AYEDUASE — Contact: 0276907186. This is one of the non-residential hostels around KNUST campus....
+2025-08-04 17:18:13,767 [INFO] Doc 5: content: CHRISTLIKE — Location: AYEDUASE — Contact: 0244470257. This is one of the non-residential hostels around KNUST campus....
+2025-08-04 17:18:14,079 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-04 17:18:15,112 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-04 17:18:15,141 [INFO] LLM response: I am KNUST Students' Pal, here to assist you with any questions you may have about KNUST campus life, admissions, hostels, academics, and more. Feel free to ask me anything you need help with!
+2025-08-04 17:18:15,153 [INFO] Chatbot response: I am KNUST Students' Pal, here to assist you with any questions you may have about KNUST campus life, admissions, hostels, academics, and more. Feel free to ask me anything you need help with!
+2025-08-04 17:18:30,807 [INFO] Received message: That's great
+2025-08-04 17:18:30,808 [INFO] Received user query: That's great
+2025-08-04 17:18:31,479 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-04 17:18:31,489 [INFO] Retrieved 5 documents:
+2025-08-04 17:18:31,489 [INFO] Doc 1: content: THE BEST — Location: KOTEI — Contact: 0244252764 / 0244581128. This is one of the non-residential hostels around KNUST campus....
+2025-08-04 17:18:31,490 [INFO] Doc 2: content: BY HIS GRACE — Location: AYEDUASE — Contact: 0277090109. This is one of the non-residential hostels around KNUST campus....
+2025-08-04 17:18:31,491 [INFO] Doc 3: content: HAPPY FAMILY — Location: AYEDUASE — Contact: 0243787505. This is one of the non-residential hostels around KNUST campus....
+2025-08-04 17:18:31,493 [INFO] Doc 4: content: GLORY BE TO GOD — Location: AYEDUASE — Contact: 0242002594. This is one of the non-residential hostels around KNUST campus....
+2025-08-04 17:18:31,494 [INFO] Doc 5: content: HIGH ACHIEVERS — Location: NEWSITE — Contact: 0242760178. This is one of the non-residential hostels around KNUST campus....
+2025-08-04 17:18:31,859 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-04 17:18:33,781 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-04 17:18:33,785 [INFO] LLM response: I'm glad you think so! If you have any specific questions about the non-residential hostels around KNUST campus or need more information, feel free to ask. I'm here to help!
+2025-08-04 17:18:33,786 [INFO] Chatbot response: I'm glad you think so! If you have any specific questions about the non-residential hostels around KNUST campus or need more information, feel free to ask. I'm here to help!
+2025-08-04 18:12:58,737 [INFO] Loading dataset from: C:\Projects\KNUST-Students-Pal\pal\dataset.csv
+2025-08-04 18:12:58,741 [INFO] Loaded 140 documents from CSV.
+2025-08-04 18:12:58,755 [INFO] Split documents into 155 chunks.
+2025-08-04 18:13:00,770 [INFO] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-08-04 18:13:03,458 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-04 18:13:06,085 [INFO] Saved documents to Chroma vector DB.
+2025-08-04 18:14:02,628 [INFO] Received message: What are the colleges in knust
+2025-08-04 18:14:02,629 [INFO] Received user query: What are the colleges in knust
+2025-08-04 18:14:03,733 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-04 18:14:03,845 [INFO] Retrieved 5 documents:
+2025-08-04 18:14:03,846 [INFO] Doc 1: content: In 2022, KNUST elevated its School of Graduate Studies to the status of a college (while retaining its original name) to further strengthen its vibrant research culture. This move enhances th...
+2025-08-04 18:14:03,846 [INFO] Doc 2: content: To apply for an undergraduate programme, visit the official KNUST website, https://www.knust.edu.gh/announcements/undergraduate-admissions/admission-candidates-undergraduate-degree-programmes...
+2025-08-04 18:14:03,847 [INFO] Doc 3: content: To apply for a postgraduate programme, visit the official KNUST website,https://www.knust.edu.gh/announcements/general/admission-candidates-research-or-higher-degree-programmes-20252026-acade...
+2025-08-04 18:14:03,847 [INFO] Doc 4: government to advise it on the status of the
+College. Consequently, the Kumasi College of
+Technology was converted into an autonomous
+University by an Act of Parliament on August 22,
+1961, and named K...
+2025-08-04 18:14:03,848 [INFO] Doc 5: established in 1997 to provide the needed necessary welfare support services for students during their period of study at KNUST. The office, over the years, has sought to fulfil its mission by assisti...
+2025-08-04 18:14:05,599 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-04 18:14:07,479 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-04 18:14:07,503 [INFO] LLM response: As of 2022, KNUST has several colleges, including the College of Engineering, College of Science, College of Health Sciences, College of Humanities and Social Sciences, and the newly elevated College of Graduate Studies. Each college offers a variety of undergraduate and postgraduate programmes across different disciplines. You can visit the official KNUST website for more information on the colleges and the programmes they offer.
+2025-08-04 18:14:07,517 [INFO] Chatbot response: As of 2022, KNUST has several colleges, including the College of Engineering, College of Science, College of Health Sciences, College of Humanities and Social Sciences, and the newly elevated College of Graduate Studies. Each college offers a variety of undergraduate and postgraduate programmes across different disciplines. You can visit the official KNUST website for more information on the colleges and the programmes they offer.
+2025-08-04 18:14:38,691 [INFO] Received message: How many are they 
+2025-08-04 18:14:38,692 [INFO] Received user query: How many are they 
+2025-08-04 18:14:39,988 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-04 18:14:40,003 [INFO] Retrieved 5 documents:
+2025-08-04 18:14:40,004 [INFO] Doc 1: content: There are presently six (6) colleges and the Institute of Distance Learning which has the status of a
+college....
+2025-08-04 18:14:40,005 [INFO] Doc 2: content: There are presently six (6) colleges and the Institute of Distance Learning which has the status of a
+college....
+2025-08-04 18:14:40,005 [INFO] Doc 3: content: Currently, about 60% of the total student population is non-resident....
+2025-08-04 18:14:40,006 [INFO] Doc 4: content: There are Six Halls of residence and a number of hostels on the University Campus. They are Queen Elizabeth II Hall , Unity Hall, Independence Hall, Republic Hall, University Hall, and Africa...
+2025-08-04 18:14:40,007 [INFO] Doc 5: content: There are a number of shuttles at the Commercial area, which stops at various Bus stops on  and around campus....
+2025-08-04 18:14:40,488 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-04 18:14:42,163 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-04 18:14:42,182 [INFO] LLM response: There are currently six (6) colleges and the Institute of Distance Learning which has the status of a college at KNUST. Additionally, there are six Halls of residence and a number of hostels on campus. The shuttles at the Commercial area stop at various bus stops on and around campus.
+2025-08-04 18:14:42,208 [INFO] Chatbot response: There are currently six (6) colleges and the Institute of Distance Learning which has the status of a college at KNUST. Additionally, there are six Halls of residence and a number of hostels on campus. The shuttles at the Commercial area stop at various bus stops on and around campus.
+2025-08-04 18:16:07,829 [INFO] Received message: Give me a list of programs in the college of agriculture and natural resources 
+2025-08-04 18:16:07,830 [INFO] Received user query: Give me a list of programs in the college of agriculture and natural resources 
+2025-08-04 18:16:08,652 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-04 18:16:08,720 [INFO] Retrieved 5 documents:
+2025-08-04 18:16:08,721 [INFO] Doc 1: content: The College of Agriculture and Natural Resources runs the following Postgraduate programmes:
+i. MSc. programmes in Agribusiness Management, and
+Agricultural Extension and Development Communic...
+2025-08-04 18:16:08,722 [INFO] Doc 2: content: The Departments of the College of Agriculture and Natural Resources through its Faculties run the following four-year undergraduate programmes leading to the award of Bachelor of Science (BSc...
+2025-08-04 18:16:08,724 [INFO] Doc 3: content: The College of Agriculture and Natural Resources was established in
+January 2005, following the promulgation of the revised University
+statutes in December 2004. It emerged from the former Fa...
+2025-08-04 18:16:08,724 [INFO] Doc 4: content: Career and job opportunities exist for graduates of the College of Agriculture and Natural Resources in both the public
+and private sectors such as the Ministries, District Assemblies,
+Financ...
+2025-08-04 18:16:08,726 [INFO] Doc 5: content: Faculty of Agriculture comprises of the following departments
+i. Department of Agricultural Economics, Agribusiness, and Extension
+ii. Department of Animal Science
+iii. Department of Crop and...
+2025-08-04 18:16:10,016 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-04 18:16:11,884 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-04 18:16:11,909 [INFO] LLM response: 1. MSc. programmes in Agribusiness Management and Agricultural Extension and Development Communication (One year)
+2. Two-year MPhil programmes in all Departments of the College
+3. Ph.D. programmes in all Departments of the College
+4. Four-year undergraduate programmes leading to Bachelor of Science (BSc.) degrees in:
+   - Agribusiness Management
+   - Agricultural Biotechnology
+   - Agriculture, with options in Animal Science, Horticulture, Crop and Soil Sciences, Agricultural Economics, Agricultural Extension, Rural Sociology, and Agricultural Mechanization
+2025-08-04 18:16:11,939 [INFO] Chatbot response: 1. MSc. programmes in Agribusiness Management and Agricultural Extension and Development Communication (One year)
+2. Two-year MPhil programmes in all Departments of the College
+3. Ph.D. programmes in all Departments of the College
+4. Four-year undergraduate programmes leading to Bachelor of Science (BSc.) degrees in:
+   - Agribusiness Management
+   - Agricultural Biotechnology
+   - Agriculture, with options in Animal Science, Horticulture, Crop and Soil Sciences, Agricultural Economics, Agricultural Extension, Rural Sociology, and Agricultural Mechanization
+2025-08-07 15:39:01,769 [INFO] Loading dataset from: C:\Projects\KNUST-Students-Pal\pal\dataset.csv
+2025-08-07 15:39:01,785 [INFO] Loaded 499 documents from CSV.
+2025-08-07 15:39:01,831 [INFO] Split documents into 531 chunks.
+2025-08-07 15:39:04,033 [INFO] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-08-07 15:39:10,093 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 15:39:13,325 [INFO] Saved documents to Chroma vector DB.
+2025-08-07 15:48:34,019 [INFO] Received message: Hi
+2025-08-07 15:48:34,020 [INFO] Received user query: Hi
+2025-08-07 15:48:35,260 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 15:48:35,341 [INFO] Retrieved 5 documents:
+2025-08-07 15:48:35,341 [INFO] Doc 1: content:...
+2025-08-07 15:48:35,342 [INFO] Doc 2: content:...
+2025-08-07 15:48:35,342 [INFO] Doc 3: content:...
+2025-08-07 15:48:35,342 [INFO] Doc 4: content:...
+2025-08-07 15:48:35,343 [INFO] Doc 5: content:...
+2025-08-07 15:48:35,992 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 15:48:36,937 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 15:48:36,961 [INFO] LLM response: Hello! How can I assist you today?
+2025-08-07 15:48:36,962 [INFO] Chatbot response: Hello! How can I assist you today?
+2025-08-07 15:49:10,887 [INFO] Received message: Show me the location to college of science 
+2025-08-07 15:49:10,887 [INFO] Received user query: Show me the location to college of science 
+2025-08-07 15:49:11,899 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 15:49:11,910 [INFO] Retrieved 5 documents:
+2025-08-07 15:49:11,911 [INFO] Doc 1: content: The College of Science emerged from the former Faculty of
+Science, which was established in 1961. The College status was
+attained due to the restructuring of KNUST into the Collegiate
+system,...
+2025-08-07 15:49:11,912 [INFO] Doc 2: vi. College of Science (CoS)
+As a dynamic institution, the structure of the
+collegiate system keeps evolving, and presently,
+the Colleges of the University stand as:
+i. College of Agriculture and Natu...
+2025-08-07 15:49:11,913 [INFO] Doc 3: content: Undergraduate Programmes offered in the College of Science are:
+i. Actuarial Science
+ii. Biochemistry
+iii. Biological Sciences
+iv. Chemistry
+v. Computer Science
+vi. Information Technology
+vii...
+2025-08-07 15:49:11,918 [INFO] Doc 4: content: The Faculty of Physical and Computational Sciences comprises of the following departments;
+i. Department of Chemistry
+ii. Department of Computer Science
+iii. Department of Mathematics
+iv. Dep...
+2025-08-07 15:49:11,920 [INFO] Doc 5: content: In the College of Science, Master of Science (MSc.), Master of Philosophy (MPhil), and Doctor of Philosophy (Ph.D.) programmes are run in all the Departments, with a minimum of two years for ...
+2025-08-07 15:49:12,339 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 15:49:14,325 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 15:49:14,328 [INFO] LLM response: The College of Science at KNUST is located within the main campus in Kumasi, Ghana. Specifically, you can find the College of Science near the Faculty of Biosciences and the Faculty of Physical and Computational Sciences. The academic departments within the College of Science are spread out across various buildings within the campus. If you need more specific directions to a particular department or office within the College of Science, feel free to ask for further assistance.
+2025-08-07 15:49:14,329 [INFO] Chatbot response: The College of Science at KNUST is located within the main campus in Kumasi, Ghana. Specifically, you can find the College of Science near the Faculty of Biosciences and the Faculty of Physical and Computational Sciences. The academic departments within the College of Science are spread out across various buildings within the campus. If you need more specific directions to a particular department or office within the College of Science, feel free to ask for further assistance.
+2025-08-07 15:51:34,108 [INFO] Received message: I want the specific location so that I can go there
+2025-08-07 15:51:34,109 [INFO] Received user query: I want the specific location so that I can go there
+2025-08-07 15:51:34,798 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 15:51:34,806 [INFO] Retrieved 5 documents:
+2025-08-07 15:51:34,806 [INFO] Doc 1: content: THY WILL BE DONE — Location: KOTEI — Contact: 0548486613. This is one of the non-residential hostels around KNUST campus....
+2025-08-07 15:51:34,807 [INFO] Doc 2: content: DESTINY VIEW — Location: KENTINKRONO — Contact: 0241676204. This is one of the non-residential hostels around KNUST campus....
+2025-08-07 15:51:34,807 [INFO] Doc 3: content: GEORGE EMPIRE (AMANDA) — Location: BEHIND P.III — Contact: 0208142263. This is one of the non-residential hostels around KNUST campus....
+2025-08-07 15:51:34,808 [INFO] Doc 4: content: THE LIBERTY — Location: KOTEI — Contact: 0240993470. This is one of the non-residential hostels around KNUST campus....
+2025-08-07 15:51:34,808 [INFO] Doc 5: content: VICTORY TOWERS — Location: AYEDUASE — Contact: 0271973542. This is one of the non-residential hostels around KNUST campus....
+2025-08-07 15:51:35,098 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 15:51:37,276 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 15:51:37,320 [INFO] LLM response: Sure! Here are the specific locations of some non-residential hostels around KNUST campus:
+
+1. THY WILL BE DONE - Location: KOTEI
+2. DESTINY VIEW - Location: KENTINKRONO
+3. GEORGE EMPIRE (AMANDA) - Location: BEHIND P.III
+4. THE LIBERTY - Location: KOTEI
+5. VICTORY TOWERS - Location: AYEDUASE
+
+You can use these locations to find your way to the respective hostels. If you need further directions or assistance, feel free to ask!
+2025-08-07 15:51:37,363 [INFO] Chatbot response: Sure! Here are the specific locations of some non-residential hostels around KNUST campus:
+
+1. THY WILL BE DONE - Location: KOTEI
+2. DESTINY VIEW - Location: KENTINKRONO
+3. GEORGE EMPIRE (AMANDA) - Location: BEHIND P.III
+4. THE LIBERTY - Location: KOTEI
+5. VICTORY TOWERS - Location: AYEDUASE
+
+You can use these locations to find your way to the respective hostels. If you need further directions or assistance, feel free to ask!
+2025-08-07 15:52:46,260 [INFO] Received message: What's commercial area 
+2025-08-07 15:52:46,261 [INFO] Received user query: What's commercial area 
+2025-08-07 15:52:47,295 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 15:52:47,323 [INFO] Retrieved 5 documents:
+2025-08-07 15:52:47,323 [INFO] Doc 1: content:...
+2025-08-07 15:52:47,324 [INFO] Doc 2: content:...
+2025-08-07 15:52:47,324 [INFO] Doc 3: content:...
+2025-08-07 15:52:47,325 [INFO] Doc 4: content:...
+2025-08-07 15:52:47,325 [INFO] Doc 5: content:...
+2025-08-07 15:52:47,680 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 15:52:49,631 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 15:52:49,634 [INFO] LLM response: The commercial area at KNUST refers to the section of the campus where various shops, restaurants, and services are located. This area is usually bustling with activity and provides students with convenient access to everyday necessities, food options, and other amenities. It's a great place to grab a quick bite to eat, shop for essentials, or socialize with friends.
+2025-08-07 15:52:49,635 [INFO] Chatbot response: The commercial area at KNUST refers to the section of the campus where various shops, restaurants, and services are located. This area is usually bustling with activity and provides students with convenient access to everyday necessities, food options, and other amenities. It's a great place to grab a quick bite to eat, shop for essentials, or socialize with friends.
+2025-08-07 15:53:44,243 [INFO] Received message: Where is it located
+2025-08-07 15:53:44,243 [INFO] Received user query: Where is it located
+2025-08-07 15:53:45,055 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 15:53:45,067 [INFO] Retrieved 5 documents:
+2025-08-07 15:53:45,068 [INFO] Doc 1: content: LONG ISLAND — Location: KOTEI — Contact: 0543247175. This is one of the non-residential hostels around KNUST campus....
+2025-08-07 15:53:45,069 [INFO] Doc 2: content: GEORGE EMPIRE (AMANDA) — Location: BEHIND P.III — Contact: 0208142263. This is one of the non-residential hostels around KNUST campus....
+2025-08-07 15:53:45,070 [INFO] Doc 3: content: THY WILL BE DONE — Location: KOTEI — Contact: 0548486613. This is one of the non-residential hostels around KNUST campus....
+2025-08-07 15:53:45,070 [INFO] Doc 4: content: DESTINY VIEW — Location: KENTINKRONO — Contact: 0241676204. This is one of the non-residential hostels around KNUST campus....
+2025-08-07 15:53:45,071 [INFO] Doc 5: content: THE LIBERTY — Location: KOTEI — Contact: 0240993470. This is one of the non-residential hostels around KNUST campus....
+2025-08-07 15:53:45,385 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 15:53:46,421 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 15:53:46,425 [INFO] LLM response: The non-residential hostel "The Liberty" is located in Kotei, near the KNUST campus.
+2025-08-07 15:53:46,426 [INFO] Chatbot response: The non-residential hostel "The Liberty" is located in Kotei, near the KNUST campus.
+2025-08-07 15:54:17,542 [INFO] Received message: Hi
+2025-08-07 15:54:17,543 [INFO] Received user query: Hi
+2025-08-07 15:54:18,274 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 15:54:18,281 [INFO] Retrieved 5 documents:
+2025-08-07 15:54:18,282 [INFO] Doc 1: content:...
+2025-08-07 15:54:18,283 [INFO] Doc 2: content:...
+2025-08-07 15:54:18,284 [INFO] Doc 3: content:...
+2025-08-07 15:54:18,285 [INFO] Doc 4: content:...
+2025-08-07 15:54:18,285 [INFO] Doc 5: content:...
+2025-08-07 15:54:18,586 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 15:54:19,596 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 15:54:19,607 [INFO] LLM response: Hello! How can I assist you today?
+2025-08-07 15:54:19,607 [INFO] Chatbot response: Hello! How can I assist you today?
+2025-08-07 15:54:53,715 [INFO] Received message: What's your name 
+2025-08-07 15:54:53,715 [INFO] Received user query: What's your name 
+2025-08-07 15:54:54,522 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 15:54:54,528 [INFO] Retrieved 5 documents:
+2025-08-07 15:54:54,530 [INFO] Doc 1: content:...
+2025-08-07 15:54:54,531 [INFO] Doc 2: content:...
+2025-08-07 15:54:54,531 [INFO] Doc 3: content:...
+2025-08-07 15:54:54,531 [INFO] Doc 4: content:...
+2025-08-07 15:54:54,532 [INFO] Doc 5: content:...
+2025-08-07 15:54:54,926 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 15:54:56,183 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 15:54:56,185 [INFO] LLM response: Hello! My name is KNUST Students' Pal. How can I assist you today?
+2025-08-07 15:54:56,186 [INFO] Chatbot response: Hello! My name is KNUST Students' Pal. How can I assist you today?
+2025-08-07 15:55:12,586 [INFO] Received message: Who developed you
+2025-08-07 15:55:12,587 [INFO] Received user query: Who developed you
+2025-08-07 15:55:13,315 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 15:55:13,324 [INFO] Retrieved 5 documents:
+2025-08-07 15:55:13,324 [INFO] Doc 1: content:...
+2025-08-07 15:55:13,325 [INFO] Doc 2: content:...
+2025-08-07 15:55:13,325 [INFO] Doc 3: content:...
+2025-08-07 15:55:13,326 [INFO] Doc 4: content:...
+2025-08-07 15:55:13,326 [INFO] Doc 5: content:...
+2025-08-07 15:55:13,950 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 15:55:15,272 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 15:55:15,279 [INFO] LLM response: I was developed by a team of programmers and developers who work to create helpful and informative assistants like me. My main goal is to assist KNUST students with any questions they may have about campus life, academics, admissions, and more. How can I assist you today?
+2025-08-07 15:55:15,279 [INFO] Chatbot response: I was developed by a team of programmers and developers who work to create helpful and informative assistants like me. My main goal is to assist KNUST students with any questions they may have about campus life, academics, admissions, and more. How can I assist you today?
+2025-08-07 15:55:48,829 [INFO] Received message: What can you do 
+2025-08-07 15:55:48,830 [INFO] Received user query: What can you do 
+2025-08-07 15:55:49,404 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 15:55:49,413 [INFO] Retrieved 5 documents:
+2025-08-07 15:55:49,413 [INFO] Doc 1: content:...
+2025-08-07 15:55:49,414 [INFO] Doc 2: content:...
+2025-08-07 15:55:49,414 [INFO] Doc 3: content:...
+2025-08-07 15:55:49,414 [INFO] Doc 4: content:...
+2025-08-07 15:55:49,415 [INFO] Doc 5: content:...
+2025-08-07 15:55:49,883 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 15:55:51,123 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 15:55:51,125 [INFO] LLM response: As KNUST Students' Pal, I can assist you with any questions you may have about campus life, admissions, hostels, academics, and more. Feel free to ask me anything you need help with, and I will do my best to provide you with the information you are looking for.
+2025-08-07 15:55:51,126 [INFO] Chatbot response: As KNUST Students' Pal, I can assist you with any questions you may have about campus life, admissions, hostels, academics, and more. Feel free to ask me anything you need help with, and I will do my best to provide you with the information you are looking for.
+2025-08-07 15:56:17,037 [INFO] Received message: Okay 
+2025-08-07 15:56:17,038 [INFO] Received user query: Okay 
+2025-08-07 15:56:17,968 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 15:56:17,989 [INFO] Retrieved 5 documents:
+2025-08-07 15:56:17,990 [INFO] Doc 1: content:...
+2025-08-07 15:56:17,991 [INFO] Doc 2: content:...
+2025-08-07 15:56:17,991 [INFO] Doc 3: content:...
+2025-08-07 15:56:17,992 [INFO] Doc 4: content:...
+2025-08-07 15:56:17,992 [INFO] Doc 5: content:...
+2025-08-07 15:56:18,522 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 15:56:19,616 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 15:56:19,618 [INFO] LLM response: Hello! How can I assist you today?
+2025-08-07 15:56:19,619 [INFO] Chatbot response: Hello! How can I assist you today?
+2025-08-07 15:57:02,969 [INFO] Received message: You
+2025-08-07 15:57:02,969 [INFO] Received user query: You
+2025-08-07 15:57:03,607 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 15:57:03,613 [INFO] Retrieved 5 documents:
+2025-08-07 15:57:03,614 [INFO] Doc 1: content:...
+2025-08-07 15:57:03,614 [INFO] Doc 2: content:...
+2025-08-07 15:57:03,615 [INFO] Doc 3: content:...
+2025-08-07 15:57:03,615 [INFO] Doc 4: content:...
+2025-08-07 15:57:03,616 [INFO] Doc 5: content:...
+2025-08-07 15:57:03,985 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 15:57:05,386 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 15:57:05,397 [INFO] LLM response: Hello! How can I assist you today?
+2025-08-07 15:57:05,398 [INFO] Chatbot response: Hello! How can I assist you today?
+2025-08-07 15:57:13,416 [INFO] Received message: Yoo
+2025-08-07 15:57:13,416 [INFO] Received user query: Yoo
+2025-08-07 15:57:14,205 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 15:57:14,213 [INFO] Retrieved 5 documents:
+2025-08-07 15:57:14,213 [INFO] Doc 1: content:...
+2025-08-07 15:57:14,214 [INFO] Doc 2: content:...
+2025-08-07 15:57:14,215 [INFO] Doc 3: content:...
+2025-08-07 15:57:14,215 [INFO] Doc 4: content:...
+2025-08-07 15:57:14,216 [INFO] Doc 5: content:...
+2025-08-07 15:57:16,884 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 15:57:17,814 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 15:57:17,817 [INFO] LLM response: Hello! How can I assist you today?
+2025-08-07 15:57:17,818 [INFO] Chatbot response: Hello! How can I assist you today?
+2025-08-07 15:57:33,806 [INFO] Received message: What's your aim
+2025-08-07 15:57:33,806 [INFO] Received user query: What's your aim
+2025-08-07 15:57:34,528 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 15:57:34,534 [INFO] Retrieved 5 documents:
+2025-08-07 15:57:34,535 [INFO] Doc 1: content:...
+2025-08-07 15:57:34,535 [INFO] Doc 2: content:...
+2025-08-07 15:57:34,535 [INFO] Doc 3: content:...
+2025-08-07 15:57:34,536 [INFO] Doc 4: content:...
+2025-08-07 15:57:34,536 [INFO] Doc 5: content:...
+2025-08-07 15:57:35,050 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 15:57:37,759 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 15:57:37,762 [INFO] LLM response: Hello! My aim as KNUST Students' Pal is to assist students, staff, and visitors with any questions they may have about KNUST campus life, admissions, hostels, academics, and more. I am here to provide helpful and clear information to make your experience at KNUST as smooth and enjoyable as possible. Feel free to ask me anything you need help with!
+2025-08-07 15:57:37,762 [INFO] Chatbot response: Hello! My aim as KNUST Students' Pal is to assist students, staff, and visitors with any questions they may have about KNUST campus life, admissions, hostels, academics, and more. I am here to provide helpful and clear information to make your experience at KNUST as smooth and enjoyable as possible. Feel free to ask me anything you need help with!
+2025-08-07 16:02:30,254 [INFO] Loading dataset from: C:\Projects\KNUST-Students-Pal\pal\dataset.csv
+2025-08-07 16:02:30,262 [INFO] Loaded 499 documents from CSV.
+2025-08-07 16:02:30,336 [INFO] Split documents into 531 chunks.
+2025-08-07 16:02:32,448 [INFO] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-08-07 16:02:34,659 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 16:02:38,648 [INFO] Saved documents to Chroma vector DB.
+2025-08-07 16:02:53,200 [INFO] Received message: Ji
+2025-08-07 16:02:53,201 [INFO] Received user query: Ji
+2025-08-07 16:02:53,811 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 16:02:53,979 [INFO] Retrieved 5 documents:
+2025-08-07 16:02:53,980 [INFO] Doc 1: content:...
+2025-08-07 16:02:53,980 [INFO] Doc 2: content:...
+2025-08-07 16:02:53,981 [INFO] Doc 3: content:...
+2025-08-07 16:02:53,981 [INFO] Doc 4: content:...
+2025-08-07 16:02:53,981 [INFO] Doc 5: content:...
+2025-08-07 16:02:54,526 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 16:02:55,499 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 16:02:55,561 [INFO] LLM response: Hello! How can I assist you today?
+2025-08-07 16:02:55,566 [INFO] Chatbot response: Hello! How can I assist you today?
+2025-08-07 16:03:00,404 [INFO] Received message: Hi
+2025-08-07 16:03:00,405 [INFO] Received user query: Hi
+2025-08-07 16:03:01,969 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 16:03:01,977 [INFO] Retrieved 5 documents:
+2025-08-07 16:03:01,977 [INFO] Doc 1: content:...
+2025-08-07 16:03:01,978 [INFO] Doc 2: content:...
+2025-08-07 16:03:01,978 [INFO] Doc 3: content:...
+2025-08-07 16:03:01,979 [INFO] Doc 4: content:...
+2025-08-07 16:03:01,979 [INFO] Doc 5: content:...
+2025-08-07 16:03:02,309 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 16:03:03,270 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 16:03:03,539 [INFO] LLM response: Hello! How can I assist you today?
+2025-08-07 16:03:03,539 [INFO] Chatbot response: Hello! How can I assist you today?
+2025-08-07 16:03:08,563 [INFO] Received message: Hi
+2025-08-07 16:03:08,563 [INFO] Received user query: Hi
+2025-08-07 16:03:09,319 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 16:03:09,328 [INFO] Retrieved 5 documents:
+2025-08-07 16:03:09,329 [INFO] Doc 1: content:...
+2025-08-07 16:03:09,329 [INFO] Doc 2: content:...
+2025-08-07 16:03:09,330 [INFO] Doc 3: content:...
+2025-08-07 16:03:09,331 [INFO] Doc 4: content:...
+2025-08-07 16:03:09,331 [INFO] Doc 5: content:...
+2025-08-07 16:03:09,701 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 16:03:10,536 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 16:03:10,538 [INFO] LLM response: Hello! How can I assist you today?
+2025-08-07 16:03:10,538 [INFO] Chatbot response: Hello! How can I assist you today?
+2025-08-07 16:03:25,909 [INFO] Received message: Who developed you 
+2025-08-07 16:03:25,910 [INFO] Received user query: Who developed you 
+2025-08-07 16:03:26,909 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 16:03:26,923 [INFO] Retrieved 5 documents:
+2025-08-07 16:03:26,924 [INFO] Doc 1: content:...
+2025-08-07 16:03:26,925 [INFO] Doc 2: content:...
+2025-08-07 16:03:26,972 [INFO] Doc 3: content:...
+2025-08-07 16:03:26,977 [INFO] Doc 4: content:...
+2025-08-07 16:03:26,978 [INFO] Doc 5: content:...
+2025-08-07 16:03:27,355 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 16:03:28,818 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 16:03:28,821 [INFO] LLM response: I was developed by two final year Computer Science students at KNUST, Nathaniel Ankomah Aidoo and JustiCE Abban Korsi Jnr. They created me as their final year project to assist KNUST students with questions about campus life, admissions, hostels, academics, and more. How can I assist you today?
+2025-08-07 16:03:28,822 [INFO] Chatbot response: I was developed by two final year Computer Science students at KNUST, Nathaniel Ankomah Aidoo and JustiCE Abban Korsi Jnr. They created me as their final year project to assist KNUST students with questions about campus life, admissions, hostels, academics, and more. How can I assist you today?
+2025-08-07 16:05:08,052 [INFO] Received message: Hi
+2025-08-07 16:05:08,052 [INFO] Received user query: Hi
+2025-08-07 16:05:08,986 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 16:05:08,999 [INFO] Retrieved 5 documents:
+2025-08-07 16:05:08,999 [INFO] Doc 1: content:...
+2025-08-07 16:05:09,000 [INFO] Doc 2: content:...
+2025-08-07 16:05:09,001 [INFO] Doc 3: content:...
+2025-08-07 16:05:09,002 [INFO] Doc 4: content:...
+2025-08-07 16:05:09,002 [INFO] Doc 5: content:...
+2025-08-07 16:05:09,412 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 16:05:10,547 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 16:05:10,549 [INFO] LLM response: Hello! How can I assist you today?
+2025-08-07 16:05:10,550 [INFO] Chatbot response: Hello! How can I assist you today?
+2025-08-07 16:05:22,737 [INFO] Received message: Hello.......
+2025-08-07 16:05:22,738 [INFO] Received user query: Hello.......
+2025-08-07 16:05:23,500 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 16:05:23,704 [INFO] Retrieved 5 documents:
+2025-08-07 16:05:23,704 [INFO] Doc 1: content:...
+2025-08-07 16:05:23,705 [INFO] Doc 2: content:...
+2025-08-07 16:05:23,705 [INFO] Doc 3: content:...
+2025-08-07 16:05:23,705 [INFO] Doc 4: content:...
+2025-08-07 16:05:23,706 [INFO] Doc 5: content:...
+2025-08-07 16:05:24,237 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 16:05:27,200 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 16:05:27,355 [INFO] LLM response: Hello! How can I assist you today?
+2025-08-07 16:05:27,355 [INFO] Chatbot response: Hello! How can I assist you today?
+2025-08-07 16:05:49,544 [INFO] Received message: Hello, how are you 
+2025-08-07 16:05:49,545 [INFO] Received user query: Hello, how are you 
+2025-08-07 16:05:50,454 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 16:05:50,464 [INFO] Retrieved 5 documents:
+2025-08-07 16:05:50,464 [INFO] Doc 1: content:...
+2025-08-07 16:05:50,465 [INFO] Doc 2: content:...
+2025-08-07 16:05:50,465 [INFO] Doc 3: content:...
+2025-08-07 16:05:50,466 [INFO] Doc 4: content:...
+2025-08-07 16:05:50,467 [INFO] Doc 5: content:...
+2025-08-07 16:05:50,929 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 16:05:51,991 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 16:05:51,996 [INFO] LLM response: Hello! I'm here and ready to help you with any questions you may have about KNUST. How can I assist you today?
+2025-08-07 16:05:51,996 [INFO] Chatbot response: Hello! I'm here and ready to help you with any questions you may have about KNUST. How can I assist you today?
+2025-08-07 16:06:29,431 [INFO] Received message: What can you do to help me 
+2025-08-07 16:06:29,432 [INFO] Received user query: What can you do to help me 
+2025-08-07 16:06:29,931 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 16:06:29,941 [INFO] Retrieved 5 documents:
+2025-08-07 16:06:29,942 [INFO] Doc 1: content:...
+2025-08-07 16:06:29,942 [INFO] Doc 2: content:...
+2025-08-07 16:06:29,943 [INFO] Doc 3: content:...
+2025-08-07 16:06:29,944 [INFO] Doc 4: content:...
+2025-08-07 16:06:29,945 [INFO] Doc 5: content:...
+2025-08-07 16:06:30,372 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 16:06:32,025 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 16:06:32,028 [INFO] LLM response: Hello! As KNUST Students' Pal, I can help you with a wide range of questions and concerns related to KNUST campus life. Whether you need information about admissions, hostels, academics, or any other aspect of student life at KNUST, feel free to ask and I'll do my best to assist you. Just let me know how I can help!
+2025-08-07 16:06:32,029 [INFO] Chatbot response: Hello! As KNUST Students' Pal, I can help you with a wide range of questions and concerns related to KNUST campus life. Whether you need information about admissions, hostels, academics, or any other aspect of student life at KNUST, feel free to ask and I'll do my best to assist you. Just let me know how I can help!
+2025-08-07 16:06:58,327 [INFO] Received message: Okay thanks 
+2025-08-07 16:06:58,327 [INFO] Received user query: Okay thanks 
+2025-08-07 16:06:59,280 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 16:06:59,288 [INFO] Retrieved 5 documents:
+2025-08-07 16:06:59,289 [INFO] Doc 1: content:...
+2025-08-07 16:06:59,289 [INFO] Doc 2: content:...
+2025-08-07 16:06:59,289 [INFO] Doc 3: content:...
+2025-08-07 16:06:59,290 [INFO] Doc 4: content:...
+2025-08-07 16:06:59,290 [INFO] Doc 5: content:...
+2025-08-07 16:06:59,615 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 16:07:00,741 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 16:07:00,743 [INFO] LLM response: You're welcome! If you have any more questions or need further assistance, feel free to ask. I'm here to help!
+2025-08-07 16:07:00,743 [INFO] Chatbot response: You're welcome! If you have any more questions or need further assistance, feel free to ask. I'm here to help!
+2025-08-07 16:07:51,196 [INFO] Received message: Can you also help me with my course of study
+2025-08-07 16:07:51,196 [INFO] Received user query: Can you also help me with my course of study
+2025-08-07 16:07:51,874 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 16:07:51,884 [INFO] Retrieved 5 documents:
+2025-08-07 16:07:51,885 [INFO] Doc 1: Additionally, there is also a Bachelor of Law (LLB) programme and a Bachelor of Science degree in
+Business Administration with options in
+· Accounting / Banking and Finance
+· Hospitality and Tourism M...
+2025-08-07 16:07:51,886 [INFO] Doc 2: The Faculty of Educational Studies runs Master of Education in General Education and Art, Master
+of Science (MSc.), Master of Philosophy (MPhil), and Doctor of Philosophy (Ph.D.) Programmes....
+2025-08-07 16:07:51,887 [INFO] Doc 3: The Faculty of Educational Studies runs a Diploma in Education (Sandwich) and also awards a Bachelor
+of Education (B.Ed) in Junior High School Education with specialisation in:
+i. Mathematics
+ii. Scie...
+2025-08-07 16:07:51,888 [INFO] Doc 4: The Institute runs graduate programmes in various fields including Master of Art (MA), Master of Science (MSc.), Master of Education (M.Ed), Master of Public Administration (MPA), Master of Engineerin...
+2025-08-07 16:07:51,888 [INFO] Doc 5: xiii. Physics
+xiv. Statistics
+All the programmes are of a four-year duration,leading to the award of a Bachelor of Science (BSc) degree, except the Optometry and Visual Science programme which is of a...
+2025-08-07 16:07:52,445 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 16:07:54,012 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 16:07:54,018 [INFO] LLM response: Of course! I'd be happy to help you with your course of study. Please let me know which specific programme you are interested in or if you have any particular questions about the courses mentioned in the context. Feel free to provide more details so I can assist you better.
+2025-08-07 16:07:54,019 [INFO] Chatbot response: Of course! I'd be happy to help you with your course of study. Please let me know which specific programme you are interested in or if you have any particular questions about the courses mentioned in the context. Feel free to provide more details so I can assist you better.
+2025-08-07 16:08:37,060 [INFO] Received message: Okay I study computer science 
+2025-08-07 16:08:37,061 [INFO] Received user query: Okay I study computer science 
+2025-08-07 16:08:38,334 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 16:08:38,388 [INFO] Retrieved 5 documents:
+2025-08-07 16:08:38,414 [INFO] Doc 1: xiii. Physics
+xiv. Statistics
+All the programmes are of a four-year duration,leading to the award of a Bachelor of Science (BSc) degree, except the Optometry and Visual Science programme which is of a...
+2025-08-07 16:08:38,415 [INFO] Doc 2: content: In the College of Science, Master of Science (MSc.), Master of Philosophy (MPhil), and Doctor of Philosophy (Ph.D.) programmes are run in all the Departments, with a minimum of two years for ...
+2025-08-07 16:08:38,416 [INFO] Doc 3: content: The Faculty of Electrical and Computer Engineering comprises of the following departments;
+i. Computer Engineering
+ii. Electrical and Electronic Engineering
+ii. Telecommunications Engineering...
+2025-08-07 16:08:38,416 [INFO] Doc 4: Top-up programmes offered:
+i. Actuarial Science
+ii. Agricultural Engineering
+iii. Architectural Technology
+iv. Bachelor of Information Technology (BIT)
+v. Business Administration
+vi. Computer Science
+...
+2025-08-07 16:08:38,417 [INFO] Doc 5: content: The College of Engineering runs Postgraduate programmes in various fields leading to the award of MSc, MPhil. and
+Ph.D. degrees....
+2025-08-07 16:08:39,003 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 16:08:41,417 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 16:08:41,420 [INFO] LLM response: That's great! If you are studying Computer Science at KNUST, you have the opportunity to pursue a Master of Science (MSc.), Master of Philosophy (MPhil), or Doctor of Philosophy (Ph.D.) programme in the College of Science after completing your undergraduate degree. These programmes typically have a minimum duration of two years for MSc. and MPhil, and three years for Ph.D. This will allow you to further specialize and advance your knowledge in the field of Computer Science. If you have any specific questions about these postgraduate programmes or need more information, feel free to ask!
+2025-08-07 16:08:41,421 [INFO] Chatbot response: That's great! If you are studying Computer Science at KNUST, you have the opportunity to pursue a Master of Science (MSc.), Master of Philosophy (MPhil), or Doctor of Philosophy (Ph.D.) programme in the College of Science after completing your undergraduate degree. These programmes typically have a minimum duration of two years for MSc. and MPhil, and three years for Ph.D. This will allow you to further specialize and advance your knowledge in the field of Computer Science. If you have any specific questions about these postgraduate programmes or need more information, feel free to ask!
+2025-08-07 16:09:45,854 [INFO] Received message: No, I just want you to give me a brief description about the course 
+2025-08-07 16:09:45,855 [INFO] Received user query: No, I just want you to give me a brief description about the course 
+2025-08-07 16:09:46,589 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 16:09:46,601 [INFO] Retrieved 5 documents:
+2025-08-07 16:09:46,601 [INFO] Doc 1: content:...
+2025-08-07 16:09:46,602 [INFO] Doc 2: content:...
+2025-08-07 16:09:46,602 [INFO] Doc 3: content:...
+2025-08-07 16:09:46,603 [INFO] Doc 4: content:...
+2025-08-07 16:09:46,603 [INFO] Doc 5: content:...
+2025-08-07 16:09:46,918 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 16:09:47,810 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 16:09:47,815 [INFO] LLM response: Sure! Could you please specify which course you would like a brief description about? This way, I can provide you with accurate and helpful information.
+2025-08-07 16:09:47,815 [INFO] Chatbot response: Sure! Could you please specify which course you would like a brief description about? This way, I can provide you with accurate and helpful information.
+2025-08-07 16:10:05,728 [INFO] Received message: Computer Science 
+2025-08-07 16:10:05,729 [INFO] Received user query: Computer Science 
+2025-08-07 16:10:06,421 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 16:10:06,490 [INFO] Retrieved 5 documents:
+2025-08-07 16:10:06,490 [INFO] Doc 1: content: Undergraduate Programmes offered in the College of Science are:
+i. Actuarial Science
+ii. Biochemistry
+iii. Biological Sciences
+iv. Chemistry
+v. Computer Science
+vi. Information Technology
+vii...
+2025-08-07 16:10:06,491 [INFO] Doc 2: xiii. Physics
+xiv. Statistics
+All the programmes are of a four-year duration,leading to the award of a Bachelor of Science (BSc) degree, except the Optometry and Visual Science programme which is of a...
+2025-08-07 16:10:06,492 [INFO] Doc 3: content: The Faculty of Electrical and Computer Engineering comprises of the following departments;
+i. Computer Engineering
+ii. Electrical and Electronic Engineering
+ii. Telecommunications Engineering...
+2025-08-07 16:10:06,492 [INFO] Doc 4: Top-up programmes offered:
+i. Actuarial Science
+ii. Agricultural Engineering
+iii. Architectural Technology
+iv. Bachelor of Information Technology (BIT)
+v. Business Administration
+vi. Computer Science
+...
+2025-08-07 16:10:06,494 [INFO] Doc 5: content: The Faculty of Physical and Computational Sciences comprises of the following departments;
+i. Department of Chemistry
+ii. Department of Computer Science
+iii. Department of Mathematics
+iv. Dep...
+2025-08-07 16:10:06,817 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 16:10:08,227 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 16:10:08,228 [INFO] LLM response: Computer Science is offered as both an undergraduate programme in the College of Science and a top-up programme in the Faculty of Electrical and Computer Engineering at KNUST. In the College of Science, Computer Science is a four-year programme leading to the award of a Bachelor of Science (BSc) degree. In the Faculty of Electrical and Computer Engineering, Computer Science is also offered as a top-up programme.
+2025-08-07 16:10:08,229 [INFO] Chatbot response: Computer Science is offered as both an undergraduate programme in the College of Science and a top-up programme in the Faculty of Electrical and Computer Engineering at KNUST. In the College of Science, Computer Science is a four-year programme leading to the award of a Bachelor of Science (BSc) degree. In the Faculty of Electrical and Computer Engineering, Computer Science is also offered as a top-up programme.
+2025-08-07 16:10:44,933 [INFO] Received message: Give me more description 
+2025-08-07 16:10:44,934 [INFO] Received user query: Give me more description 
+2025-08-07 16:10:45,663 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 16:10:45,672 [INFO] Retrieved 5 documents:
+2025-08-07 16:10:45,672 [INFO] Doc 1: content:...
+2025-08-07 16:10:45,672 [INFO] Doc 2: content:...
+2025-08-07 16:10:45,673 [INFO] Doc 3: content:...
+2025-08-07 16:10:45,673 [INFO] Doc 4: content:...
+2025-08-07 16:10:45,674 [INFO] Doc 5: content:...
+2025-08-07 16:10:45,989 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 16:10:47,505 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 16:10:47,511 [INFO] LLM response: Sure! Can you please provide more details or specify what you would like more description about? I am here to help with any questions you may have about KNUST campus life, admissions, hostels, academics, and more. Just let me know how I can assist you further.
+2025-08-07 16:10:47,511 [INFO] Chatbot response: Sure! Can you please provide more details or specify what you would like more description about? I am here to help with any questions you may have about KNUST campus life, admissions, hostels, academics, and more. Just let me know how I can assist you further.
