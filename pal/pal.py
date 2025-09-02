@@ -6,7 +6,8 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_chroma import Chroma
 from langchain_openai import OpenAIEmbeddings, ChatOpenAI
 from langchain.prompts import PromptTemplate
-from langchain.chains import RetrievalQA
+from langchain.chains import ConversationalRetrievalChain
+from langchain.memory import ConversationBufferMemory
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
@@ -34,7 +35,9 @@ documents = loader.load()
 logger.info(f"Loaded {len(documents)} documents from CSV.")
 
 # Split into chunks
-text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
+
+# Increase chunk size to keep related info together
+text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
 docs = text_splitter.split_documents(documents)
 logger.info(f"Split documents into {len(docs)} chunks.")
 
@@ -48,8 +51,8 @@ logger.info("Saved documents to Chroma vector DB.")
 # Load the DB
 db = Chroma(persist_directory="./chroma_db", embedding_function=embeddings)
 
-# Create retriever
-retriever = db.as_retriever(search_kwargs={"k": 5})
+# Create retriever with more results
+retriever = db.as_retriever(search_kwargs={"k": 10})
 
 # Define LLM (GPT-3.5)
 llm = ChatOpenAI(temperature=0, model_name="gpt-3.5-turbo")
@@ -69,24 +72,33 @@ Answer:"""
 
 prompt = PromptTemplate(template=prompt_template, input_variables=["context", "question"])
 
-# Build the QA chain
-qa = RetrievalQA.from_chain_type(
-    llm=llm, retriever=retriever, chain_type_kwargs={"prompt": prompt}
+
+# Set up conversation memory
+memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
+
+# Build the conversational QA chain
+qa = ConversationalRetrievalChain.from_llm(
+    llm=llm,
+    retriever=retriever,
+    memory=memory,
+    combine_docs_chain_kwargs={"prompt": prompt}
 )
 
-def get_bot_response(query: str) -> str:
+def get_bot_response(query: str, chat_history=None) -> str:
     logger.info(f"Received user query: {query}")
     try:
-        # Retrieve and log documents
-        docs = retriever.get_relevant_documents(query)
-        logger.info(f"Retrieved {len(docs)} documents:")
-        for i, doc in enumerate(docs):
+        # If chat_history is provided, update memory
+        if chat_history is not None:
+            memory.chat_memory.messages = chat_history
+        # Log the retrieved documents for this query
+        retrieved_docs = retriever.get_relevant_documents(query)
+        logger.info(f"Retrieved {len(retrieved_docs)} documents for query: '{query}'")
+        for i, doc in enumerate(retrieved_docs):
             logger.info(f"Doc {i+1}: {doc.page_content[:200]}...")  # Log first 200 characters
-
-        # Get answer using the QA chain
-        result = qa.invoke({"query":query})
-        logger.info(f"LLM response: {result['result']}")
-        return result["result"]
+        # Get answer using the conversational QA chain (use .invoke to avoid deprecation warning)
+        result = qa.invoke({"question": query, "chat_history": memory.chat_memory.messages})
+        logger.info(f"LLM response: {result['answer']}")
+        return result["answer"]
     except Exception as e:
         logger.error(f"Error during response generation: {str(e)}")
         return "Sorry, something went wrong while processing your request."

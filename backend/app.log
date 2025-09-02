@@ -1143,3 +1143,1888 @@ iv. Dep...
 2025-08-07 16:10:47,505 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-08-07 16:10:47,511 [INFO] LLM response: Sure! Can you please provide more details or specify what you would like more description about? I am here to help with any questions you may have about KNUST campus life, admissions, hostels, academics, and more. Just let me know how I can assist you further.
 2025-08-07 16:10:47,511 [INFO] Chatbot response: Sure! Can you please provide more details or specify what you would like more description about? I am here to help with any questions you may have about KNUST campus life, admissions, hostels, academics, and more. Just let me know how I can assist you further.
+2025-08-07 17:59:35,967 [INFO] Loading dataset from: C:\Projects\KNUST-Students-Pal\pal\dataset.csv
+2025-08-07 17:59:36,003 [INFO] Loaded 499 documents from CSV.
+2025-08-07 17:59:36,082 [INFO] Split documents into 531 chunks.
+2025-08-07 17:59:38,698 [INFO] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-08-07 17:59:41,876 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 17:59:45,207 [INFO] Saved documents to Chroma vector DB.
+2025-08-07 18:02:15,767 [INFO] Received message: Hi
+2025-08-07 18:02:15,767 [INFO] Received user query: Hi
+2025-08-07 18:02:16,904 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 18:02:18,479 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 18:02:18,489 [INFO] LLM response: Hello! How can I assist you today?
+2025-08-07 18:02:18,489 [INFO] Chatbot response: Hello! How can I assist you today?
+2025-08-07 18:02:40,654 [INFO] Received message: How many colleges are in Knust
+2025-08-07 18:02:40,654 [INFO] Received user query: How many colleges are in Knust
+2025-08-07 18:02:42,188 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 18:02:42,849 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 18:02:43,516 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 18:02:43,521 [INFO] LLM response: Currently, there are two colleges at KNUST. The School of Graduate Studies was elevated to the status of a college in 2022, joining the existing College of Science. Each college oversees various academic departments and programs within the university.
+2025-08-07 18:02:43,522 [INFO] Chatbot response: Currently, there are two colleges at KNUST. The School of Graduate Studies was elevated to the status of a college in 2022, joining the existing College of Science. Each college oversees various academic departments and programs within the university.
+2025-08-07 18:06:28,469 [INFO] Loading dataset from: C:\Projects\KNUST-Students-Pal\pal\dataset.csv
+2025-08-07 18:06:28,474 [INFO] Loaded 499 documents from CSV.
+2025-08-07 18:06:28,486 [INFO] Split documents into 531 chunks.
+2025-08-07 18:06:30,137 [INFO] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-08-07 18:06:32,365 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 18:06:35,770 [INFO] Saved documents to Chroma vector DB.
+2025-08-07 18:08:00,011 [INFO] Received message: Hi
+2025-08-07 18:08:00,011 [INFO] Received user query: Hi
+2025-08-07 18:08:01,112 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 18:08:02,980 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 18:08:02,996 [INFO] LLM response: Hello! How can I assist you today?
+2025-08-07 18:08:02,997 [INFO] Chatbot response: Hello! How can I assist you today?
+2025-08-07 18:08:50,737 [INFO] Received message: How many colleges are there in the college
+2025-08-07 18:08:50,738 [INFO] Received user query: How many colleges are there in the college
+2025-08-07 18:08:51,885 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 18:08:52,732 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 18:08:54,255 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 18:08:54,260 [INFO] LLM response: There are currently six (6) colleges at KNUST, namely:
+1. College of Agriculture and Natural Resources (CANR)
+2. College of Art and Built Environment (CABE)
+3. College of Engineering (CoE)
+4. College of Health Sciences (CHS)
+5. College of Humanities and Social Sciences (CoHSS)
+6. College of Science (CoS)
+2025-08-07 18:08:54,260 [INFO] Chatbot response: There are currently six (6) colleges at KNUST, namely:
+1. College of Agriculture and Natural Resources (CANR)
+2. College of Art and Built Environment (CABE)
+3. College of Engineering (CoE)
+4. College of Health Sciences (CHS)
+5. College of Humanities and Social Sciences (CoHSS)
+6. College of Science (CoS)
+2025-08-07 18:09:16,246 [INFO] Received message: How many colleges does knust have
+2025-08-07 18:09:16,246 [INFO] Received user query: How many colleges does knust have
+2025-08-07 18:09:17,312 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 18:09:18,169 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 18:09:19,628 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 18:09:19,634 [INFO] LLM response: There are currently three (3) colleges at KNUST. These are the College of Graduate Studies, the College of Science, and the KNUST School of Business. Each college plays a vital role in offering a wide range of academic programs and research opportunities to students and scholars at KNUST.
+2025-08-07 18:09:19,634 [INFO] Chatbot response: There are currently three (3) colleges at KNUST. These are the College of Graduate Studies, the College of Science, and the KNUST School of Business. Each college plays a vital role in offering a wide range of academic programs and research opportunities to students and scholars at KNUST.
+2025-08-07 18:10:39,860 [INFO] Received message: Where are you providing this info from
+2025-08-07 18:10:39,861 [INFO] Received user query: Where are you providing this info from
+2025-08-07 18:10:42,704 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 18:10:43,693 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 18:10:44,727 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 18:10:44,729 [INFO] LLM response: I am providing this information as KNUST Students' Pal, a helpful assistant created by two final year Computer Science students at KNUST. I am here to assist with any questions you may have about KNUST campus life, admissions, hostels, academics, and more. Feel free to ask me anything you need help with!
+2025-08-07 18:10:44,730 [INFO] Chatbot response: I am providing this information as KNUST Students' Pal, a helpful assistant created by two final year Computer Science students at KNUST. I am here to assist with any questions you may have about KNUST campus life, admissions, hostels, academics, and more. Feel free to ask me anything you need help with!
+2025-08-07 18:15:17,262 [INFO] Loading dataset from: C:\Projects\KNUST-Students-Pal\pal\dataset.csv
+2025-08-07 18:15:17,273 [INFO] Loaded 499 documents from CSV.
+2025-08-07 18:15:17,285 [INFO] Split documents into 531 chunks.
+2025-08-07 18:15:19,008 [INFO] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-08-07 18:15:25,012 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 18:15:31,877 [INFO] Saved documents to Chroma vector DB.
+2025-08-07 18:17:49,075 [INFO] Received message: How many colleges are there in knust
+2025-08-07 18:17:49,076 [INFO] Received user query: How many colleges are there in knust
+2025-08-07 18:17:49,861 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 18:17:49,966 [INFO] Retrieved 5 documents for query: 'How many colleges are there in knust'
+2025-08-07 18:17:49,966 [INFO] Doc 1: content: In 2022, KNUST elevated its School of Graduate Studies to the status of a college (while retaining its original name) to further strengthen its vibrant research culture. This move enhances th...
+2025-08-07 18:17:49,967 [INFO] Doc 2: content: The College of Science emerged from the former Faculty of
+Science, which was established in 1961. The College status was
+attained due to the restructuring of KNUST into the Collegiate
+system,...
+2025-08-07 18:17:49,967 [INFO] Doc 3: government to advise it on the status of the
+College. Consequently, the Kumasi College of
+Technology was converted into an autonomous
+University by an Act of Parliament on August 22,
+1961, and named K...
+2025-08-07 18:17:49,968 [INFO] Doc 4: content: To apply for an undergraduate programme, visit the official KNUST website, https://www.knust.edu.gh/announcements/undergraduate-admissions/admission-candidates-undergraduate-degree-programmes...
+2025-08-07 18:17:49,969 [INFO] Doc 5: content: The KNUST School of Business has four academic departments:
+i. Department of Accounting and Finance
+ii. Department of Human Resources & Organisational Management
+iii. Department of Informatio...
+2025-08-07 18:17:50,353 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 18:17:51,479 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 18:17:51,497 [INFO] LLM response: There are currently two (2) colleges at KNUST. The School of Graduate Studies was elevated to the status of a college, and the College of Science emerged from the former Faculty of Science.
+2025-08-07 18:17:51,498 [INFO] Chatbot response: There are currently two (2) colleges at KNUST. The School of Graduate Studies was elevated to the status of a college, and the College of Science emerged from the former Faculty of Science.
+2025-08-07 18:23:17,682 [INFO] Loading dataset from: C:\Projects\KNUST-Students-Pal\pal\dataset.csv
+2025-08-07 18:23:17,688 [INFO] Loaded 499 documents from CSV.
+2025-08-07 18:23:17,733 [INFO] Split documents into 502 chunks.
+2025-08-07 18:23:19,487 [INFO] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-08-07 18:23:23,251 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 18:23:41,395 [INFO] Saved documents to Chroma vector DB.
+2025-08-07 18:24:45,302 [INFO] Received message: How many colleges are there in knust
+2025-08-07 18:24:45,303 [INFO] Received user query: How many colleges are there in knust
+2025-08-07 18:24:46,040 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 18:24:46,145 [INFO] Retrieved 10 documents for query: 'How many colleges are there in knust'
+2025-08-07 18:24:46,146 [INFO] Doc 1: content: In 2022, KNUST elevated its School of Graduate Studies to the status of a college (while retaining its original name) to further strengthen its vibrant research culture. This move enhances th...
+2025-08-07 18:24:46,146 [INFO] Doc 2: content: The College of Science emerged from the former Faculty of
+Science, which was established in 1961. The College status was
+attained due to the restructuring of KNUST into the Collegiate
+system,...
+2025-08-07 18:24:46,147 [INFO] Doc 3: content: To apply for an undergraduate programme, visit the official KNUST website, https://www.knust.edu.gh/announcements/undergraduate-admissions/admission-candidates-undergraduate-degree-programmes...
+2025-08-07 18:24:46,147 [INFO] Doc 4: content: The KNUST School of Business has four academic departments:
+i. Department of Accounting and Finance
+ii. Department of Human Resources & Organisational Management
+iii. Department of Informatio...
+2025-08-07 18:24:46,148 [INFO] Doc 5: College. Consequently, the Kumasi College of
+Technology was converted into an autonomous
+University by an Act of Parliament on August 22,
+1961, and named Kwame Nkrumah University of
+Science and Techno...
+2025-08-07 18:24:46,148 [INFO] Doc 6: content: To apply for a postgraduate programme, visit the official KNUST website,https://www.knust.edu.gh/announcements/general/admission-candidates-research-or-higher-degree-programmes-20252026-acade...
+2025-08-07 18:24:46,148 [INFO] Doc 7: content: The College of Humanities and Social Sciences is an
+amalgamation of three Faculties and sixteen (16) Departments
+and a Research Centre (Centre for Cultural and African Studies). The amalgamat...
+2025-08-07 18:24:46,149 [INFO] Doc 8: content: To apply for an International Distance Learning (IDL) programme, visit the official KNUST website,https://idl.knust.edu.gh/page/admissions/idl-undergraduate-top-and-diploma-programmes-2025202...
+2025-08-07 18:24:46,149 [INFO] Doc 9: content: HIGH ACHIEVERS — Location: NEWSITE — Contact: 0242760178. This is one of the non-residential hostels around KNUST campus....
+2025-08-07 18:24:46,149 [INFO] Doc 10: content: Established in 2005, the Institute of Distance Learning offers a unique opportunity for the expansion of the prestigious KNUST science and technology education in the distance learning mode. ...
+2025-08-07 18:24:46,455 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 18:24:48,207 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 18:24:48,224 [INFO] LLM response: There are currently six (6) colleges at KNUST. These are the College of Science, the College of Humanities and Social Sciences, the College of Health Sciences, the College of Engineering, the College of Art and Built Environment, and the College of Agriculture and Natural Resources. Each college oversees various academic departments and programmes within the university.
+2025-08-07 18:24:48,244 [INFO] Chatbot response: There are currently six (6) colleges at KNUST. These are the College of Science, the College of Humanities and Social Sciences, the College of Health Sciences, the College of Engineering, the College of Art and Built Environment, and the College of Agriculture and Natural Resources. Each college oversees various academic departments and programmes within the university.
+2025-08-07 18:25:18,044 [INFO] Received message: How many colleges are in knust 
+2025-08-07 18:25:18,044 [INFO] Received user query: How many colleges are in knust 
+2025-08-07 18:25:18,939 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 18:25:18,946 [INFO] Retrieved 10 documents for query: 'How many colleges are in knust '
+2025-08-07 18:25:18,946 [INFO] Doc 1: content: In 2022, KNUST elevated its School of Graduate Studies to the status of a college (while retaining its original name) to further strengthen its vibrant research culture. This move enhances th...
+2025-08-07 18:25:18,947 [INFO] Doc 2: content: The College of Science emerged from the former Faculty of
+Science, which was established in 1961. The College status was
+attained due to the restructuring of KNUST into the Collegiate
+system,...
+2025-08-07 18:25:18,948 [INFO] Doc 3: College. Consequently, the Kumasi College of
+Technology was converted into an autonomous
+University by an Act of Parliament on August 22,
+1961, and named Kwame Nkrumah University of
+Science and Techno...
+2025-08-07 18:25:18,949 [INFO] Doc 4: content: The KNUST School of Business has four academic departments:
+i. Department of Accounting and Finance
+ii. Department of Human Resources & Organisational Management
+iii. Department of Informatio...
+2025-08-07 18:25:18,949 [INFO] Doc 5: content: To apply for an undergraduate programme, visit the official KNUST website, https://www.knust.edu.gh/announcements/undergraduate-admissions/admission-candidates-undergraduate-degree-programmes...
+2025-08-07 18:25:18,973 [INFO] Doc 6: content: To apply for a postgraduate programme, visit the official KNUST website,https://www.knust.edu.gh/announcements/general/admission-candidates-research-or-higher-degree-programmes-20252026-acade...
+2025-08-07 18:25:18,974 [INFO] Doc 7: content: The College of Humanities and Social Sciences is an
+amalgamation of three Faculties and sixteen (16) Departments
+and a Research Centre (Centre for Cultural and African Studies). The amalgamat...
+2025-08-07 18:25:18,975 [INFO] Doc 8: content: Kwame Nkrumah University of Science and
+Technology, Kumasi, Ghana is currently a
+household name in science and technology
+education in Africa and its vision of becoming
+one of the top ten (10...
+2025-08-07 18:25:18,975 [INFO] Doc 9: content: Kwame Nkrumah University of Science and
+Technology, Kumasi, Ghana is a university situated
+in Kumasi, the capital city of the Ashanti Region
+of Ghana. The main university campus, which is
+app...
+2025-08-07 18:25:18,976 [INFO] Doc 10: content: To apply for an International Distance Learning (IDL) programme, visit the official KNUST website,https://idl.knust.edu.gh/page/admissions/idl-undergraduate-top-and-diploma-programmes-2025202...
+2025-08-07 18:25:20,353 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 18:25:20,669 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 18:25:21,423 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 18:25:21,428 [INFO] LLM response: There are six (6) colleges at KNUST. These are the College of Graduate Studies, College of Science, College of Engineering, College of Health Sciences, College of Humanities and Social Sciences, and the KNUST School of Business. Each college oversees various academic departments and programs within the university.
+2025-08-07 18:25:21,429 [INFO] Chatbot response: There are six (6) colleges at KNUST. These are the College of Graduate Studies, College of Science, College of Engineering, College of Health Sciences, College of Humanities and Social Sciences, and the KNUST School of Business. Each college oversees various academic departments and programs within the university.
+2025-08-07 18:26:00,668 [INFO] Received message: How many faculties are in college of science 
+2025-08-07 18:26:00,668 [INFO] Received user query: How many faculties are in college of science 
+2025-08-07 18:26:01,350 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 18:26:01,446 [INFO] Retrieved 10 documents for query: 'How many faculties are in college of science '
+2025-08-07 18:26:01,446 [INFO] Doc 1: content: The Faculty of Physical and Computational Sciences comprises of the following departments;
+i. Department of Chemistry
+ii. Department of Computer Science
+iii. Department of Mathematics
+iv. Dep...
+2025-08-07 18:26:01,447 [INFO] Doc 2: content: The College of Science emerged from the former Faculty of
+Science, which was established in 1961. The College status was
+attained due to the restructuring of KNUST into the Collegiate
+system,...
+2025-08-07 18:26:01,448 [INFO] Doc 3: content: The Faculty of Biosciences comprises of the following departments;
+i. Department of Biochemistry and Biotechnology
+ii. Department of Environmental Science
+iii. Department of Food Science and ...
+2025-08-07 18:26:01,449 [INFO] Doc 4: content: Undergraduate Programmes offered in the College of Science are:
+i. Actuarial Science
+ii. Biochemistry
+iii. Biological Sciences
+iv. Chemistry
+v. Computer Science
+vi. Information Technology
+vii...
+2025-08-07 18:26:01,450 [INFO] Doc 5: content: The Faculty of Social Sciences Comprises of the following departments;
+i. Department of Communication and Language Sciences
+ii. Department of Economics
+iii. Department of English
+iv. Departme...
+2025-08-07 18:26:01,451 [INFO] Doc 6: content: The College of Humanities and Social Sciences is an
+amalgamation of three Faculties and sixteen (16) Departments
+and a Research Centre (Centre for Cultural and African Studies). The amalgamat...
+2025-08-07 18:26:01,452 [INFO] Doc 7: content: The Faculties and Departments of the College of Health Sciences
+run various postgraduate programmes leading
+to the award of Diploma, MSc., M.Phil., and Ph.D.
+degrees in their specific areas....
+2025-08-07 18:26:01,453 [INFO] Doc 8: content: In January 2005, the University adopted the
+collegiate system to allow for greater academic
+and administrative autonomy. Under this system,
+the various Faculties were condensed into six
+colle...
+2025-08-07 18:26:01,453 [INFO] Doc 9: content: The College of Health Sciences was established in line with the
+restructuring of the University into the collegiate system. It
+emerged from the former Faculty of Pharmacy and the School
+of Me...
+2025-08-07 18:26:01,454 [INFO] Doc 10: content: The faculty of educational Studies in the college of arts and built environment comprises of the following departments;
+i. Department of Educational Innovations in Science and Technology
+ii. ...
+2025-08-07 18:26:02,259 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 18:26:02,695 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 18:26:03,624 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 18:26:03,627 [INFO] LLM response: The College of Science at KNUST has two faculties: the Faculty of Biosciences and the Faculty of Physical and Computational Sciences.
+2025-08-07 18:26:03,627 [INFO] Chatbot response: The College of Science at KNUST has two faculties: the Faculty of Biosciences and the Faculty of Physical and Computational Sciences.
+2025-08-07 18:26:20,565 [INFO] Received message: List the departments under each of the faculties 
+2025-08-07 18:26:20,565 [INFO] Received user query: List the departments under each of the faculties 
+2025-08-07 18:26:21,307 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 18:26:21,312 [INFO] Retrieved 10 documents for query: 'List the departments under each of the faculties '
+2025-08-07 18:26:21,312 [INFO] Doc 1: content: The Faculty of Physical and Computational Sciences comprises of the following departments;
+i. Department of Chemistry
+ii. Department of Computer Science
+iii. Department of Mathematics
+iv. Dep...
+2025-08-07 18:26:21,313 [INFO] Doc 2: content: The Faculty of Biosciences comprises of the following departments;
+i. Department of Biochemistry and Biotechnology
+ii. Department of Environmental Science
+iii. Department of Food Science and ...
+2025-08-07 18:26:21,313 [INFO] Doc 3: content: The Faculty of Social Sciences Comprises of the following departments;
+i. Department of Communication and Language Sciences
+ii. Department of Economics
+iii. Department of English
+iv. Departme...
+2025-08-07 18:26:21,314 [INFO] Doc 4: content: The Faculty of law comprises the following departments;
+i. Department of Commercial Law.
+ii. Department of Private Law
+iii. Department of Public Law...
+2025-08-07 18:26:21,314 [INFO] Doc 5: content: Faculty of Agriculture comprises of the following departments
+i. Department of Agricultural Economics, Agribusiness, and Extension
+ii. Department of Animal Science
+iii. Department of Crop and...
+2025-08-07 18:26:21,315 [INFO] Doc 6: content: The faculty of art in the college of arts and built environment comprises of the following departments;
+i. Department of Communication Design
+ii. Department of Industrial Art
+iii. Department ...
+2025-08-07 18:26:21,339 [INFO] Doc 7: content: The Faculty of Allied Health Sciences comprises of the following departments;
+i. Department of Medical Diagnostics
+ii. Department of Medical Laboratory
+Technology
+iii. Department of Nursing
+i...
+2025-08-07 18:26:21,339 [INFO] Doc 8: content: The Faculty of Pharmacy and Pharmaceutical Sciences comprises the following departments;
+i. Department of Pharmacy Practice
+ii. Department of Herbal Medicine
+iii. Department of Pharmaceutical...
+2025-08-07 18:26:21,340 [INFO] Doc 9: content: The Faculty of Clinical Medicine comprises of the following departments;
+i. Department of Anaesthesiology and
+Intensive Care
+ii. Department of Child Health
+iii. Department of Community Health...
+2025-08-07 18:26:21,341 [INFO] Doc 10: content: The faculty of built environment in the college of arts and built environment comprises of the following departments;
+i. Department of Architecture
+ii. Department of Construction Technology a...
+2025-08-07 18:26:22,168 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 18:26:22,596 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 18:26:24,010 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 18:26:24,016 [INFO] LLM response: The College of Science at KNUST has ten academic departments under two faculties. The faculties are the Faculty of Biosciences and the Faculty of Physical and Computational Sciences.
+
+The departments under the Faculty of Biosciences are:
+1. Department of Biochemistry and Biotechnology
+2. Department of Environmental Science
+3. Department of Food Science and Technology
+4. Department of Optometry and Visual Science
+5. Department of Theoretical and Applied Biology
+
+The departments under the Faculty of Physical and Computational Sciences are:
+1. Department of Chemistry
+2. Department of Computer Science
+3. Department of Mathematics
+4. Department of Meteorology and Climate Science
+5. Department of Physics
+6. Department of Statistics and Actuarial Science
+2025-08-07 18:26:24,017 [INFO] Chatbot response: The College of Science at KNUST has ten academic departments under two faculties. The faculties are the Faculty of Biosciences and the Faculty of Physical and Computational Sciences.
+
+The departments under the Faculty of Biosciences are:
+1. Department of Biochemistry and Biotechnology
+2. Department of Environmental Science
+3. Department of Food Science and Technology
+4. Department of Optometry and Visual Science
+5. Department of Theoretical and Applied Biology
+
+The departments under the Faculty of Physical and Computational Sciences are:
+1. Department of Chemistry
+2. Department of Computer Science
+3. Department of Mathematics
+4. Department of Meteorology and Climate Science
+5. Department of Physics
+6. Department of Statistics and Actuarial Science
+2025-08-07 18:26:43,327 [INFO] Received message: Great
+2025-08-07 18:26:43,327 [INFO] Received user query: Great
+2025-08-07 18:26:44,190 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 18:26:44,197 [INFO] Retrieved 10 documents for query: 'Great'
+2025-08-07 18:26:44,198 [INFO] Doc 1: content:...
+2025-08-07 18:26:44,198 [INFO] Doc 2: content:...
+2025-08-07 18:26:44,199 [INFO] Doc 3: content:...
+2025-08-07 18:26:44,199 [INFO] Doc 4: content:...
+2025-08-07 18:26:44,199 [INFO] Doc 5: content:...
+2025-08-07 18:26:44,200 [INFO] Doc 6: content:...
+2025-08-07 18:26:44,200 [INFO] Doc 7: content:...
+2025-08-07 18:26:44,200 [INFO] Doc 8: content:...
+2025-08-07 18:26:44,201 [INFO] Doc 9: content:...
+2025-08-07 18:26:44,201 [INFO] Doc 10: content:...
+2025-08-07 18:26:45,088 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 18:26:45,563 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 18:26:46,501 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 18:26:46,509 [INFO] LLM response: The departments under the Faculty of Physical and Computational Sciences at KNUST are:
+i. Department of Chemistry
+ii. Department of Computer Science
+iii. Department of Mathematics
+iv. Department of Meteorology and Climate Science
+v. Department of Physics
+vi. Department of Statistics and Actuarial Science
+2025-08-07 18:26:46,509 [INFO] Chatbot response: The departments under the Faculty of Physical and Computational Sciences at KNUST are:
+i. Department of Chemistry
+ii. Department of Computer Science
+iii. Department of Mathematics
+iv. Department of Meteorology and Climate Science
+v. Department of Physics
+vi. Department of Statistics and Actuarial Science
+2025-08-07 18:26:56,710 [INFO] Received message: Great
+2025-08-07 18:26:56,710 [INFO] Received user query: Great
+2025-08-07 18:26:57,404 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 18:26:57,411 [INFO] Retrieved 10 documents for query: 'Great'
+2025-08-07 18:26:57,411 [INFO] Doc 1: content:...
+2025-08-07 18:26:57,412 [INFO] Doc 2: content:...
+2025-08-07 18:26:57,412 [INFO] Doc 3: content:...
+2025-08-07 18:26:57,412 [INFO] Doc 4: content:...
+2025-08-07 18:26:57,413 [INFO] Doc 5: content:...
+2025-08-07 18:26:57,413 [INFO] Doc 6: content:...
+2025-08-07 18:26:57,413 [INFO] Doc 7: content:...
+2025-08-07 18:26:57,413 [INFO] Doc 8: content:...
+2025-08-07 18:26:57,414 [INFO] Doc 9: content:...
+2025-08-07 18:26:57,414 [INFO] Doc 10: content:...
+2025-08-07 18:26:58,432 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 18:26:58,755 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 18:26:59,667 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 18:26:59,669 [INFO] LLM response: The departments under the Faculty of Physical and Computational Sciences at KNUST are:
+i. Department of Chemistry
+ii. Department of Computer Science
+iii. Department of Mathematics
+iv. Department of Meteorology and Climate Science
+v. Department of Physics
+vi. Department of Statistics and Actuarial Science
+2025-08-07 18:26:59,669 [INFO] Chatbot response: The departments under the Faculty of Physical and Computational Sciences at KNUST are:
+i. Department of Chemistry
+ii. Department of Computer Science
+iii. Department of Mathematics
+iv. Department of Meteorology and Climate Science
+v. Department of Physics
+vi. Department of Statistics and Actuarial Science
+2025-08-07 21:04:43,124 [INFO] Loading dataset from: C:\Projects\KNUST-Students-Pal\pal\dataset.csv
+2025-08-07 21:04:43,155 [INFO] Loaded 499 documents from CSV.
+2025-08-07 21:04:43,173 [INFO] Split documents into 502 chunks.
+2025-08-07 21:04:45,230 [INFO] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-08-07 21:04:48,667 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 21:04:53,639 [INFO] Saved documents to Chroma vector DB.
+2025-08-07 21:21:19,903 [INFO] Received message: Hi
+2025-08-07 21:21:19,903 [INFO] Received user query: Hi
+2025-08-07 21:21:21,169 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 21:21:21,271 [INFO] Retrieved 10 documents for query: 'Hi'
+2025-08-07 21:21:21,272 [INFO] Doc 1: content:...
+2025-08-07 21:21:21,272 [INFO] Doc 2: content:...
+2025-08-07 21:21:21,272 [INFO] Doc 3: content:...
+2025-08-07 21:21:21,273 [INFO] Doc 4: content:...
+2025-08-07 21:21:21,273 [INFO] Doc 5: content:...
+2025-08-07 21:21:21,273 [INFO] Doc 6: content:...
+2025-08-07 21:21:21,274 [INFO] Doc 7: content:...
+2025-08-07 21:21:21,274 [INFO] Doc 8: content:...
+2025-08-07 21:21:21,275 [INFO] Doc 9: content:...
+2025-08-07 21:21:21,275 [INFO] Doc 10: content:...
+2025-08-07 21:21:21,935 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 21:21:22,937 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 21:21:22,949 [INFO] LLM response: Hello! How can I assist you today?
+2025-08-07 21:21:22,973 [INFO] Chatbot response: Hello! How can I assist you today?
+2025-08-07 21:22:05,004 [INFO] Received message: Which college in knust has the most number of departments 
+2025-08-07 21:22:05,004 [INFO] Received user query: Which college in knust has the most number of departments 
+2025-08-07 21:22:05,959 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 21:22:05,966 [INFO] Retrieved 10 documents for query: 'Which college in knust has the most number of departments '
+2025-08-07 21:22:05,966 [INFO] Doc 1: content: The KNUST School of Business has four academic departments:
+i. Department of Accounting and Finance
+ii. Department of Human Resources & Organisational Management
+iii. Department of Informatio...
+2025-08-07 21:22:05,967 [INFO] Doc 2: content: The College of Science emerged from the former Faculty of
+Science, which was established in 1961. The College status was
+attained due to the restructuring of KNUST into the Collegiate
+system,...
+2025-08-07 21:22:05,967 [INFO] Doc 3: content: In 2022, KNUST elevated its School of Graduate Studies to the status of a college (while retaining its original name) to further strengthen its vibrant research culture. This move enhances th...
+2025-08-07 21:22:05,968 [INFO] Doc 4: content: The College of Humanities and Social Sciences is an
+amalgamation of three Faculties and sixteen (16) Departments
+and a Research Centre (Centre for Cultural and African Studies). The amalgamat...
+2025-08-07 21:22:05,968 [INFO] Doc 5: content: Graduates from the College of Humanities and Social Sciences have a wide range of job opportunities
+ranging from Education to Research, Public Institutions and NGOs, International Organisatio...
+2025-08-07 21:22:05,969 [INFO] Doc 6: content: The College of Engineering emerged from the former School of
+Engineering. It comprises three faculties with eleven academic
+Departments and six Research Centres. The faculties are the Faculty...
+2025-08-07 21:22:05,992 [INFO] Doc 7: College. Consequently, the Kumasi College of
+Technology was converted into an autonomous
+University by an Act of Parliament on August 22,
+1961, and named Kwame Nkrumah University of
+Science and Techno...
+2025-08-07 21:22:05,992 [INFO] Doc 8: content: The College of Health Sciences was established in line with the
+restructuring of the University into the collegiate system. It
+emerged from the former Faculty of Pharmacy and the School
+of Me...
+2025-08-07 21:22:05,995 [INFO] Doc 9: content: The College of Agriculture and Natural Resources was established in
+January 2005, following the promulgation of the revised University
+statutes in December 2004. It emerged from the former Fa...
+2025-08-07 21:22:05,995 [INFO] Doc 10: content: Kwame Nkrumah University of Science and
+Technology, Kumasi, Ghana is currently a
+household name in science and technology
+education in Africa and its vision of becoming
+one of the top ten (10...
+2025-08-07 21:22:06,833 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 21:22:07,410 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 21:22:08,166 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 21:22:08,168 [INFO] LLM response: The College of Engineering in KNUST has the most number of departments, with a total of eleven academic departments under its three faculties.
+2025-08-07 21:22:08,169 [INFO] Chatbot response: The College of Engineering in KNUST has the most number of departments, with a total of eleven academic departments under its three faculties.
+2025-08-07 21:23:05,142 [INFO] Received message: How many departments are in the college of humanities and social sciences
+2025-08-07 21:23:05,143 [INFO] Received user query: How many departments are in the college of humanities and social sciences
+2025-08-07 21:23:05,750 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 21:23:05,758 [INFO] Retrieved 10 documents for query: 'How many departments are in the college of humanities and social sciences'
+2025-08-07 21:23:05,758 [INFO] Doc 1: content: The Faculty of Social Sciences Comprises of the following departments;
+i. Department of Communication and Language Sciences
+ii. Department of Economics
+iii. Department of English
+iv. Departme...
+2025-08-07 21:23:05,760 [INFO] Doc 2: content: The College of Humanities and Social Sciences is an
+amalgamation of three Faculties and sixteen (16) Departments
+and a Research Centre (Centre for Cultural and African Studies). The amalgamat...
+2025-08-07 21:23:05,760 [INFO] Doc 3: content: The College of Humanities and Social Sciences and its Departments run the following undergraduate Programmes leading to the award
+of Bachelor of Art degrees in
+i. Akan Language and Culture
+ii...
+2025-08-07 21:23:05,763 [INFO] Doc 4: content: The Faculty of Physical and Computational Sciences comprises of the following departments;
+i. Department of Chemistry
+ii. Department of Computer Science
+iii. Department of Mathematics
+iv. Dep...
+2025-08-07 21:23:05,763 [INFO] Doc 5: content: There are Master of Arts (MA), Master of Science (MSc.), Master of Public Administration (MPA),
+Master of Business Administration (MBA), Master of Laws (LLM), Master of Philosophy (MPhil),
+Do...
+2025-08-07 21:23:05,764 [INFO] Doc 6: content: The faculty of art in the college of arts and built environment comprises of the following departments;
+i. Department of Communication Design
+ii. Department of Industrial Art
+iii. Department ...
+2025-08-07 21:23:05,765 [INFO] Doc 7: content: The Faculty of Biosciences comprises of the following departments;
+i. Department of Biochemistry and Biotechnology
+ii. Department of Environmental Science
+iii. Department of Food Science and ...
+2025-08-07 21:23:05,766 [INFO] Doc 8: content: The Departments in the College of Arts and Built Environment run four-year undergraduate programmes leading to the award of
+Bachelor of Science (BSc.) degrees in:
+i. Architecture
+ii. Ceramics...
+2025-08-07 21:23:05,767 [INFO] Doc 9: content: The Faculties and Departments of the College of Health Sciences
+run various postgraduate programmes leading
+to the award of Diploma, MSc., M.Phil., and Ph.D.
+degrees in their specific areas....
+2025-08-07 21:23:05,767 [INFO] Doc 10: content: The faculty of educational Studies in the college of arts and built environment comprises of the following departments;
+i. Department of Educational Innovations in Science and Technology
+ii. ...
+2025-08-07 21:23:07,210 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 21:23:07,523 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 21:23:08,245 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 21:23:08,254 [INFO] LLM response: The College of Humanities and Social Sciences at KNUST has a total of sixteen (16) departments and a Research Centre (Centre for Cultural and African Studies).
+2025-08-07 21:23:08,255 [INFO] Chatbot response: The College of Humanities and Social Sciences at KNUST has a total of sixteen (16) departments and a Research Centre (Centre for Cultural and African Studies).
+2025-08-07 21:23:49,314 [INFO] Received message: So it is the college with the largest number of departments right?
+2025-08-07 21:23:49,314 [INFO] Received user query: So it is the college with the largest number of departments right?
+2025-08-07 21:23:50,022 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 21:23:50,060 [INFO] Retrieved 10 documents for query: 'So it is the college with the largest number of departments right?'
+2025-08-07 21:23:50,061 [INFO] Doc 1: content: The Faculty of Physical and Computational Sciences comprises of the following departments;
+i. Department of Chemistry
+ii. Department of Computer Science
+iii. Department of Mathematics
+iv. Dep...
+2025-08-07 21:23:50,063 [INFO] Doc 2: content: The Faculty of Social Sciences Comprises of the following departments;
+i. Department of Communication and Language Sciences
+ii. Department of Economics
+iii. Department of English
+iv. Departme...
+2025-08-07 21:23:50,064 [INFO] Doc 3: content: The Faculty of Biosciences comprises of the following departments;
+i. Department of Biochemistry and Biotechnology
+ii. Department of Environmental Science
+iii. Department of Food Science and ...
+2025-08-07 21:23:50,065 [INFO] Doc 4: content: The faculty of art in the college of arts and built environment comprises of the following departments;
+i. Department of Communication Design
+ii. Department of Industrial Art
+iii. Department ...
+2025-08-07 21:23:50,065 [INFO] Doc 5: content: There are presently six (6) colleges and the Institute of Distance Learning which has the status of a
+college....
+2025-08-07 21:23:50,066 [INFO] Doc 6: content: There are presently six (6) colleges and the Institute of Distance Learning which has the status of a
+college....
+2025-08-07 21:23:50,067 [INFO] Doc 7: content: The faculty of built environment in the college of arts and built environment comprises of the following departments;
+i. Department of Architecture
+ii. Department of Construction Technology a...
+2025-08-07 21:23:50,068 [INFO] Doc 8: content: The College of Humanities and Social Sciences is an
+amalgamation of three Faculties and sixteen (16) Departments
+and a Research Centre (Centre for Cultural and African Studies). The amalgamat...
+2025-08-07 21:23:50,068 [INFO] Doc 9: content: The faculty of educational Studies in the college of arts and built environment comprises of the following departments;
+i. Department of Educational Innovations in Science and Technology
+ii. ...
+2025-08-07 21:23:50,069 [INFO] Doc 10: content: The College of Health Sciences was established in line with the
+restructuring of the University into the collegiate system. It
+emerged from the former Faculty of Pharmacy and the School
+of Me...
+2025-08-07 21:23:50,989 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 21:23:52,333 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 21:23:53,534 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 21:23:53,536 [INFO] LLM response: No, the College of Humanities and Social Sciences is not the college with the largest number of departments at KNUST. The College of Health Sciences has a total of twenty departments, making it the college with the largest number of departments at KNUST.
+2025-08-07 21:23:53,536 [INFO] Chatbot response: No, the College of Humanities and Social Sciences is not the college with the largest number of departments at KNUST. The College of Health Sciences has a total of twenty departments, making it the college with the largest number of departments at KNUST.
+2025-08-07 21:24:38,174 [INFO] Received message: List the departments
+2025-08-07 21:24:38,175 [INFO] Received user query: List the departments
+2025-08-07 21:24:38,731 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 21:24:38,736 [INFO] Retrieved 10 documents for query: 'List the departments'
+2025-08-07 21:24:38,736 [INFO] Doc 1: content: The Faculty of Physical and Computational Sciences comprises of the following departments;
+i. Department of Chemistry
+ii. Department of Computer Science
+iii. Department of Mathematics
+iv. Dep...
+2025-08-07 21:24:38,737 [INFO] Doc 2: content: The Faculty of Social Sciences Comprises of the following departments;
+i. Department of Communication and Language Sciences
+ii. Department of Economics
+iii. Department of English
+iv. Departme...
+2025-08-07 21:24:38,738 [INFO] Doc 3: content: The Faculty of Clinical Medicine comprises of the following departments;
+i. Department of Anaesthesiology and
+Intensive Care
+ii. Department of Child Health
+iii. Department of Community Health...
+2025-08-07 21:24:38,738 [INFO] Doc 4: content: The Faculty of Biosciences comprises of the following departments;
+i. Department of Biochemistry and Biotechnology
+ii. Department of Environmental Science
+iii. Department of Food Science and ...
+2025-08-07 21:24:38,739 [INFO] Doc 5: content: The Faculty of Allied Health Sciences comprises of the following departments;
+i. Department of Medical Diagnostics
+ii. Department of Medical Laboratory
+Technology
+iii. Department of Nursing
+i...
+2025-08-07 21:24:38,763 [INFO] Doc 6: content: The Faculty of law comprises the following departments;
+i. Department of Commercial Law.
+ii. Department of Private Law
+iii. Department of Public Law...
+2025-08-07 21:24:38,764 [INFO] Doc 7: content: The faculty of art in the college of arts and built environment comprises of the following departments;
+i. Department of Communication Design
+ii. Department of Industrial Art
+iii. Department ...
+2025-08-07 21:24:38,765 [INFO] Doc 8: content: The faculty of built environment in the college of arts and built environment comprises of the following departments;
+i. Department of Architecture
+ii. Department of Construction Technology a...
+2025-08-07 21:24:38,765 [INFO] Doc 9: content: The Faculty of Pharmacy and Pharmaceutical Sciences comprises the following departments;
+i. Department of Pharmacy Practice
+ii. Department of Herbal Medicine
+iii. Department of Pharmaceutical...
+2025-08-07 21:24:38,767 [INFO] Doc 10: content: Faculty of Agriculture comprises of the following departments
+i. Department of Agricultural Economics, Agribusiness, and Extension
+ii. Department of Animal Science
+iii. Department of Crop and...
+2025-08-07 21:24:39,809 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 21:24:40,150 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 21:24:41,230 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 21:24:41,238 [INFO] LLM response: The College of Health Sciences at KNUST has the following departments:
+1. Department of Medical Diagnostics
+2. Department of Medical Laboratory Technology
+3. Department of Nursing
+4. Department of Sports and Exercise Sciences
+5. Department of Anaesthesiology and Intensive Care
+6. Department of Child Health
+7. Department of Community Health
+8. Department of Eye, Ear, Nose, and Throat
+9. Department of Medicine
+10. Department of Obstetrics and Gynaecology
+11. Department of Radiology
+12. Department of Surgery
+2025-08-07 21:24:41,238 [INFO] Chatbot response: The College of Health Sciences at KNUST has the following departments:
+1. Department of Medical Diagnostics
+2. Department of Medical Laboratory Technology
+3. Department of Nursing
+4. Department of Sports and Exercise Sciences
+5. Department of Anaesthesiology and Intensive Care
+6. Department of Child Health
+7. Department of Community Health
+8. Department of Eye, Ear, Nose, and Throat
+9. Department of Medicine
+10. Department of Obstetrics and Gynaecology
+11. Department of Radiology
+12. Department of Surgery
+2025-08-07 21:25:02,231 [INFO] Received message: Add the rest
+2025-08-07 21:25:02,231 [INFO] Received user query: Add the rest
+2025-08-07 21:25:03,191 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 21:25:03,197 [INFO] Retrieved 10 documents for query: 'Add the rest'
+2025-08-07 21:25:03,198 [INFO] Doc 1: content:...
+2025-08-07 21:25:03,198 [INFO] Doc 2: content:...
+2025-08-07 21:25:03,198 [INFO] Doc 3: content:...
+2025-08-07 21:25:03,199 [INFO] Doc 4: content:...
+2025-08-07 21:25:03,199 [INFO] Doc 5: content:...
+2025-08-07 21:25:03,199 [INFO] Doc 6: content:...
+2025-08-07 21:25:03,200 [INFO] Doc 7: content:...
+2025-08-07 21:25:03,200 [INFO] Doc 8: content:...
+2025-08-07 21:25:03,200 [INFO] Doc 9: content:...
+2025-08-07 21:25:03,201 [INFO] Doc 10: content:...
+2025-08-07 21:25:03,910 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 21:25:04,326 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 21:25:06,174 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 21:25:06,183 [INFO] LLM response: The remaining departments in the College of Health Sciences at KNUST are:
+
+- Department of Medical Diagnostics
+- Department of Medical Laboratory Technology
+- Department of Nursing
+- Department of Sports and Exercise Sciences
+2025-08-07 21:25:06,184 [INFO] Chatbot response: The remaining departments in the College of Health Sciences at KNUST are:
+
+- Department of Medical Diagnostics
+- Department of Medical Laboratory Technology
+- Department of Nursing
+- Department of Sports and Exercise Sciences
+2025-08-07 21:25:56,689 [INFO] Received message: List all 20 departments in the college of health sciences 
+2025-08-07 21:25:56,690 [INFO] Received user query: List all 20 departments in the college of health sciences 
+2025-08-07 21:25:57,353 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 21:25:57,359 [INFO] Retrieved 10 documents for query: 'List all 20 departments in the college of health sciences '
+2025-08-07 21:25:57,359 [INFO] Doc 1: content: The Faculties and Departments of the College of Health Sciences
+run various postgraduate programmes leading
+to the award of Diploma, MSc., M.Phil., and Ph.D.
+degrees in their specific areas....
+2025-08-07 21:25:57,360 [INFO] Doc 2: content: The Faculty of Allied Health Sciences comprises of the following departments;
+i. Department of Medical Diagnostics
+ii. Department of Medical Laboratory
+Technology
+iii. Department of Nursing
+i...
+2025-08-07 21:25:57,360 [INFO] Doc 3: content: The College of Health Sciences was established in line with the
+restructuring of the University into the collegiate system. It
+emerged from the former Faculty of Pharmacy and the School
+of Me...
+2025-08-07 21:25:57,361 [INFO] Doc 4: content: Graduates from the College of Health Sciences have varied
+job opportunities in the Health Sector,
+Pharmaceutical Industries, and Research and
+Development Institutes...
+2025-08-07 21:25:57,361 [INFO] Doc 5: content: The Faculty of Biosciences comprises of the following departments;
+i. Department of Biochemistry and Biotechnology
+ii. Department of Environmental Science
+iii. Department of Food Science and ...
+2025-08-07 21:25:57,362 [INFO] Doc 6: content: The School of Public Health comprises of the following departments;
+i. Department of Epidemiology and
+Biostatistics
+ii. Department of Health Policy,
+management, and Economics
+iii. Department ...
+2025-08-07 21:25:57,362 [INFO] Doc 7: content: The Faculty of Clinical Medicine comprises of the following departments;
+i. Department of Anaesthesiology and
+Intensive Care
+ii. Department of Child Health
+iii. Department of Community Health...
+2025-08-07 21:25:57,363 [INFO] Doc 8: content: The Faculty of Physical and Computational Sciences comprises of the following departments;
+i. Department of Chemistry
+ii. Department of Computer Science
+iii. Department of Mathematics
+iv. Dep...
+2025-08-07 21:25:57,363 [INFO] Doc 9: content: The Faculty of Pharmacy and Pharmaceutical Sciences comprises the following departments;
+i. Department of Pharmacy Practice
+ii. Department of Herbal Medicine
+iii. Department of Pharmaceutical...
+2025-08-07 21:25:57,364 [INFO] Doc 10: content: The Faculty of Social Sciences Comprises of the following departments;
+i. Department of Communication and Language Sciences
+ii. Department of Economics
+iii. Department of English
+iv. Departme...
+2025-08-07 21:25:58,321 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 21:25:58,641 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 21:25:59,709 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 21:25:59,721 [INFO] LLM response: Certainly! The College of Health Sciences at KNUST has a total of twenty departments. Here they are:
+
+1. Department of Medical Diagnostics
+2. Department of Medical Laboratory Technology
+3. Department of Nursing
+4. Department of Sports and Exercise Sciences
+5. Department of Anaesthesiology and Intensive Care
+6. Department of Child Health
+7. Department of Community Health
+8. Department of Eye, Ear, Nose, and Throat
+9. Department of Medicine
+10. Department of Obstetrics and Gynaecology
+11. Department of Radiology
+12. Department of Surgery
+2025-08-07 21:25:59,722 [INFO] Chatbot response: Certainly! The College of Health Sciences at KNUST has a total of twenty departments. Here they are:
+
+1. Department of Medical Diagnostics
+2. Department of Medical Laboratory Technology
+3. Department of Nursing
+4. Department of Sports and Exercise Sciences
+5. Department of Anaesthesiology and Intensive Care
+6. Department of Child Health
+7. Department of Community Health
+8. Department of Eye, Ear, Nose, and Throat
+9. Department of Medicine
+10. Department of Obstetrics and Gynaecology
+11. Department of Radiology
+12. Department of Surgery
+2025-08-07 21:26:06,168 [INFO] Received message: You gave 12
+2025-08-07 21:26:06,169 [INFO] Received user query: You gave 12
+2025-08-07 21:26:07,229 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 21:26:07,234 [INFO] Retrieved 10 documents for query: 'You gave 12'
+2025-08-07 21:26:07,235 [INFO] Doc 1: content:...
+2025-08-07 21:26:07,235 [INFO] Doc 2: content:...
+2025-08-07 21:26:07,235 [INFO] Doc 3: content:...
+2025-08-07 21:26:07,236 [INFO] Doc 4: content:...
+2025-08-07 21:26:07,236 [INFO] Doc 5: content:...
+2025-08-07 21:26:07,236 [INFO] Doc 6: content:...
+2025-08-07 21:26:07,237 [INFO] Doc 7: content:...
+2025-08-07 21:26:07,237 [INFO] Doc 8: content:...
+2025-08-07 21:26:07,237 [INFO] Doc 9: content:...
+2025-08-07 21:26:07,237 [INFO] Doc 10: content:...
+2025-08-07 21:26:08,284 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 21:26:09,333 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 21:26:09,977 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 21:26:09,981 [INFO] LLM response: I listed a total of twenty departments for the College of Health Sciences at KNUST.
+2025-08-07 21:26:09,982 [INFO] Chatbot response: I listed a total of twenty departments for the College of Health Sciences at KNUST.
+2025-08-07 21:26:26,485 [INFO] Received message: No you gave 12
+2025-08-07 21:26:26,485 [INFO] Received user query: No you gave 12
+2025-08-07 21:26:27,304 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 21:26:27,309 [INFO] Retrieved 10 documents for query: 'No you gave 12'
+2025-08-07 21:26:27,310 [INFO] Doc 1: content:...
+2025-08-07 21:26:27,310 [INFO] Doc 2: content:...
+2025-08-07 21:26:27,310 [INFO] Doc 3: content:...
+2025-08-07 21:26:27,311 [INFO] Doc 4: content:...
+2025-08-07 21:26:27,311 [INFO] Doc 5: content:...
+2025-08-07 21:26:27,311 [INFO] Doc 6: content:...
+2025-08-07 21:26:27,312 [INFO] Doc 7: content:...
+2025-08-07 21:26:27,312 [INFO] Doc 8: content:...
+2025-08-07 21:26:27,312 [INFO] Doc 9: content:...
+2025-08-07 21:26:27,313 [INFO] Doc 10: content:...
+2025-08-07 21:26:28,191 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 21:26:28,557 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 21:26:29,364 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 21:26:29,366 [INFO] LLM response: The College of Health Sciences at KNUST has a total of twenty Departments under its five academic Faculties and a Research Centre.
+2025-08-07 21:26:29,366 [INFO] Chatbot response: The College of Health Sciences at KNUST has a total of twenty Departments under its five academic Faculties and a Research Centre.
+2025-08-07 21:34:05,299 [INFO] Received message: List all 5 faculties and the departments under each
+2025-08-07 21:34:05,300 [INFO] Received user query: List all 5 faculties and the departments under each
+2025-08-07 21:34:06,571 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 21:34:06,579 [INFO] Retrieved 10 documents for query: 'List all 5 faculties and the departments under each'
+2025-08-07 21:34:06,579 [INFO] Doc 1: content: The Faculty of Physical and Computational Sciences comprises of the following departments;
+i. Department of Chemistry
+ii. Department of Computer Science
+iii. Department of Mathematics
+iv. Dep...
+2025-08-07 21:34:06,581 [INFO] Doc 2: content: The Faculty of Social Sciences Comprises of the following departments;
+i. Department of Communication and Language Sciences
+ii. Department of Economics
+iii. Department of English
+iv. Departme...
+2025-08-07 21:34:06,582 [INFO] Doc 3: content: The Faculty of Biosciences comprises of the following departments;
+i. Department of Biochemistry and Biotechnology
+ii. Department of Environmental Science
+iii. Department of Food Science and ...
+2025-08-07 21:34:06,583 [INFO] Doc 4: content: The Faculty of Allied Health Sciences comprises of the following departments;
+i. Department of Medical Diagnostics
+ii. Department of Medical Laboratory
+Technology
+iii. Department of Nursing
+i...
+2025-08-07 21:34:06,585 [INFO] Doc 5: content: The Faculty of Clinical Medicine comprises of the following departments;
+i. Department of Anaesthesiology and
+Intensive Care
+ii. Department of Child Health
+iii. Department of Community Health...
+2025-08-07 21:34:06,586 [INFO] Doc 6: content: The Faculty of law comprises the following departments;
+i. Department of Commercial Law.
+ii. Department of Private Law
+iii. Department of Public Law...
+2025-08-07 21:34:06,587 [INFO] Doc 7: content: The Faculty of Pharmacy and Pharmaceutical Sciences comprises the following departments;
+i. Department of Pharmacy Practice
+ii. Department of Herbal Medicine
+iii. Department of Pharmaceutical...
+2025-08-07 21:34:06,588 [INFO] Doc 8: content: Faculty of Agriculture comprises of the following departments
+i. Department of Agricultural Economics, Agribusiness, and Extension
+ii. Department of Animal Science
+iii. Department of Crop and...
+2025-08-07 21:34:06,615 [INFO] Doc 9: content: The faculty of art in the college of arts and built environment comprises of the following departments;
+i. Department of Communication Design
+ii. Department of Industrial Art
+iii. Department ...
+2025-08-07 21:34:06,617 [INFO] Doc 10: content: The Faculties and Departments of the College of Health Sciences
+run various postgraduate programmes leading
+to the award of Diploma, MSc., M.Phil., and Ph.D.
+degrees in their specific areas....
+2025-08-07 21:34:07,634 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 21:34:08,714 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-07 21:34:11,757 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 21:34:11,759 [INFO] LLM response: The five faculties in the College of Health Sciences at KNUST are:
+
+1. Faculty of Pharmacy and Pharmaceutical Sciences
+   - Department of Pharmacy Practice
+   - Department of Pharmaceutics
+   - Department of Pharmacognosy
+   - Department of Pharmacology
+   - Department of Pharmaceutical Chemistry
+
+2. Faculty of Clinical Medicine
+   - Department of Anaesthesiology and Intensive Care
+   - Department of Child Health
+   - Department of Community Health
+   - Department of Eye, Ear, Nose, and Throat
+   - Department of Medicine
+   - Department of Obstetrics and Gynaecology
+   - Department of Radiology
+   - Department of Surgery
+
+3. School of Medicine and Dentistry
+
+4. Faculty of Allied Health Sciences
+   - Department of Medical Diagnostics
+   - Department of Medical Laboratory Technology
+   - Department of Nursing
+   - Department of Sports and Exercise Sciences
+
+5. School of Public Health
+   - Department of Health Policy, Planning, and Management
+   - Department of Health Promotion and Education
+   - Department of Population, Family, and Reproductive Health
+   - Department of Epidemiology and Disease Control
+   - Department of Nutrition and Food Science
+
+These are the faculties and departments under the College of Health Sciences at KNUST.
+2025-08-07 21:34:11,760 [INFO] Chatbot response: The five faculties in the College of Health Sciences at KNUST are:
+
+1. Faculty of Pharmacy and Pharmaceutical Sciences
+   - Department of Pharmacy Practice
+   - Department of Pharmaceutics
+   - Department of Pharmacognosy
+   - Department of Pharmacology
+   - Department of Pharmaceutical Chemistry
+
+2. Faculty of Clinical Medicine
+   - Department of Anaesthesiology and Intensive Care
+   - Department of Child Health
+   - Department of Community Health
+   - Department of Eye, Ear, Nose, and Throat
+   - Department of Medicine
+   - Department of Obstetrics and Gynaecology
+   - Department of Radiology
+   - Department of Surgery
+
+3. School of Medicine and Dentistry
+
+4. Faculty of Allied Health Sciences
+   - Department of Medical Diagnostics
+   - Department of Medical Laboratory Technology
+   - Department of Nursing
+   - Department of Sports and Exercise Sciences
+
+5. School of Public Health
+   - Department of Health Policy, Planning, and Management
+   - Department of Health Promotion and Education
+   - Department of Population, Family, and Reproductive Health
+   - Department of Epidemiology and Disease Control
+   - Department of Nutrition and Food Science
+
+These are the faculties and departments under the College of Health Sciences at KNUST.
+2025-08-08 14:22:38,739 [INFO] Loading dataset from: C:\Projects\KNUST-Students-Pal\pal\dataset.csv
+2025-08-08 14:22:38,786 [INFO] Loaded 499 documents from CSV.
+2025-08-08 14:22:38,808 [INFO] Split documents into 505 chunks.
+2025-08-08 14:22:42,056 [INFO] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-08-08 14:22:48,722 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-08 14:23:18,817 [INFO] Saved documents to Chroma vector DB.
+2025-08-08 14:26:35,187 [INFO] Loading dataset from: C:\Projects\KNUST-Students-Pal\pal\dataset.csv
+2025-08-08 14:26:35,199 [INFO] Loaded 499 documents from CSV.
+2025-08-08 14:26:35,238 [INFO] Split documents into 505 chunks.
+2025-08-08 14:26:37,197 [INFO] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-08-08 14:26:40,805 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-08 14:26:59,727 [INFO] Saved documents to Chroma vector DB.
+2025-08-08 14:29:42,958 [INFO] Loading dataset from: C:\Projects\KNUST-Students-Pal\pal\dataset.csv
+2025-08-08 14:29:42,968 [INFO] Loaded 499 documents from CSV.
+2025-08-08 14:29:43,019 [INFO] Split documents into 505 chunks.
+2025-08-08 14:29:44,956 [INFO] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-08-08 14:29:48,185 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-08 14:30:30,882 [INFO] Saved documents to Chroma vector DB.
+2025-08-08 14:32:22,788 [INFO] Received message: Hi
+2025-08-08 14:32:22,789 [INFO] Received user query: Hi
+2025-08-08 14:32:23,779 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-08 14:32:23,949 [INFO] Retrieved 10 documents for query: 'Hi'
+2025-08-08 14:32:23,949 [INFO] Doc 1: content:...
+2025-08-08 14:32:23,950 [INFO] Doc 2: content:...
+2025-08-08 14:32:23,950 [INFO] Doc 3: content:...
+2025-08-08 14:32:23,951 [INFO] Doc 4: content:...
+2025-08-08 14:32:23,951 [INFO] Doc 5: content:...
+2025-08-08 14:32:23,951 [INFO] Doc 6: content:...
+2025-08-08 14:32:23,951 [INFO] Doc 7: content:...
+2025-08-08 14:32:23,952 [INFO] Doc 8: content:...
+2025-08-08 14:32:23,952 [INFO] Doc 9: content:...
+2025-08-08 14:32:23,952 [INFO] Doc 10: content:...
+2025-08-08 14:32:24,751 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-08 14:32:25,894 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-08 14:32:25,919 [INFO] LLM response: Hello! How can I assist you today?
+2025-08-08 14:32:25,920 [INFO] Chatbot response: Hello! How can I assist you today?
+2025-08-08 14:33:09,684 [INFO] Received message: How many faculties are in the college of health sciences
+2025-08-08 14:33:09,684 [INFO] Received user query: How many faculties are in the college of health sciences
+2025-08-08 14:33:10,919 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-08 14:33:10,939 [INFO] Retrieved 10 documents for query: 'How many faculties are in the college of health sciences'
+2025-08-08 14:33:10,940 [INFO] Doc 1: content: The Faculties and Departments of the College of Health Sciences
+run various postgraduate programmes leading
+to the award of Diploma, MSc., M.Phil., and Ph.D.
+degrees in their specific areas....
+2025-08-08 14:33:10,941 [INFO] Doc 2: content: The Faculties and Departments of the College of Health Sciences
+run various postgraduate programmes leading
+to the award of Diploma, MSc., M.Phil., and Ph.D.
+degrees in their specific areas....
+2025-08-08 14:33:10,942 [INFO] Doc 3: content: The Faculties and Departments of the College of Health Sciences
+run various postgraduate programmes leading
+to the award of Diploma, MSc., M.Phil., and Ph.D.
+degrees in their specific areas....
+2025-08-08 14:33:10,943 [INFO] Doc 4: content: The College of Health Sciences was established in line with the
+restructuring of the University into the collegiate system. It
+emerged from the former Faculty of Pharmacy and the School
+of Me...
+2025-08-08 14:33:10,945 [INFO] Doc 5: content: The College of Health Sciences was established in line with the
+restructuring of the University into the collegiate system. It
+emerged from the former Faculty of Pharmacy and the School
+of Me...
+2025-08-08 14:33:10,948 [INFO] Doc 6: content: The Faculties and Departments of the College of Health Sciences
+run various postgraduate programmes leading
+to the award of Diploma, MSc., M.Phil., and Ph.D.
+degrees in their specific areas....
+2025-08-08 14:33:10,951 [INFO] Doc 7: content: The College of Health Sciences was established in line with the
+restructuring of the University into the collegiate system. It
+emerged from the former Faculty of Pharmacy and the School
+of Me...
+2025-08-08 14:33:10,956 [INFO] Doc 8: content: The College of Health Sciences was established in line with the
+restructuring of the University into the collegiate system. It
+emerged from the former Faculty of Pharmacy and the School
+of Me...
+2025-08-08 14:33:10,991 [INFO] Doc 9: content: The Faculty of Allied Health Sciences comprises of the following departments;
+i. Department of Medical Diagnostics
+ii. Department of Medical Laboratory
+Technology
+iii. Department of Nursing
+i...
+2025-08-08 14:33:10,993 [INFO] Doc 10: content: The College of Humanities and Social Sciences is an
+amalgamation of three Faculties and sixteen (16) Departments
+and a Research Centre (Centre for Cultural and African Studies). The amalgamat...
+2025-08-08 14:33:14,354 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-08 14:33:14,978 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-08 14:33:16,941 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-08 14:33:17,238 [INFO] LLM response: There are five (5) faculties in the College of Health Sciences at KNUST. These faculties are:
+1. Faculty of Pharmacy and Pharmaceutical Sciences
+2. Faculty of Clinical Medicine
+3. Faculty of Allied Health Sciences
+4. School of Public Health
+5. School of Veterinary Medicine.
+2025-08-08 14:33:17,240 [INFO] Chatbot response: There are five (5) faculties in the College of Health Sciences at KNUST. These faculties are:
+1. Faculty of Pharmacy and Pharmaceutical Sciences
+2. Faculty of Clinical Medicine
+3. Faculty of Allied Health Sciences
+4. School of Public Health
+5. School of Veterinary Medicine.
+2025-08-08 14:36:58,127 [INFO] Loading dataset from: C:\Projects\KNUST-Students-Pal\pal\dataset.csv
+2025-08-08 14:36:58,136 [INFO] Loaded 499 documents from CSV.
+2025-08-08 14:36:58,194 [INFO] Split documents into 505 chunks.
+2025-08-08 14:37:00,234 [INFO] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-08-08 14:37:03,828 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-08 14:37:24,884 [INFO] Saved documents to Chroma vector DB.
+2025-08-08 22:30:51,394 [INFO] Loading dataset from: C:\Projects\KNUST-Students-Pal\pal\dataset.csv
+2025-08-08 22:30:51,424 [INFO] Loaded 499 documents from CSV.
+2025-08-08 22:30:51,442 [INFO] Split documents into 511 chunks.
+2025-08-08 22:30:53,540 [INFO] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-08-08 22:30:57,043 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-08 22:31:00,473 [INFO] Saved documents to Chroma vector DB.
+2025-08-09 18:27:06,900 [INFO] Loading dataset from: C:\Projects\KNUST-Students-Pal\pal\dataset.csv
+2025-08-09 18:27:06,942 [INFO] Loaded 499 documents from CSV.
+2025-08-09 18:27:07,005 [INFO] Split documents into 511 chunks.
+2025-08-09 18:27:09,621 [INFO] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-08-09 18:27:13,719 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-09 18:27:17,519 [INFO] Saved documents to Chroma vector DB.
+2025-08-09 18:33:37,149 [INFO] Received message: Hi
+2025-08-09 18:33:37,150 [INFO] Received user query: Hi
+2025-08-09 18:33:38,382 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-09 18:33:38,464 [INFO] Retrieved 10 documents for query: 'Hi'
+2025-08-09 18:33:38,465 [INFO] Doc 1: content:...
+2025-08-09 18:33:38,465 [INFO] Doc 2: content:...
+2025-08-09 18:33:38,465 [INFO] Doc 3: content:...
+2025-08-09 18:33:38,466 [INFO] Doc 4: content:...
+2025-08-09 18:33:38,466 [INFO] Doc 5: content:...
+2025-08-09 18:33:38,467 [INFO] Doc 6: content:...
+2025-08-09 18:33:38,467 [INFO] Doc 7: content:...
+2025-08-09 18:33:38,467 [INFO] Doc 8: content:...
+2025-08-09 18:33:38,468 [INFO] Doc 9: content:...
+2025-08-09 18:33:38,468 [INFO] Doc 10: content:...
+2025-08-09 18:33:39,128 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-09 18:33:40,213 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-09 18:33:40,230 [INFO] LLM response: Hello! How can I assist you today?
+2025-08-09 18:33:40,231 [INFO] Chatbot response: Hello! How can I assist you today?
+2025-08-09 18:33:59,381 [INFO] Received message: How many colleges do we have in knust
+2025-08-09 18:33:59,382 [INFO] Received user query: How many colleges do we have in knust
+2025-08-09 18:34:00,270 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-09 18:34:00,287 [INFO] Retrieved 10 documents for query: 'How many colleges do we have in knust'
+2025-08-09 18:34:00,290 [INFO] Doc 1: content: In 2022, KNUST elevated its School of Graduate Studies to the status of a college (while retaining its original name) to further strengthen its vibrant research culture. This move enhances th...
+2025-08-09 18:34:00,291 [INFO] Doc 2: content: In 2022, KNUST elevated its School of Graduate Studies to the status of a college (while retaining its original name) to further strengthen its vibrant research culture. This move enhances th...
+2025-08-09 18:34:00,292 [INFO] Doc 3: content: In 2022, KNUST elevated its School of Graduate Studies to the status of a college (while retaining its original name) to further strengthen its vibrant research culture. This move enhances th...
+2025-08-09 18:34:00,292 [INFO] Doc 4: content: The College of Science emerged from the former Faculty of
+Science, which was established in 1961. The College status was
+attained due to the restructuring of KNUST into the Collegiate
+system,...
+2025-08-09 18:34:00,293 [INFO] Doc 5: content: The College of Science emerged from the former Faculty of
+Science, which was established in 1961. The College status was
+attained due to the restructuring of KNUST into the Collegiate
+system,...
+2025-08-09 18:34:00,296 [INFO] Doc 6: content: The College of Science emerged from the former Faculty of
+Science, which was established in 1961. The College status was
+attained due to the restructuring of KNUST into the Collegiate
+system,...
+2025-08-09 18:34:00,297 [INFO] Doc 7: College. Consequently, the Kumasi College of
+Technology was converted into an autonomous
+University by an Act of Parliament on August 22,
+1961, and named Kwame Nkrumah University of
+Science and Techno...
+2025-08-09 18:34:00,297 [INFO] Doc 8: College. Consequently, the Kumasi College of
+Technology was converted into an autonomous
+University by an Act of Parliament on August 22,
+1961, and named Kwame Nkrumah University of
+Science and Techno...
+2025-08-09 18:34:00,298 [INFO] Doc 9: College. Consequently, the Kumasi College of
+Technology was converted into an autonomous
+University by an Act of Parliament on August 22,
+1961, and named Kwame Nkrumah University of
+Science and Techno...
+2025-08-09 18:34:00,300 [INFO] Doc 10: content: The KNUST School of Business has four academic departments:
+i. Department of Accounting and Finance
+ii. Department of Human Resources & Organisational Management
+iii. Department of Informatio...
+2025-08-09 18:34:01,437 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-09 18:34:02,174 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-09 18:34:03,211 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-09 18:34:03,216 [INFO] LLM response: There are currently three (3) colleges at KNUST: the College of Science, the School of Graduate Studies (elevated to college status), and the KNUST School of Business. Each college oversees various academic departments and programs within the university.
+2025-08-09 18:34:03,218 [INFO] Chatbot response: There are currently three (3) colleges at KNUST: the College of Science, the School of Graduate Studies (elevated to college status), and the KNUST School of Business. Each college oversees various academic departments and programs within the university.
+2025-08-09 18:34:48,508 [INFO] Loading dataset from: C:\Projects\KNUST-Students-Pal\pal\dataset.csv
+2025-08-09 18:34:48,523 [INFO] Loaded 499 documents from CSV.
+2025-08-09 18:34:48,577 [INFO] Split documents into 511 chunks.
+2025-08-09 18:34:50,887 [INFO] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-08-09 18:34:53,286 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-09 18:34:55,904 [INFO] Saved documents to Chroma vector DB.
+2025-08-09 18:36:56,789 [INFO] Received message: Hi
+2025-08-09 18:36:56,789 [INFO] Received user query: Hi
+2025-08-09 18:36:58,306 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-09 18:36:58,468 [INFO] Retrieved 10 documents for query: 'Hi'
+2025-08-09 18:36:58,469 [INFO] Doc 1: content:...
+2025-08-09 18:36:58,469 [INFO] Doc 2: content:...
+2025-08-09 18:36:58,469 [INFO] Doc 3: content:...
+2025-08-09 18:36:58,470 [INFO] Doc 4: content:...
+2025-08-09 18:36:58,470 [INFO] Doc 5: content:...
+2025-08-09 18:36:58,470 [INFO] Doc 6: content:...
+2025-08-09 18:36:58,471 [INFO] Doc 7: content:...
+2025-08-09 18:36:58,471 [INFO] Doc 8: content:...
+2025-08-09 18:36:58,471 [INFO] Doc 9: content:...
+2025-08-09 18:36:58,472 [INFO] Doc 10: content:...
+2025-08-09 18:36:59,548 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-09 18:37:01,801 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-09 18:37:01,815 [INFO] LLM response: Hello! How can I assist you today?
+2025-08-09 18:37:01,816 [INFO] Chatbot response: Hello! How can I assist you today?
+2025-08-09 18:37:31,304 [INFO] Received message: How many colleges do we have in knust 
+2025-08-09 18:37:31,304 [INFO] Received user query: How many colleges do we have in knust 
+2025-08-09 18:37:32,331 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-09 18:37:32,346 [INFO] Retrieved 10 documents for query: 'How many colleges do we have in knust '
+2025-08-09 18:37:32,358 [INFO] Doc 1: content: In 2022, KNUST elevated its School of Graduate Studies to the status of a college (while retaining its original name) to further strengthen its vibrant research culture. This move enhances th...
+2025-08-09 18:37:32,394 [INFO] Doc 2: content: The College of Science emerged from the former Faculty of
+Science, which was established in 1961. The College status was
+attained due to the restructuring of KNUST into the Collegiate
+system,...
+2025-08-09 18:37:32,394 [INFO] Doc 3: College. Consequently, the Kumasi College of
+Technology was converted into an autonomous
+University by an Act of Parliament on August 22,
+1961, and named Kwame Nkrumah University of
+Science and Techno...
+2025-08-09 18:37:32,395 [INFO] Doc 4: content: The KNUST School of Business has four academic departments:
+i. Department of Accounting and Finance
+ii. Department of Human Resources & Organisational Management
+iii. Department of Informatio...
+2025-08-09 18:37:32,396 [INFO] Doc 5: content: To apply for an undergraduate programme, visit the official KNUST website, https://www.knust.edu.gh/announcements/undergraduate-admissions/admission-candidates-undergraduate-degree-programmes...
+2025-08-09 18:37:32,397 [INFO] Doc 6: content: Kwame Nkrumah University of Science and
+Technology, Kumasi, Ghana is currently a
+household name in science and technology
+education in Africa and its vision of becoming
+one of the top ten (10...
+2025-08-09 18:37:32,399 [INFO] Doc 7: content: To apply for a postgraduate programme, visit the official KNUST website,https://www.knust.edu.gh/announcements/general/admission-candidates-research-or-higher-degree-programmes-20252026-acade...
+2025-08-09 18:37:32,400 [INFO] Doc 8: content: The College of Humanities and Social Sciences is an
+amalgamation of three Faculties and sixteen (16) Departments
+and a Research Centre (Centre for Cultural and African Studies). The amalgamat...
+2025-08-09 18:37:32,400 [INFO] Doc 9: content: Graduates from the College of Humanities and Social Sciences have a wide range of job opportunities
+ranging from Education to Research, Public Institutions and NGOs, International Organisatio...
+2025-08-09 18:37:32,401 [INFO] Doc 10: content: Kwame Nkrumah University of Science and
+Technology, Kumasi, Ghana is a university situated
+in Kumasi, the capital city of the Ashanti Region
+of Ghana. The main university campus, which is
+app...
+2025-08-09 18:37:34,258 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-09 18:37:34,673 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-09 18:37:35,523 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-09 18:37:35,526 [INFO] LLM response: There are currently six (6) colleges at KNUST. These are the College of Graduate Studies, College of Science, College of Business, College of Humanities and Social Sciences, College of Engineering, and the College of Health Sciences. Each college oversees various academic departments and programmes within the university.
+2025-08-09 18:37:35,527 [INFO] Chatbot response: There are currently six (6) colleges at KNUST. These are the College of Graduate Studies, College of Science, College of Business, College of Humanities and Social Sciences, College of Engineering, and the College of Health Sciences. Each college oversees various academic departments and programmes within the university.
+2025-08-09 18:37:57,625 [INFO] Received message: How many faculties are in the college of health sciences 
+2025-08-09 18:37:57,625 [INFO] Received user query: How many faculties are in the college of health sciences 
+2025-08-09 18:37:58,680 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-09 18:37:58,690 [INFO] Retrieved 10 documents for query: 'How many faculties are in the college of health sciences '
+2025-08-09 18:37:58,691 [INFO] Doc 1: content: The Faculties and Departments of the College of Health Sciences
+run various postgraduate programmes leading
+to the award of Diploma, MSc., M.Phil., and Ph.D.
+degrees in their specific areas....
+2025-08-09 18:37:58,692 [INFO] Doc 2: content: The College of Health Sciences was established in line with the
+restructuring of the University into the collegiate system. It
+emerged from the former Faculty of Pharmacy and the School
+of Me...
+2025-08-09 18:37:58,741 [INFO] Doc 3: content: The Faculty of Pharmacy and Pharmaceutical Sciences comprises the following departments;
+i. Department of Pharmacy Practice
+ii. Department of Herbal Medicine
+iii. Department of Pharmaceutical...
+2025-08-09 18:37:58,742 [INFO] Doc 4: content: The College of Humanities and Social Sciences is an
+amalgamation of three Faculties and sixteen (16) Departments
+and a Research Centre (Centre for Cultural and African Studies). The amalgamat...
+2025-08-09 18:37:58,743 [INFO] Doc 5: content: Graduates from the College of Health Sciences have varied
+job opportunities in the Health Sector,
+Pharmaceutical Industries, and Research and
+Development Institutes...
+2025-08-09 18:37:58,744 [INFO] Doc 6: content: The Faculty of Biosciences comprises of the following departments;
+i. Department of Biochemistry and Biotechnology
+ii. Department of Environmental Science
+iii. Department of Food Science and ...
+2025-08-09 18:37:58,747 [INFO] Doc 7: content: The Faculty of Social Sciences Comprises of the following departments;
+i. Department of Communication and Language Sciences
+ii. Department of Economics
+iii. Department of English
+iv. Departme...
+2025-08-09 18:37:58,748 [INFO] Doc 8: content: The Faculty of Physical and Computational Sciences comprises of the following departments;
+i. Department of Chemistry
+ii. Department of Computer Science
+iii. Department of Mathematics
+iv. Dep...
+2025-08-09 18:37:58,748 [INFO] Doc 9: content: In January 2005, the University adopted the
+collegiate system to allow for greater academic
+and administrative autonomy. Under this system,
+the various Faculties were condensed into six
+colle...
+2025-08-09 18:37:58,749 [INFO] Doc 10: The School of Medicine and Dentistry comprises of the following departments;
+i. Department of Adult Oral Health
+ii. Department of Anatomy
+iii. Department of Basic and Diagnostic Oral
+Sciences
+iv. Depa...
+2025-08-09 18:37:59,668 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-09 18:38:00,478 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-09 18:38:01,086 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-09 18:38:01,090 [INFO] LLM response: The College of Health Sciences at KNUST has five academic faculties.
+2025-08-09 18:38:01,091 [INFO] Chatbot response: The College of Health Sciences at KNUST has five academic faculties.
+2025-08-09 18:38:38,271 [INFO] Received message: List them and their faculties 
+2025-08-09 18:38:38,272 [INFO] Received user query: List them and their faculties 
+2025-08-09 18:38:38,956 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-09 18:38:38,967 [INFO] Retrieved 10 documents for query: 'List them and their faculties '
+2025-08-09 18:38:38,967 [INFO] Doc 1: content: The Faculty of Physical and Computational Sciences comprises of the following departments;
+i. Department of Chemistry
+ii. Department of Computer Science
+iii. Department of Mathematics
+iv. Dep...
+2025-08-09 18:38:38,969 [INFO] Doc 2: content: The Faculties and Departments of the College of Health Sciences
+run various postgraduate programmes leading
+to the award of Diploma, MSc., M.Phil., and Ph.D.
+degrees in their specific areas....
+2025-08-09 18:38:38,970 [INFO] Doc 3: content: The Faculty of Social Sciences Comprises of the following departments;
+i. Department of Communication and Language Sciences
+ii. Department of Economics
+iii. Department of English
+iv. Departme...
+2025-08-09 18:38:38,971 [INFO] Doc 4: content: The Faculty of law comprises the following departments;
+i. Department of Commercial Law.
+ii. Department of Private Law
+iii. Department of Public Law...
+2025-08-09 18:38:38,972 [INFO] Doc 5: content: The Faculty of Biosciences comprises of the following departments;
+i. Department of Biochemistry and Biotechnology
+ii. Department of Environmental Science
+iii. Department of Food Science and ...
+2025-08-09 18:38:38,973 [INFO] Doc 6: content: The faculty of art in the college of arts and built environment comprises of the following departments;
+i. Department of Communication Design
+ii. Department of Industrial Art
+iii. Department ...
+2025-08-09 18:38:39,026 [INFO] Doc 7: content: The Faculty of Pharmacy and Pharmaceutical Sciences comprises the following departments;
+i. Department of Pharmacy Practice
+ii. Department of Herbal Medicine
+iii. Department of Pharmaceutical...
+2025-08-09 18:38:39,027 [INFO] Doc 8: content: The faculty of built environment in the college of arts and built environment comprises of the following departments;
+i. Department of Architecture
+ii. Department of Construction Technology a...
+2025-08-09 18:38:39,028 [INFO] Doc 9: content: The faculty of educational Studies in the college of arts and built environment comprises of the following departments;
+i. Department of Educational Innovations in Science and Technology
+ii. ...
+2025-08-09 18:38:39,029 [INFO] Doc 10: content: The Faculty of Civil and Geo-Engineering comprises of the following departments;
+i. Civil Engineering
+ii. Geological Engineering
+iii. Geomatic Engineering
+iv. Petroleum Engineering...
+2025-08-09 18:38:40,037 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-09 18:38:40,415 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-09 18:38:41,637 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-09 18:38:41,641 [INFO] LLM response: The five academic faculties within the College of Health Sciences at KNUST are:
+1. Faculty of Pharmacy and Pharmaceutical Sciences
+2. Faculty of Clinical Medicine
+3. Faculty of Allied Health Sciences
+4. School of Public Health
+5. School of Veterinary Medicine
+2025-08-09 18:38:41,641 [INFO] Chatbot response: The five academic faculties within the College of Health Sciences at KNUST are:
+1. Faculty of Pharmacy and Pharmaceutical Sciences
+2. Faculty of Clinical Medicine
+3. Faculty of Allied Health Sciences
+4. School of Public Health
+5. School of Veterinary Medicine
+2025-08-09 18:39:12,569 [INFO] Received message: List their departments 
+2025-08-09 18:39:12,569 [INFO] Received user query: List their departments 
+2025-08-09 18:39:13,502 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-09 18:39:13,510 [INFO] Retrieved 10 documents for query: 'List their departments '
+2025-08-09 18:39:13,511 [INFO] Doc 1: content: The Faculty of Physical and Computational Sciences comprises of the following departments;
+i. Department of Chemistry
+ii. Department of Computer Science
+iii. Department of Mathematics
+iv. Dep...
+2025-08-09 18:39:13,512 [INFO] Doc 2: content: The Faculty of Social Sciences Comprises of the following departments;
+i. Department of Communication and Language Sciences
+ii. Department of Economics
+iii. Department of English
+iv. Departme...
+2025-08-09 18:39:13,513 [INFO] Doc 3: content: The Faculty of Pharmacy and Pharmaceutical Sciences comprises the following departments;
+i. Department of Pharmacy Practice
+ii. Department of Herbal Medicine
+iii. Department of Pharmaceutical...
+2025-08-09 18:39:13,514 [INFO] Doc 4: content: The Faculty of Biosciences comprises of the following departments;
+i. Department of Biochemistry and Biotechnology
+ii. Department of Environmental Science
+iii. Department of Food Science and ...
+2025-08-09 18:39:13,515 [INFO] Doc 5: content: The faculty of art in the college of arts and built environment comprises of the following departments;
+i. Department of Communication Design
+ii. Department of Industrial Art
+iii. Department ...
+2025-08-09 18:39:13,522 [INFO] Doc 6: The School of Public Health comprises of the following departments;
+i. Department of Epidemiology and
+Biostatistics
+ii. Department of Health Policy,
+management, and Economics
+iii. Department of Popula...
+2025-08-09 18:39:13,547 [INFO] Doc 7: content: The KNUST School of Business has four academic departments:
+i. Department of Accounting and Finance
+ii. Department of Human Resources & Organisational Management
+iii. Department of Informatio...
+2025-08-09 18:39:13,547 [INFO] Doc 8: content: The Faculty of law comprises the following departments;
+i. Department of Commercial Law.
+ii. Department of Private Law
+iii. Department of Public Law...
+2025-08-09 18:39:13,548 [INFO] Doc 9: content: Faculty of Agriculture comprises of the following departments
+i. Department of Agricultural Economics, Agribusiness, and Extension
+ii. Department of Animal Science
+iii. Department of Crop and...
+2025-08-09 18:39:13,549 [INFO] Doc 10: content: The faculty of built environment in the college of arts and built environment comprises of the following departments;
+i. Department of Architecture
+ii. Department of Construction Technology a...
+2025-08-09 18:39:14,751 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-09 18:39:15,051 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-09 18:39:18,291 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-09 18:39:18,294 [INFO] LLM response: The departments within the five academic faculties of the College of Health Sciences at KNUST are as follows:
+
+1. Faculty of Pharmacy and Pharmaceutical Sciences:
+   - Department of Pharmacy Practice
+   - Department of Herbal Medicine
+   - Department of Pharmaceutical Chemistry
+   - Department of Pharmaceutics
+   - Department of Pharmacognosy
+   - Department of Pharmacology
+
+2. Faculty of Clinical Medicine:
+   - Department of Anaesthesiology and Intensive Care
+   - Department of Child Health
+   - Department of Community Health
+   - Department of Eye, Ear, Nose, and Throat
+   - Department of Medicine
+   - Department of Obstetrics and Gynaecology
+   - Department of Radiology
+   - Department of Surgery
+
+3. School of Medicine and Dentistry:
+   - Department of Adult Oral Health
+   - Department of Anatomy
+   - Department of Basic and Diagnostic Oral Sciences
+   - Department of Behavioural Sciences
+   - Department of Child Oral Health and Orthodontics
+   - Department of Clinical Microbiology
+   - Department of Community Dentistry
+   - Department of Molecular Medicine
+   - Department of Oral and Maxillofacial Sciences
+   - Department of Pathology
+   - Department of Physiology
+
+4. Faculty of Allied Health Sciences:
+   - Department of Medical Diagnostics
+   - Department of Medical Laboratory Technology
+   - Department of Nursing
+   - Department of Sports and Exercise Sciences
+
+5. School of Public Health:
+   - (Departments information not provided in the context)
+2025-08-09 18:39:18,297 [INFO] Chatbot response: The departments within the five academic faculties of the College of Health Sciences at KNUST are as follows:
+
+1. Faculty of Pharmacy and Pharmaceutical Sciences:
+   - Department of Pharmacy Practice
+   - Department of Herbal Medicine
+   - Department of Pharmaceutical Chemistry
+   - Department of Pharmaceutics
+   - Department of Pharmacognosy
+   - Department of Pharmacology
+
+2. Faculty of Clinical Medicine:
+   - Department of Anaesthesiology and Intensive Care
+   - Department of Child Health
+   - Department of Community Health
+   - Department of Eye, Ear, Nose, and Throat
+   - Department of Medicine
+   - Department of Obstetrics and Gynaecology
+   - Department of Radiology
+   - Department of Surgery
+
+3. School of Medicine and Dentistry:
+   - Department of Adult Oral Health
+   - Department of Anatomy
+   - Department of Basic and Diagnostic Oral Sciences
+   - Department of Behavioural Sciences
+   - Department of Child Oral Health and Orthodontics
+   - Department of Clinical Microbiology
+   - Department of Community Dentistry
+   - Department of Molecular Medicine
+   - Department of Oral and Maxillofacial Sciences
+   - Department of Pathology
+   - Department of Physiology
+
+4. Faculty of Allied Health Sciences:
+   - Department of Medical Diagnostics
+   - Department of Medical Laboratory Technology
+   - Department of Nursing
+   - Department of Sports and Exercise Sciences
+
+5. School of Public Health:
+   - (Departments information not provided in the context)
+2025-08-16 21:27:06,180 [INFO] Loading dataset from: C:\Projects\KNUST-Students-Pal\pal\dataset.csv
+2025-08-16 21:27:06,208 [INFO] Loaded 499 documents from CSV.
+2025-08-16 21:27:06,235 [INFO] Split documents into 511 chunks.
+2025-08-16 21:27:08,398 [INFO] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-08-16 21:27:13,477 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-16 21:29:32,431 [INFO] Saved documents to Chroma vector DB.
+2025-08-16 22:51:30,777 [WARNING] (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Projects\KNUST-Students-Pal\backend\fapivenv\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2025-08-16 22:57:19,526 [INFO] Received message: Hi
+2025-08-16 22:57:19,527 [INFO] Received user query: Hi
+2025-08-16 22:57:21,949 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-16 22:57:22,184 [INFO] Retrieved 10 documents for query: 'Hi'
+2025-08-16 22:57:22,184 [INFO] Doc 1: content:...
+2025-08-16 22:57:22,184 [INFO] Doc 2: content:...
+2025-08-16 22:57:22,185 [INFO] Doc 3: content:...
+2025-08-16 22:57:22,185 [INFO] Doc 4: content:...
+2025-08-16 22:57:22,185 [INFO] Doc 5: content:...
+2025-08-16 22:57:22,186 [INFO] Doc 6: content:...
+2025-08-16 22:57:22,186 [INFO] Doc 7: content:...
+2025-08-16 22:57:22,186 [INFO] Doc 8: content:...
+2025-08-16 22:57:22,187 [INFO] Doc 9: content:...
+2025-08-16 22:57:22,187 [INFO] Doc 10: content:...
+2025-08-16 22:57:23,486 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-16 22:57:24,407 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-16 22:57:24,441 [INFO] LLM response: Hello! How can I assist you today?
+2025-08-16 22:57:24,441 [INFO] Chatbot response: Hello! How can I assist you today?
+2025-08-16 22:57:38,743 [INFO] Received message: Where is commercial area?
+2025-08-16 22:57:38,744 [INFO] Received user query: Where is commercial area?
+2025-08-16 22:57:40,224 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-16 22:57:40,240 [INFO] Retrieved 10 documents for query: 'Where is commercial area?'
+2025-08-16 22:57:40,240 [INFO] Doc 1: content: The Commercial area is the main business hub of the university. The commercial area houses a pool of banks, a post office and well-resourced bookshop. It also houses a number of mini-marts wh...
+2025-08-16 22:57:40,241 [INFO] Doc 2: content: The Commercial area is the main business hub of the university. The commercial area houses a pool of banks, a post office and well-resourced bookshop. It also houses a number of mini-marts wh...
+2025-08-16 22:57:40,242 [INFO] Doc 3: content: There are a number of shuttles at the Commercial area, which stops at various Bus stops on  and around campus....
+2025-08-16 22:57:40,243 [INFO] Doc 4: content: There are a number of shuttles at the Commercial area, which stops at various Bus stops on  and around campus....
+2025-08-16 22:57:40,244 [INFO] Doc 5: content: A taxi station can be found at Tech Junction and Brunei Hostel....
+2025-08-16 22:57:40,245 [INFO] Doc 6: content: A taxi station can be found at Tech Junction and Brunei Hostel....
+2025-08-16 22:57:40,247 [INFO] Doc 7: content: F. PLAZA — Location: AYEDUASE NEW SITE — Contact: 0246761099 / 0244366904. This is one of the non-residential hostels around KNUST campus....
+2025-08-16 22:57:40,248 [INFO] Doc 8: content: F. PLAZA — Location: AYEDUASE NEW SITE — Contact: 0246761099 / 0244366904. This is one of the non-residential hostels around KNUST campus....
+2025-08-16 22:57:40,249 [INFO] Doc 9: content: NEW FRANCO — Location: KOTEI EXTENSION — Contact: 0244583897. This is one of the non-residential hostels around KNUST campus....
+2025-08-16 22:57:40,250 [INFO] Doc 10: content: NEW FRANCO — Location: KOTEI EXTENSION — Contact: 0244583897. This is one of the non-residential hostels around KNUST campus....
+2025-08-16 22:57:41,107 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-16 22:57:41,502 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-16 22:57:42,302 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-16 22:57:42,305 [INFO] LLM response: The commercial area is the main business hub of the university. It houses a pool of banks, a post office, a well-resourced bookshop, mini-marts with assorted foodstuff, and printing and photocopy shops scattered around campus to aid academic work. You can find the commercial area on campus where you can access all these services.
+2025-08-16 22:57:42,306 [INFO] Chatbot response: The commercial area is the main business hub of the university. It houses a pool of banks, a post office, a well-resourced bookshop, mini-marts with assorted foodstuff, and printing and photocopy shops scattered around campus to aid academic work. You can find the commercial area on campus where you can access all these services.
+2025-08-16 22:58:23,709 [INFO] Received message: How many colleges are in knust
+2025-08-16 22:58:23,709 [INFO] Received user query: How many colleges are in knust
+2025-08-16 22:58:24,306 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-16 22:58:24,316 [INFO] Retrieved 10 documents for query: 'How many colleges are in knust'
+2025-08-16 22:58:24,316 [INFO] Doc 1: content: In 2022, KNUST elevated its School of Graduate Studies to the status of a college (while retaining its original name) to further strengthen its vibrant research culture. This move enhances th...
+2025-08-16 22:58:24,317 [INFO] Doc 2: content: In 2022, KNUST elevated its School of Graduate Studies to the status of a college (while retaining its original name) to further strengthen its vibrant research culture. This move enhances th...
+2025-08-16 22:58:24,318 [INFO] Doc 3: content: The College of Science emerged from the former Faculty of
+Science, which was established in 1961. The College status was
+attained due to the restructuring of KNUST into the Collegiate
+system,...
+2025-08-16 22:58:24,318 [INFO] Doc 4: content: The College of Science emerged from the former Faculty of
+Science, which was established in 1961. The College status was
+attained due to the restructuring of KNUST into the Collegiate
+system,...
+2025-08-16 22:58:24,319 [INFO] Doc 5: College. Consequently, the Kumasi College of
+Technology was converted into an autonomous
+University by an Act of Parliament on August 22,
+1961, and named Kwame Nkrumah University of
+Science and Techno...
+2025-08-16 22:58:24,319 [INFO] Doc 6: College. Consequently, the Kumasi College of
+Technology was converted into an autonomous
+University by an Act of Parliament on August 22,
+1961, and named Kwame Nkrumah University of
+Science and Techno...
+2025-08-16 22:58:24,320 [INFO] Doc 7: content: To apply for an undergraduate programme, visit the official KNUST website, https://www.knust.edu.gh/announcements/undergraduate-admissions/admission-candidates-undergraduate-degree-programmes...
+2025-08-16 22:58:24,320 [INFO] Doc 8: content: To apply for an undergraduate programme, visit the official KNUST website, https://www.knust.edu.gh/announcements/undergraduate-admissions/admission-candidates-undergraduate-degree-programmes...
+2025-08-16 22:58:24,321 [INFO] Doc 9: content: The KNUST School of Business has four academic departments:
+i. Department of Accounting and Finance
+ii. Department of Human Resources & Organisational Management
+iii. Department of Informatio...
+2025-08-16 22:58:24,321 [INFO] Doc 10: content: The KNUST School of Business has four academic departments:
+i. Department of Accounting and Finance
+ii. Department of Human Resources & Organisational Management
+iii. Department of Informatio...
+2025-08-16 22:58:25,746 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-16 22:58:26,696 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-16 22:58:28,094 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-16 22:58:28,098 [INFO] LLM response: There are currently six (6) colleges at KNUST. These colleges are the College of Science, the College of Humanities and Social Sciences, the College of Engineering, the College of Health Sciences, the College of Art and Built Environment, and the College of Agriculture and Natural Resources. Each college oversees various academic departments and programs within the university.
+2025-08-16 22:58:28,099 [INFO] Chatbot response: There are currently six (6) colleges at KNUST. These colleges are the College of Science, the College of Humanities and Social Sciences, the College of Engineering, the College of Health Sciences, the College of Art and Built Environment, and the College of Agriculture and Natural Resources. Each college oversees various academic departments and programs within the university.
+2025-08-16 23:08:02,342 [INFO] Received message: Hi
+2025-08-16 23:08:02,342 [INFO] Received user query: Hi
+2025-08-16 23:08:03,483 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-16 23:08:03,497 [INFO] Retrieved 10 documents for query: 'Hi'
+2025-08-16 23:08:03,498 [INFO] Doc 1: content:...
+2025-08-16 23:08:03,498 [INFO] Doc 2: content:...
+2025-08-16 23:08:03,499 [INFO] Doc 3: content:...
+2025-08-16 23:08:03,501 [INFO] Doc 4: content:...
+2025-08-16 23:08:03,502 [INFO] Doc 5: content:...
+2025-08-16 23:08:03,502 [INFO] Doc 6: content:...
+2025-08-16 23:08:03,503 [INFO] Doc 7: content:...
+2025-08-16 23:08:03,503 [INFO] Doc 8: content:...
+2025-08-16 23:08:03,505 [INFO] Doc 9: content:...
+2025-08-16 23:08:03,505 [INFO] Doc 10: content:...
+2025-08-16 23:08:04,612 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-16 23:08:04,960 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-16 23:08:06,252 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-16 23:08:06,254 [INFO] LLM response: There are currently six (6) colleges at KNUST. These colleges are the College of Science, the College of Humanities and Social Sciences, the College of Engineering, the College of Health Sciences, the College of Art and Built Environment, and the College of Agriculture and Natural Resources. Each college oversees various academic departments and programs within the university.
+2025-08-16 23:08:06,255 [INFO] Chatbot response: There are currently six (6) colleges at KNUST. These colleges are the College of Science, the College of Humanities and Social Sciences, the College of Engineering, the College of Health Sciences, the College of Art and Built Environment, and the College of Agriculture and Natural Resources. Each college oversees various academic departments and programs within the university.
+2025-08-16 23:08:26,157 [INFO] Received message: Ji
+2025-08-16 23:08:26,157 [INFO] Received user query: Ji
+2025-08-16 23:08:27,057 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-16 23:08:27,070 [INFO] Retrieved 10 documents for query: 'Ji'
+2025-08-16 23:08:27,070 [INFO] Doc 1: content:...
+2025-08-16 23:08:27,071 [INFO] Doc 2: content:...
+2025-08-16 23:08:27,072 [INFO] Doc 3: content:...
+2025-08-16 23:08:27,073 [INFO] Doc 4: content:...
+2025-08-16 23:08:27,074 [INFO] Doc 5: content:...
+2025-08-16 23:08:27,074 [INFO] Doc 6: content:...
+2025-08-16 23:08:27,075 [INFO] Doc 7: content:...
+2025-08-16 23:08:27,076 [INFO] Doc 8: content:...
+2025-08-16 23:08:27,076 [INFO] Doc 9: content:...
+2025-08-16 23:08:27,077 [INFO] Doc 10: content:...
+2025-08-16 23:08:28,075 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-16 23:08:28,467 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-16 23:08:29,491 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-16 23:08:29,493 [INFO] LLM response: At KNUST, there are several colleges that cater to different academic disciplines. These include:
+
+1. College of Science
+2. College of Humanities and Social Sciences
+3. School of Graduate Studies
+4. School of Business
+
+Each of these colleges and schools have various departments and faculties that offer a wide range of academic programs and research opportunities.
+2025-08-16 23:08:29,494 [INFO] Chatbot response: At KNUST, there are several colleges that cater to different academic disciplines. These include:
+
+1. College of Science
+2. College of Humanities and Social Sciences
+3. School of Graduate Studies
+4. School of Business
+
+Each of these colleges and schools have various departments and faculties that offer a wide range of academic programs and research opportunities.
+2025-08-16 23:09:51,517 [INFO] Received message: Hi
+2025-08-16 23:09:51,518 [INFO] Received user query: Hi
+2025-08-16 23:09:52,230 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-16 23:09:52,237 [INFO] Retrieved 10 documents for query: 'Hi'
+2025-08-16 23:09:52,237 [INFO] Doc 1: content:...
+2025-08-16 23:09:52,237 [INFO] Doc 2: content:...
+2025-08-16 23:09:52,238 [INFO] Doc 3: content:...
+2025-08-16 23:09:52,239 [INFO] Doc 4: content:...
+2025-08-16 23:09:52,240 [INFO] Doc 5: content:...
+2025-08-16 23:09:52,240 [INFO] Doc 6: content:...
+2025-08-16 23:09:52,240 [INFO] Doc 7: content:...
+2025-08-16 23:09:52,241 [INFO] Doc 8: content:...
+2025-08-16 23:09:52,241 [INFO] Doc 9: content:...
+2025-08-16 23:09:52,241 [INFO] Doc 10: content:...
+2025-08-16 23:09:53,256 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-16 23:09:53,665 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-16 23:09:55,863 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-16 23:09:55,867 [INFO] LLM response: There are currently six (6) colleges at KNUST. These include the College of Science, the School of Graduate Studies (elevated to college status), the KNUST School of Business, the College of Humanities and Social Sciences, the Faculty of Law, and the Faculty of Biosciences and Faculty of Physical and Computational Sciences under the College of Science.
+2025-08-16 23:09:55,868 [INFO] Chatbot response: There are currently six (6) colleges at KNUST. These include the College of Science, the School of Graduate Studies (elevated to college status), the KNUST School of Business, the College of Humanities and Social Sciences, the Faculty of Law, and the Faculty of Biosciences and Faculty of Physical and Computational Sciences under the College of Science.
+2025-08-16 23:10:28,556 [INFO] Loading dataset from: C:\Projects\KNUST-Students-Pal\pal\dataset.csv
+2025-08-16 23:10:28,567 [INFO] Loaded 499 documents from CSV.
+2025-08-16 23:10:28,683 [INFO] Split documents into 511 chunks.
+2025-08-16 23:10:31,298 [INFO] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-08-16 23:10:34,625 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-16 23:12:19,635 [INFO] Saved documents to Chroma vector DB.
+2025-08-16 23:17:24,758 [INFO] Received message: Hi
+2025-08-16 23:17:24,758 [INFO] Received user query: Hi
+2025-08-16 23:17:25,724 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-16 23:17:25,811 [INFO] Retrieved 10 documents for query: 'Hi'
+2025-08-16 23:17:25,812 [INFO] Doc 1: content:...
+2025-08-16 23:17:25,812 [INFO] Doc 2: content:...
+2025-08-16 23:17:25,812 [INFO] Doc 3: content:...
+2025-08-16 23:17:25,813 [INFO] Doc 4: content:...
+2025-08-16 23:17:25,813 [INFO] Doc 5: content:...
+2025-08-16 23:17:25,813 [INFO] Doc 6: content:...
+2025-08-16 23:17:25,814 [INFO] Doc 7: content:...
+2025-08-16 23:17:25,814 [INFO] Doc 8: content:...
+2025-08-16 23:17:25,814 [INFO] Doc 9: content:...
+2025-08-16 23:17:25,814 [INFO] Doc 10: content:...
+2025-08-16 23:17:26,567 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-16 23:17:28,219 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-16 23:17:28,238 [INFO] LLM response: Hello! How can I assist you today?
+2025-08-16 23:17:28,239 [INFO] Chatbot response: Hello! How can I assist you today?
+2025-08-16 23:17:38,685 [INFO] Received message: Who are you?
+2025-08-16 23:17:38,685 [INFO] Received user query: Who are you?
+2025-08-16 23:17:39,389 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-16 23:17:39,400 [INFO] Retrieved 10 documents for query: 'Who are you?'
+2025-08-16 23:17:39,400 [INFO] Doc 1: content:...
+2025-08-16 23:17:39,401 [INFO] Doc 2: content:...
+2025-08-16 23:17:39,402 [INFO] Doc 3: content:...
+2025-08-16 23:17:39,404 [INFO] Doc 4: content:...
+2025-08-16 23:17:39,404 [INFO] Doc 5: content:...
+2025-08-16 23:17:39,405 [INFO] Doc 6: content:...
+2025-08-16 23:17:39,408 [INFO] Doc 7: content:...
+2025-08-16 23:17:39,409 [INFO] Doc 8: content:...
+2025-08-16 23:17:39,409 [INFO] Doc 9: content:...
+2025-08-16 23:17:39,410 [INFO] Doc 10: content:...
+2025-08-16 23:17:40,302 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-16 23:17:40,713 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-16 23:17:41,839 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-16 23:17:41,842 [INFO] LLM response: Hello! I am KNUST Students' Pal, a friendly and knowledgeable assistant created by two final year Computer Science students at KNUST, Nathaniel Ankomah Aidoo and Justice Abban Korsi Jnr. I am here to help you with any questions you may have about KNUST campus life, admissions, hostels, academics, and more. Feel free to ask me anything you need assistance with!
+2025-08-16 23:17:41,843 [INFO] Chatbot response: Hello! I am KNUST Students' Pal, a friendly and knowledgeable assistant created by two final year Computer Science students at KNUST, Nathaniel Ankomah Aidoo and Justice Abban Korsi Jnr. I am here to help you with any questions you may have about KNUST campus life, admissions, hostels, academics, and more. Feel free to ask me anything you need assistance with!
+2025-08-16 23:18:07,750 [INFO] Received message: Where is the college of science 
+2025-08-16 23:18:07,750 [INFO] Received user query: Where is the college of science 
+2025-08-16 23:18:08,782 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-16 23:18:08,800 [INFO] Retrieved 10 documents for query: 'Where is the college of science '
+2025-08-16 23:18:08,802 [INFO] Doc 1: content: The College of Science emerged from the former Faculty of
+Science, which was established in 1961. The College status was
+attained due to the restructuring of KNUST into the Collegiate
+system,...
+2025-08-16 23:18:08,804 [INFO] Doc 2: content: The College of Science emerged from the former Faculty of
+Science, which was established in 1961. The College status was
+attained due to the restructuring of KNUST into the Collegiate
+system,...
+2025-08-16 23:18:08,805 [INFO] Doc 3: content: The College of Science emerged from the former Faculty of
+Science, which was established in 1961. The College status was
+attained due to the restructuring of KNUST into the Collegiate
+system,...
+2025-08-16 23:18:08,806 [INFO] Doc 4: content: Undergraduate Programmes offered in the College of Science are:
+i. Actuarial Science
+ii. Biochemistry
+iii. Biological Sciences
+iv. Chemistry
+v. Computer Science
+vi. Information Technology
+vii...
+2025-08-16 23:18:08,808 [INFO] Doc 5: content: Undergraduate Programmes offered in the College of Science are:
+i. Actuarial Science
+ii. Biochemistry
+iii. Biological Sciences
+iv. Chemistry
+v. Computer Science
+vi. Information Technology
+vii...
+2025-08-16 23:18:08,809 [INFO] Doc 6: content: Undergraduate Programmes offered in the College of Science are:
+i. Actuarial Science
+ii. Biochemistry
+iii. Biological Sciences
+iv. Chemistry
+v. Computer Science
+vi. Information Technology
+vii...
+2025-08-16 23:18:08,811 [INFO] Doc 7: content: The College of Health Sciences was established in line with the
+restructuring of the University into the collegiate system. It
+emerged from the former Faculty of Pharmacy and the School
+of Me...
+2025-08-16 23:18:08,813 [INFO] Doc 8: content: The College of Health Sciences was established in line with the
+restructuring of the University into the collegiate system. It
+emerged from the former Faculty of Pharmacy and the School
+of Me...
+2025-08-16 23:18:08,814 [INFO] Doc 9: content: The College of Health Sciences was established in line with the
+restructuring of the University into the collegiate system. It
+emerged from the former Faculty of Pharmacy and the School
+of Me...
+2025-08-16 23:18:08,816 [INFO] Doc 10: content: In the College of Science, Master of Science (MSc.), Master of Philosophy (MPhil), and Doctor of Philosophy (Ph.D.) programmes are run in all the Departments, with a minimum of two years for ...
+2025-08-16 23:18:09,897 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-16 23:18:10,307 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-16 23:18:11,330 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-16 23:18:11,333 [INFO] LLM response: The College of Science at KNUST is located within the main campus of the university in Kumasi, Ghana. It emerged from the former Faculty of Science and has ten academic departments under two faculties, namely the Faculty of Biosciences and the Faculty of Physical and Computational Sciences.
+2025-08-16 23:18:11,333 [INFO] Chatbot response: The College of Science at KNUST is located within the main campus of the university in Kumasi, Ghana. It emerged from the former Faculty of Science and has ten academic departments under two faculties, namely the Faculty of Biosciences and the Faculty of Physical and Computational Sciences.
+2025-08-16 23:24:33,193 [INFO] Received message: Hi
+2025-08-16 23:24:33,193 [INFO] Received user query: Hi
+2025-08-16 23:24:34,206 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-16 23:24:34,216 [INFO] Retrieved 10 documents for query: 'Hi'
+2025-08-16 23:24:34,217 [INFO] Doc 1: content:...
+2025-08-16 23:24:34,217 [INFO] Doc 2: content:...
+2025-08-16 23:24:34,219 [INFO] Doc 3: content:...
+2025-08-16 23:24:34,219 [INFO] Doc 4: content:...
+2025-08-16 23:24:34,220 [INFO] Doc 5: content:...
+2025-08-16 23:24:34,220 [INFO] Doc 6: content:...
+2025-08-16 23:24:34,221 [INFO] Doc 7: content:...
+2025-08-16 23:24:34,221 [INFO] Doc 8: content:...
+2025-08-16 23:24:34,222 [INFO] Doc 9: content:...
+2025-08-16 23:24:34,222 [INFO] Doc 10: content:...
+2025-08-16 23:24:35,436 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-16 23:24:35,843 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-16 23:24:36,871 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-16 23:24:36,872 [INFO] LLM response: The College of Science at KNUST is located within the university campus in Kumasi, Ghana. It emerged from the former Faculty of Science and has ten academic departments under two faculties, namely the Faculty of Biosciences and the Faculty of Physical and Computational Sciences.
+2025-08-16 23:24:36,873 [INFO] Chatbot response: The College of Science at KNUST is located within the university campus in Kumasi, Ghana. It emerged from the former Faculty of Science and has ten academic departments under two faculties, namely the Faculty of Biosciences and the Faculty of Physical and Computational Sciences.
+2025-08-16 23:37:34,174 [INFO] Received message: Commercial area 
+2025-08-16 23:37:34,174 [INFO] Received user query: Commercial area 
+2025-08-16 23:37:34,907 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-16 23:37:34,920 [INFO] Retrieved 10 documents for query: 'Commercial area '
+2025-08-16 23:37:34,921 [INFO] Doc 1: content: The Commercial area is the main business hub of the university. The commercial area houses a pool of banks, a post office and well-resourced bookshop. It also houses a number of mini-marts wh...
+2025-08-16 23:37:34,922 [INFO] Doc 2: content: The Commercial area is the main business hub of the university. The commercial area houses a pool of banks, a post office and well-resourced bookshop. It also houses a number of mini-marts wh...
+2025-08-16 23:37:34,923 [INFO] Doc 3: content: The Commercial area is the main business hub of the university. The commercial area houses a pool of banks, a post office and well-resourced bookshop. It also houses a number of mini-marts wh...
+2025-08-16 23:37:34,924 [INFO] Doc 4: content: There are a number of shuttles at the Commercial area, which stops at various Bus stops on  and around campus....
+2025-08-16 23:37:34,925 [INFO] Doc 5: content: There are a number of shuttles at the Commercial area, which stops at various Bus stops on  and around campus....
+2025-08-16 23:37:34,925 [INFO] Doc 6: content: There are a number of shuttles at the Commercial area, which stops at various Bus stops on  and around campus....
+2025-08-16 23:37:34,926 [INFO] Doc 7: content: F. PLAZA — Location: AYEDUASE NEW SITE — Contact: 0246761099 / 0244366904. This is one of the non-residential hostels around KNUST campus....
+2025-08-16 23:37:34,927 [INFO] Doc 8: content: F. PLAZA — Location: AYEDUASE NEW SITE — Contact: 0246761099 / 0244366904. This is one of the non-residential hostels around KNUST campus....
+2025-08-16 23:37:34,928 [INFO] Doc 9: content: F. PLAZA — Location: AYEDUASE NEW SITE — Contact: 0246761099 / 0244366904. This is one of the non-residential hostels around KNUST campus....
+2025-08-16 23:37:34,929 [INFO] Doc 10: content: A taxi station can be found at Tech Junction and Brunei Hostel....
+2025-08-16 23:37:36,544 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-16 23:37:36,953 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-16 23:37:37,670 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-16 23:37:37,675 [INFO] LLM response: The commercial area on the KNUST campus is located at NEWSITE.
+2025-08-16 23:37:37,676 [INFO] Chatbot response: The commercial area on the KNUST campus is located at NEWSITE.
+2025-08-23 16:18:27,941 [INFO] Loading dataset from: C:\Projects\KNUST-Students-Pal\pal\dataset.csv
+2025-08-23 16:18:27,979 [INFO] Loaded 499 documents from CSV.
+2025-08-23 16:18:27,997 [INFO] Split documents into 511 chunks.
+2025-08-23 16:18:30,334 [INFO] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-08-23 16:18:33,325 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-23 16:18:38,118 [INFO] Saved documents to Chroma vector DB.
+2025-08-23 16:19:49,315 [INFO] Loading dataset from: C:\Projects\KNUST-Students-Pal\pal\dataset.csv
+2025-08-23 16:19:49,325 [INFO] Loaded 499 documents from CSV.
+2025-08-23 16:19:49,346 [INFO] Split documents into 511 chunks.
+2025-08-23 16:19:51,540 [INFO] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-08-23 16:19:54,431 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-23 16:19:58,098 [INFO] Saved documents to Chroma vector DB.
+2025-08-23 16:22:44,147 [INFO] Loading dataset from: C:\Projects\KNUST-Students-Pal\pal\dataset.csv
+2025-08-23 16:22:44,159 [INFO] Loaded 499 documents from CSV.
+2025-08-23 16:22:44,265 [INFO] Split documents into 511 chunks.
+2025-08-23 16:22:46,628 [INFO] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-08-23 16:22:51,076 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-23 16:22:54,300 [INFO] Saved documents to Chroma vector DB.
+2025-08-23 17:20:58,290 [INFO] Loading dataset from: C:\Projects\KNUST-Students-Pal\pal\dataset.csv
+2025-08-23 17:20:58,349 [INFO] Loaded 499 documents from CSV.
+2025-08-23 17:20:58,416 [INFO] Split documents into 511 chunks.
+2025-08-23 17:21:00,796 [INFO] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-08-23 17:21:03,634 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-23 17:21:07,159 [INFO] Saved documents to Chroma vector DB.
+2025-08-23 20:40:51,533 [INFO] Loading dataset from: C:\Projects\KNUST-Students-Pal\pal\dataset.csv
+2025-08-23 20:40:51,548 [INFO] Loaded 499 documents from CSV.
+2025-08-23 20:40:51,599 [INFO] Split documents into 511 chunks.
+2025-08-23 20:40:53,829 [INFO] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-08-23 20:40:56,885 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-23 20:42:57,445 [INFO] Saved documents to Chroma vector DB.
+2025-08-26 05:38:36,094 [INFO] Loading dataset from: C:\Projects\KNUST-Students-Pal\pal\dataset.csv
+2025-08-26 05:38:36,118 [INFO] Loaded 499 documents from CSV.
+2025-08-26 05:38:36,162 [INFO] Split documents into 511 chunks.
+2025-08-26 05:38:38,172 [INFO] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-08-26 05:38:41,065 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-26 05:38:44,588 [INFO] Saved documents to Chroma vector DB.
+2025-08-26 18:28:47,647 [INFO] Received message: Hi
+2025-08-26 18:28:48,202 [INFO] Received user query: Hi
+2025-08-26 18:28:57,098 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-26 18:29:04,661 [INFO] Retrieved 10 documents for query: 'Hi'
+2025-08-26 18:29:04,662 [INFO] Doc 1: content:...
+2025-08-26 18:29:04,662 [INFO] Doc 2: content:...
+2025-08-26 18:29:04,662 [INFO] Doc 3: content:...
+2025-08-26 18:29:04,663 [INFO] Doc 4: content:...
+2025-08-26 18:29:04,663 [INFO] Doc 5: content:...
+2025-08-26 18:29:04,663 [INFO] Doc 6: content:...
+2025-08-26 18:29:04,664 [INFO] Doc 7: content:...
+2025-08-26 18:29:04,664 [INFO] Doc 8: content:...
+2025-08-26 18:29:04,664 [INFO] Doc 9: content:...
+2025-08-26 18:29:04,664 [INFO] Doc 10: content:...
+2025-08-26 18:29:05,564 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-26 18:29:06,846 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-26 18:29:06,867 [INFO] LLM response: Hello! How can I assist you today?
+2025-08-26 18:29:06,867 [INFO] Chatbot response: Hello! How can I assist you today?
+2025-08-26 18:29:15,972 [INFO] Received message: Who are you?
+2025-08-26 18:29:15,973 [INFO] Received user query: Who are you?
+2025-08-26 18:29:16,588 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-26 18:29:16,627 [INFO] Retrieved 10 documents for query: 'Who are you?'
+2025-08-26 18:29:16,628 [INFO] Doc 1: content:...
+2025-08-26 18:29:16,628 [INFO] Doc 2: content:...
+2025-08-26 18:29:16,630 [INFO] Doc 3: content:...
+2025-08-26 18:29:16,631 [INFO] Doc 4: content:...
+2025-08-26 18:29:16,631 [INFO] Doc 5: content:...
+2025-08-26 18:29:16,632 [INFO] Doc 6: content:...
+2025-08-26 18:29:16,633 [INFO] Doc 7: content:...
+2025-08-26 18:29:16,633 [INFO] Doc 8: content:...
+2025-08-26 18:29:16,634 [INFO] Doc 9: content:...
+2025-08-26 18:29:16,634 [INFO] Doc 10: content:...
+2025-08-26 18:29:17,334 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-26 18:29:17,646 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-26 18:29:18,612 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-26 18:29:18,620 [INFO] LLM response: Hello! I am KNUST Students' Pal, a friendly and knowledgeable assistant created by two final year Computer Science students at KNUST, Nathaniel Ankomah Aidoo and Justice Abban Korsi Jnr. I am here to help you with any questions you may have about KNUST campus life, admissions, hostels, academics, and more. Feel free to ask me anything you need assistance with!
+2025-08-26 18:29:18,620 [INFO] Chatbot response: Hello! I am KNUST Students' Pal, a friendly and knowledgeable assistant created by two final year Computer Science students at KNUST, Nathaniel Ankomah Aidoo and Justice Abban Korsi Jnr. I am here to help you with any questions you may have about KNUST campus life, admissions, hostels, academics, and more. Feel free to ask me anything you need assistance with!
+2025-08-28 01:55:23,610 [INFO] Loading dataset from: C:\Projects\KNUST-Students-Pal\pal\dataset.csv
+2025-08-28 01:55:23,698 [INFO] Loaded 499 documents from CSV.
+2025-08-28 01:55:23,782 [INFO] Split documents into 511 chunks.
+2025-08-28 01:55:27,040 [INFO] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-08-28 01:55:32,883 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-28 01:55:41,297 [INFO] Saved documents to Chroma vector DB.
+2025-08-28 02:10:07,112 [INFO] Received message: Hi
+2025-08-28 02:10:07,112 [INFO] Received user query: Hi
+2025-08-28 02:10:09,421 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-28 02:10:09,562 [INFO] Retrieved 10 documents for query: 'Hi'
+2025-08-28 02:10:09,563 [INFO] Doc 1: content:...
+2025-08-28 02:10:09,563 [INFO] Doc 2: content:...
+2025-08-28 02:10:09,564 [INFO] Doc 3: content:...
+2025-08-28 02:10:09,564 [INFO] Doc 4: content:...
+2025-08-28 02:10:09,565 [INFO] Doc 5: content:...
+2025-08-28 02:10:09,565 [INFO] Doc 6: content:...
+2025-08-28 02:10:09,565 [INFO] Doc 7: content:...
+2025-08-28 02:10:09,566 [INFO] Doc 8: content:...
+2025-08-28 02:10:09,566 [INFO] Doc 9: content:...
+2025-08-28 02:10:09,566 [INFO] Doc 10: content:...
+2025-08-28 02:10:11,692 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-28 02:10:13,955 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-28 02:10:14,026 [INFO] LLM response: Hello! How can I assist you today?
+2025-08-28 02:10:14,033 [INFO] Chatbot response: Hello! How can I assist you today?
+2025-08-28 02:10:19,122 [INFO] Received message: Who are you?
+2025-08-28 02:10:19,122 [INFO] Received user query: Who are you?
+2025-08-28 02:10:21,402 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-28 02:10:21,420 [INFO] Retrieved 10 documents for query: 'Who are you?'
+2025-08-28 02:10:21,421 [INFO] Doc 1: content:...
+2025-08-28 02:10:21,421 [INFO] Doc 2: content:...
+2025-08-28 02:10:21,422 [INFO] Doc 3: content:...
+2025-08-28 02:10:21,422 [INFO] Doc 4: content:...
+2025-08-28 02:10:21,423 [INFO] Doc 5: content:...
+2025-08-28 02:10:21,423 [INFO] Doc 6: content:...
+2025-08-28 02:10:21,473 [INFO] Doc 7: content:...
+2025-08-28 02:10:21,473 [INFO] Doc 8: content:...
+2025-08-28 02:10:21,473 [INFO] Doc 9: content:...
+2025-08-28 02:10:21,508 [INFO] Doc 10: content:...
+2025-08-28 02:10:22,835 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-28 02:10:24,305 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-28 02:10:26,521 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-28 02:10:26,524 [INFO] LLM response: Hello! I am KNUST Students' Pal, a friendly and knowledgeable assistant created by two final year Computer Science students at KNUST, Nathaniel Ankomah Aidoo and Justice Abban Korsi Jnr. I am here to help you with any questions you may have about KNUST campus life, admissions, hostels, academics, and more. Feel free to ask me anything you need assistance with!
+2025-08-28 02:10:26,526 [INFO] Chatbot response: Hello! I am KNUST Students' Pal, a friendly and knowledgeable assistant created by two final year Computer Science students at KNUST, Nathaniel Ankomah Aidoo and Justice Abban Korsi Jnr. I am here to help you with any questions you may have about KNUST campus life, admissions, hostels, academics, and more. Feel free to ask me anything you need assistance with!
+2025-08-28 02:17:43,066 [INFO] Received message: Hi
+2025-08-28 02:17:43,066 [INFO] Received user query: Hi
+2025-08-28 02:17:44,693 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-28 02:17:44,707 [INFO] Retrieved 10 documents for query: 'Hi'
+2025-08-28 02:17:44,708 [INFO] Doc 1: content:...
+2025-08-28 02:17:44,709 [INFO] Doc 2: content:...
+2025-08-28 02:17:44,709 [INFO] Doc 3: content:...
+2025-08-28 02:17:44,710 [INFO] Doc 4: content:...
+2025-08-28 02:17:44,711 [INFO] Doc 5: content:...
+2025-08-28 02:17:44,711 [INFO] Doc 6: content:...
+2025-08-28 02:17:44,712 [INFO] Doc 7: content:...
+2025-08-28 02:17:44,712 [INFO] Doc 8: content:...
+2025-08-28 02:17:44,714 [INFO] Doc 9: content:...
+2025-08-28 02:17:44,716 [INFO] Doc 10: content:...
+2025-08-28 02:17:46,731 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-28 02:17:47,355 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-28 02:17:48,301 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-28 02:17:48,304 [INFO] LLM response: I was created by two final year Computer Science students at KNUST, Nathaniel Ankomah Aidoo and Justice Abban Korsi Jnr. I'm here to help you with any questions you may have about campus life, admissions, hostels, academics, and more. Feel free to ask me anything!
+2025-08-28 02:17:48,309 [INFO] Chatbot response: I was created by two final year Computer Science students at KNUST, Nathaniel Ankomah Aidoo and Justice Abban Korsi Jnr. I'm here to help you with any questions you may have about campus life, admissions, hostels, academics, and more. Feel free to ask me anything!
+2025-08-28 02:27:43,436 [INFO] Received message: Hi
+2025-08-28 02:27:43,437 [INFO] Received user query: Hi
+2025-08-28 02:27:45,074 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-28 02:27:45,141 [INFO] Retrieved 10 documents for query: 'Hi'
+2025-08-28 02:27:45,143 [INFO] Doc 1: content:...
+2025-08-28 02:27:45,144 [INFO] Doc 2: content:...
+2025-08-28 02:27:45,188 [INFO] Doc 3: content:...
+2025-08-28 02:27:45,188 [INFO] Doc 4: content:...
+2025-08-28 02:27:45,189 [INFO] Doc 5: content:...
+2025-08-28 02:27:45,189 [INFO] Doc 6: content:...
+2025-08-28 02:27:45,190 [INFO] Doc 7: content:...
+2025-08-28 02:27:45,190 [INFO] Doc 8: content:...
+2025-08-28 02:27:45,190 [INFO] Doc 9: content:...
+2025-08-28 02:27:45,191 [INFO] Doc 10: content:...
+2025-08-28 02:27:46,912 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-28 02:27:47,600 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-28 02:27:48,547 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-28 02:27:48,551 [INFO] LLM response: I was created by two final year Computer Science students at KNUST, Nathaniel Ankomah Aidoo and Justice Abban Korsi Jnr. I'm here to help you with any questions you may have about campus life, admissions, hostels, academics, and more. Feel free to ask me anything!
+2025-08-28 02:27:48,552 [INFO] Chatbot response: I was created by two final year Computer Science students at KNUST, Nathaniel Ankomah Aidoo and Justice Abban Korsi Jnr. I'm here to help you with any questions you may have about campus life, admissions, hostels, academics, and more. Feel free to ask me anything!
+2025-08-28 02:35:34,167 [INFO] Received message: Hi
+2025-08-28 02:35:34,167 [INFO] Received user query: Hi
+2025-08-28 02:35:34,988 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-28 02:35:35,005 [INFO] Retrieved 10 documents for query: 'Hi'
+2025-08-28 02:35:35,007 [INFO] Doc 1: content:...
+2025-08-28 02:35:35,007 [INFO] Doc 2: content:...
+2025-08-28 02:35:35,018 [INFO] Doc 3: content:...
+2025-08-28 02:35:35,054 [INFO] Doc 4: content:...
+2025-08-28 02:35:35,064 [INFO] Doc 5: content:...
+2025-08-28 02:35:35,066 [INFO] Doc 6: content:...
+2025-08-28 02:35:35,066 [INFO] Doc 7: content:...
+2025-08-28 02:35:35,067 [INFO] Doc 8: content:...
+2025-08-28 02:35:35,068 [INFO] Doc 9: content:...
+2025-08-28 02:35:35,069 [INFO] Doc 10: content:...
+2025-08-28 02:35:37,949 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-28 02:35:39,176 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-28 02:35:41,295 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-28 02:35:41,298 [INFO] LLM response: Hello! I was created by two final year Computer Science students at KNUST, Nathaniel Ankomah Aidoo and Justice Abban Korsi Jnr. My purpose is to assist KNUST students, staff, and visitors with questions about campus life, admissions, hostels, academics, and more. Feel free to ask me anything you need help with!
+2025-08-28 02:35:41,299 [INFO] Chatbot response: Hello! I was created by two final year Computer Science students at KNUST, Nathaniel Ankomah Aidoo and Justice Abban Korsi Jnr. My purpose is to assist KNUST students, staff, and visitors with questions about campus life, admissions, hostels, academics, and more. Feel free to ask me anything you need help with!
+2025-09-01 15:09:25,482 [INFO] Loading dataset from: C:\Projects\KNUST-Students-Pal\pal\dataset.csv
+2025-09-01 15:09:25,542 [INFO] Loaded 499 documents from CSV.
+2025-09-01 15:09:25,617 [INFO] Split documents into 511 chunks.
+2025-09-01 15:09:28,483 [INFO] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-09-01 15:09:33,355 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-01 15:09:39,403 [INFO] Saved documents to Chroma vector DB.
+2025-09-01 16:32:01,219 [INFO] Loading dataset from: C:\Projects\KNUST-Students-Pal\pal\dataset.csv
+2025-09-01 16:32:01,231 [INFO] Loaded 499 documents from CSV.
+2025-09-01 16:32:01,298 [INFO] Split documents into 511 chunks.
+2025-09-01 16:32:03,499 [INFO] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-09-01 16:32:06,063 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-01 16:32:10,335 [INFO] Saved documents to Chroma vector DB.
+2025-09-01 16:32:25,123 [INFO] Loading dataset from: C:\Projects\KNUST-Students-Pal\pal\dataset.csv
+2025-09-01 16:32:25,140 [INFO] Loaded 499 documents from CSV.
+2025-09-01 16:32:25,219 [INFO] Split documents into 511 chunks.
+2025-09-01 16:32:27,612 [INFO] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-09-01 16:32:30,673 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-01 16:32:34,667 [INFO] Saved documents to Chroma vector DB.
+2025-09-01 16:32:45,802 [INFO] Loading dataset from: C:\Projects\KNUST-Students-Pal\pal\dataset.csv
+2025-09-01 16:32:45,814 [INFO] Loaded 499 documents from CSV.
+2025-09-01 16:32:45,854 [INFO] Split documents into 511 chunks.
+2025-09-01 16:32:47,725 [INFO] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-09-01 16:32:51,886 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-01 16:32:55,583 [INFO] Saved documents to Chroma vector DB.
+2025-09-01 16:38:02,664 [INFO] Loading dataset from: C:\Projects\KNUST-Students-Pal\pal\dataset.csv
+2025-09-01 16:38:02,680 [INFO] Loaded 499 documents from CSV.
+2025-09-01 16:38:02,729 [INFO] Split documents into 511 chunks.
+2025-09-01 16:38:05,464 [INFO] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-09-01 16:38:09,000 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-01 16:38:12,096 [INFO] Saved documents to Chroma vector DB.
+2025-09-01 16:38:13,311 [INFO] Failed to load SSL library: <class 'OSError'> (no library called "ssl" found)
+2025-09-01 16:38:13,312 [INFO] cryptg module not installed and libssl not found, falling back to (slower) Python encryption
+2025-09-01 16:39:01,078 [INFO] Loading dataset from: C:\Projects\KNUST-Students-Pal\pal\dataset.csv
+2025-09-01 16:39:01,088 [INFO] Loaded 499 documents from CSV.
+2025-09-01 16:39:01,139 [INFO] Split documents into 511 chunks.
+2025-09-01 16:39:02,922 [INFO] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-09-01 16:39:05,412 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-01 16:39:09,431 [INFO] Saved documents to Chroma vector DB.
+2025-09-01 16:39:10,786 [INFO] Failed to load SSL library: <class 'OSError'> (no library called "ssl" found)
+2025-09-01 16:39:10,788 [INFO] cryptg module not installed and libssl not found, falling back to (slower) Python encryption
+2025-09-01 17:27:51,282 [INFO] Loading dataset from: C:\Projects\KNUST-Students-Pal\pal\dataset.csv
+2025-09-01 17:27:51,288 [INFO] Loaded 499 documents from CSV.
+2025-09-01 17:27:51,325 [INFO] Split documents into 511 chunks.
+2025-09-01 17:27:52,972 [INFO] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-09-01 17:27:55,049 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-01 17:27:58,510 [INFO] Saved documents to Chroma vector DB.
+2025-09-01 17:27:59,861 [INFO] Failed to load SSL library: <class 'OSError'> (no library called "ssl" found)
+2025-09-01 17:27:59,862 [INFO] cryptg module not installed and libssl not found, falling back to (slower) Python encryption
+2025-09-01 18:02:28,897 [INFO] Loading dataset from: C:\Projects\KNUST-Students-Pal\pal\dataset.csv
+2025-09-01 18:02:28,903 [INFO] Loaded 499 documents from CSV.
+2025-09-01 18:02:28,945 [INFO] Split documents into 511 chunks.
+2025-09-01 18:02:30,603 [INFO] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-09-01 18:02:35,296 [INFO] HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-01 18:02:38,844 [INFO] Saved documents to Chroma vector DB.
+2025-09-01 18:02:39,985 [INFO] Failed to load SSL library: <class 'OSError'> (no library called "ssl" found)
+2025-09-01 18:02:39,988 [INFO] cryptg module not installed and libssl not found, falling back to (slower) Python encryption

@@ -20,6 +20,7 @@ from routes.auth import router as auth_router
 from routes.updates import router as updates_router
 from app.cores.scraper_utils import sync_updates
 from routes.chatbot import router as chatbot_router
+from routes.scraper import router as scraper_router
 
 
 app = FastAPI(title="KNUST Students Pal API")
@@ -46,6 +47,7 @@ app.add_middleware(
 app.include_router(auth_router)
 app.include_router(updates_router)
 app.include_router(chatbot_router)
+app.include_router(scraper_router)
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
 

@@ -52,3 +52,12 @@ class Careerhub(Base):
     description = Column(Text)
     duration = Column(String, nullable=True)
     posted_at = Column(DateTime, default=datetime.utcnow)
+
+
+class Event(Base):
+    __tablename__ = "events"
+
+    id = Column(Integer, primary_key=True, index=True)
+    message_id = Column(Integer, unique=True, index=True)
+    content = Column(Text, nullable=False)
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
