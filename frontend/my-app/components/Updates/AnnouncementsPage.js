@@ -47,7 +47,7 @@ const getTagColor = (tag) => {
       // secondary: "#E5FFF2",
       // accent: "#4DD390"
 
-         primary: "#FF6B6B",
+      primary: "#FF6B6B",
       secondary: "#FFE5E5",
       accent: "#FF8E8E"
     }
