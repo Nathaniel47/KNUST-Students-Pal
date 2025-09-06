@@ -106,8 +106,8 @@ const Resources = () => {
           if (parent) {
             // Reset header options on the parent navigator
             parent.setOptions({
-              headerTitle: '', // Clear the title
-              headerTitleStyle: {}, // Reset style if needed
+              headerTitle: 'Updates', // Clear the title
+              headerTitleStyle: {padding:10}, // Reset style if needed
               headerRight: () => ( // Set back to your default headerRight for other tabs
                 <View
                   style={{
@@ -122,22 +122,23 @@ const Resources = () => {
                     onPress={() => {
                       navigation.navigate('Search');
                     }}
-                    style={{
-                      flexDirection: 'row',
-                      gap: 10,
-                      alignItems: 'center',
-                      borderWidth: 1,
-                      borderRadius: 20,
-                      paddingHorizontal: 20,
-                      alignSelf: 'center',
-                      width: 230,
-                      marginTop: 2,
-                      backgroundColor: '#fff',
-                      paddingVertical: 10,
-                      height: 40,
-                    }}>
-                    <Ionicons name="search-outline" size={20} />
-                    <Text>Search updates....</Text>
+                    // style={{
+                    //   flexDirection: 'row',
+                    //   gap: 10,
+                    //   alignItems: 'center',
+                    //   borderWidth: 1,
+                    //   borderRadius: 20,
+                    //   paddingHorizontal: 20,
+                    //   alignSelf: 'center',
+                    //   width: 230,
+                    //   marginTop: 2,
+                    //   backgroundColor: '#fff',
+                    //   paddingVertical: 10,
+                    //   height: 40,
+                    // }}
+                    >
+                    <Ionicons name="search-outline" size={24} />
+                    {/* <Text>Search updates....</Text> */}
                   </TouchableOpacity>
                   <TouchableOpacity>
                     <Ionicons name="notifications-outline" size={24}></Ionicons>

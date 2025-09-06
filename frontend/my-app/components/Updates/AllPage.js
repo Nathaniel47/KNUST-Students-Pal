@@ -12,6 +12,7 @@ import {
   ActivityIndicator,
   RefreshControl,
   useWindowDimensions,
+  StatusBar
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { Ionicons } from "@expo/vector-icons";
@@ -27,16 +28,51 @@ import { useFocusEffect } from "@react-navigation/native";
 
 const getTagColor = (tag) => {
   switch (tag) {
-    case "News":
-      return "#E74C3C"; // A shade of red
-    case "Events":
-      return "#9B59B6"; // A shade of purple
-    case "Announcements":
-      return "#F39C12"; // A shade of orange
+    case "news":
+      return "#00BF63";
+    case "events":
+      return "#F39C12";
+    case "announcements":
+      return "#f71d05ff";
     default:
-      return "#3498DB"; // Default blue
+      return "#3498DB";
   }
 };
+
+const getTagColors = (tag) => {
+  // Normalize tag case for comparison
+  const normalizedTag = tag?.toLowerCase();
+  
+  const colors = {
+    news: {
+      primary: "#00BF63",
+      secondary: "#E5FFF2",
+      accent: "#4DD390"
+    },
+    events: {
+       primary: "#FF9500",
+      secondary: "#FFF4E5",
+      accent: "#FFB84D"
+    },
+    announcements: {
+   
+
+      primary: "#FF6B6B",
+      secondary: "#FFE5E5",
+      accent: "#FF8E8E"
+    },
+    default: {
+     
+
+          primary: "#6C5CE7",
+      secondary: "#E8E5FF",
+      accent: "#8B7EE8"
+    }
+  };
+  
+  return colors[normalizedTag] || colors.default;
+};
+
 const AllPage = () => {
   const [feeds, setFeeds] = useState([]);
   const [loadingFeeds, setLoadingFeeds] = useState(false);
@@ -48,11 +84,8 @@ const AllPage = () => {
   const { width } = useWindowDimensions();
 
   const { showToast } = useToast();
-
   const { fetchUpdates } = useFetchContext();
-
   const { scrollY, previousScrollY, scrollDirection } = useScrollContext();
-
   const { open: openSheet, close: closeSheet } = useGlobalBottomSheet();
 
   const scrollHandler = useAnimatedScrollHandler({
@@ -61,20 +94,14 @@ const AllPage = () => {
 
       const currentScrollY = event.contentOffset.y;
 
-      // Determine scroll direction
       if (currentScrollY > previousScrollY.value && currentScrollY > 0) {
-        // Scrolling down and not at the very top
         scrollDirection.value = "down";
       } else if (currentScrollY < previousScrollY.value) {
-        // Scrolling up
         scrollDirection.value = "up";
-        // console.log("scrolling up", scrollDirection.value); // You can keep or remove this console log
       } else if (currentScrollY <= 0) {
-        // At the very top or overscrolling up
-        scrollDirection.value = "up"; // Ensure header is visible
+        scrollDirection.value = "up";
       }
 
-      // Always update previousScrollY and scrollY values
       previousScrollY.value = currentScrollY;
       scrollY.value = currentScrollY;
     },
@@ -139,6 +166,7 @@ const AllPage = () => {
 
   return (
     <View style={[styles.container]}>
+      <StatusBar barStyle="dark-content" backgroundColor="#ffffff" />
       <LinearGradient
         colors={["white", "white"]}
         start={{ x: 0, y: 0 }}
@@ -194,110 +222,119 @@ const AllPage = () => {
               }
               data={feeds}
               keyExtractor={(item) => item.id.toString()}
-              renderItem={({ item }) => (
-                <Pressable
-                  style={({ pressed }) => [
-                    styles.normalCard,
-                    {
-                      backgroundColor: pressed ? "#f1f1f1" : "#fff",
-                    },
-                  ]}
-                  onPress={() => handleOpenFeedModal(item)}
-                >
-                  <View style={styles.normalCardHeader}>
-                    <TouchableHighlight
-                      underlayColor="#f0f0f0"
-                      onPress={() => console.log("Source pressed")}
-                      style={styles.sourceHighlight}
-                    >
-                      <View style={styles.sourceInfo}>
+              renderItem={({ item }) => {
+                // Get tag colors for this specific item
+                const tagColors = getTagColors(item.tag);
+                
+                return (
+                  <Pressable
+                    style={({ pressed }) => [
+                      styles.normalCard,
+                      {
+                        backgroundColor: pressed ? "#f1f1f1" : "#fff",
+                      },
+                    ]}
+                    onPress={() => handleOpenFeedModal(item)}
+                  >
+                    <View style={styles.normalCardHeader}>
+                      <TouchableHighlight
+                        underlayColor="#f0f0f0"
+                        onPress={() => console.log("Source pressed")}
+                        style={styles.sourceHighlight}
+                      >
+                        <View style={styles.sourceInfo}>
+                          <Ionicons
+                            name="person-circle-outline"
+                            size={28}
+                            color="#555"
+                          />
+                          <Text style={styles.sourceText}>{item.category}</Text>
+                        </View>
+                      </TouchableHighlight>
+                      
+                      <View style={[styles.modernTag, { backgroundColor: tagColors.secondary }]}>
+                        <View style={[styles.tagDot, { backgroundColor: tagColors.primary }]} />
+                        <Text style={[styles.tagText, { color: tagColors.primary }]}>
+                          {item.tag}
+                        </Text>
+                      </View>
+                    </View>
+                    
+                    <Text style={styles.normalTitle}>{item.title}</Text>
+                    
+                    <Pressable>
+                      <Image
+                        source={{ 
+                          uri: item.tag === 'announcements' 
+                            ? "https://i.imgur.com/vM4Ii4d.png" 
+                            : item.image 
+                        }}
+                        style={styles.normalImage}
+                        resizeMode="cover"
+                      />
+                    </Pressable>
+
+                    <View style={styles.normalContent}>
+                      <Text style={styles.normalDescription}>{item.summary}</Text>
+                      <Pressable
+                        style={styles.readMoreButton}
+                        onPress={() => {
+                          handleOpenFeedModal(item);
+                        }}
+                      >
+                        <Text style={styles.readMoreText}>Read More</Text>
+                      </Pressable>
+                    </View>
+
+                    <View style={styles.statisticsContainer}>
+                      <Pressable>
+                        <Text style={styles.hashtag}>#TreatAsUrgent</Text>
+                      </Pressable>
+
+                      <View style={styles.statsIcons}>
+                        <Pressable style={styles.statItem}>
+                          <Text style={styles.statText}>24k</Text>
+                          <Ionicons name="chatbubble" color="#3498DB" size={16} />
+                        </Pressable>
+                        <Pressable style={styles.statItem}>
+                          <Text style={styles.statText}>220</Text>
+                          <Ionicons name="heart" color="#E74C3C" size={16} />
+                        </Pressable>
+                      </View>
+                    </View>
+
+                    <View style={styles.interactionIconsContainer}>
+                      <Pressable
+                        style={styles.interactionButton}
+                        onPress={handleOpenComments}
+                      >
                         <Ionicons
-                          name="person-circle-outline"
-                          size={28}
+                          name="chatbubble-outline"
+                          size={18}
                           color="#555"
                         />
-                        <Text style={styles.sourceText}>{item.category}</Text>
-                      </View>
-                    </TouchableHighlight>
-                    <View
-                      style={[
-                        styles.tagBadge,
-                        { borderBottomColor: getTagColor(item.tag) },
-                      ]}
-                    >
-                      <Text style={styles.tagText}>{item.tag}</Text>
+                        <Text style={styles.interactionButtonText}>Comment</Text>
+                      </Pressable>
+                      <Pressable style={styles.interactionButton}>
+                        <Ionicons name="heart-outline" size={18} color="#555" />
+                        <Text style={styles.interactionButtonText}>Like</Text>
+                      </Pressable>
+                      <Pressable style={styles.interactionButton}>
+                        <Ionicons name="share-outline" size={18} color="#555" />
+                        <Text style={styles.interactionButtonText}>Share</Text>
+                      </Pressable>
+                      <Pressable style={styles.interactionButton}>
+                        <Ionicons
+                          name="bookmark-outline"
+                          size={18}
+                          color="#555"
+                        />
+                        <Text style={styles.interactionButtonText}>Save</Text>
+                      </Pressable>
                     </View>
-                  </View>
-                  <Text style={styles.normalTitle}>{item.title}</Text>
-                  <Pressable>
-                    <Image
-                      source={{ uri: item.image }}
-                      style={styles.normalImage}
-                      resizeMode="cover"
-                    />
                   </Pressable>
-
-                  <View style={styles.normalContent}>
-                    <Text style={styles.normalDescription}>{item.summary}</Text>
-                    <Pressable
-                      style={styles.readMoreButton}
-                      onPress={() => {
-                        handleOpenFeedModal(item);
-                      }}
-                    >
-                      <Text style={styles.readMoreText}>Read More</Text>
-                    </Pressable>
-                  </View>
-
-                  <View style={styles.statisticsContainer}>
-                    <Pressable>
-                      <Text style={styles.hashtag}>#TreatAsUrgent</Text>
-                    </Pressable>
-
-                    <View style={styles.statsIcons}>
-                      <Pressable style={styles.statItem}>
-                        <Text style={styles.statText}>24k</Text>
-
-                        <Ionicons name="chatbubble" color="#3498DB" size={16} />
-                      </Pressable>
-                      <Pressable style={styles.statItem}>
-                        <Text style={styles.statText}>220</Text>
-                        <Ionicons name="heart" color="#E74C3C" size={16} />
-                      </Pressable>
-                    </View>
-                  </View>
-
-                  <View style={styles.interactionIconsContainer}>
-                    <Pressable
-                      style={styles.interactionButton}
-                      onPress={handleOpenComments}
-                    >
-                      <Ionicons
-                        name="chatbubble-outline"
-                        size={18}
-                        color="#555"
-                      />
-                      <Text style={styles.interactionButtonText}>Comment</Text>
-                    </Pressable>
-                    <Pressable style={styles.interactionButton}>
-                      <Ionicons name="heart-outline" size={18} color="#555" />
-                      <Text style={styles.interactionButtonText}>Like</Text>
-                    </Pressable>
-                    <Pressable style={styles.interactionButton}>
-                      <Ionicons name="share-outline" size={18} color="#555" />
-                      <Text style={styles.interactionButtonText}>Share</Text>
-                    </Pressable>
-                    <Pressable style={styles.interactionButton}>
-                      <Ionicons
-                        name="bookmark-outline"
-                        size={18}
-                        color="#555"
-                      />
-                      <Text style={styles.interactionButtonText}>Save</Text>
-                    </Pressable>
-                  </View>
-                </Pressable>
-              )}
+                );
+              }}
             />
           </View>
         )}
@@ -471,7 +508,7 @@ const styles = StyleSheet.create({
     color: "#555",
   },
 
-  // Section Headers (Urgent & Trending)
+  // Section Headers
   sectionContainer: {},
   sectionHeaderContainer: {
     paddingLeft: 5,
@@ -564,15 +601,36 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     color: "#333",
   },
+
+  // Modern tag styles
+  modernTag: {
+    paddingVertical: 6,
+    paddingHorizontal: 12,
+    borderRadius: 20,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+  },
+  tagDot: {
+    width: 6,
+    height: 6,
+    borderRadius: 3,
+  },
   tagBadge: {
-    borderBottomWidth: 3,
     paddingBottom: 2,
     alignSelf: "flex-start",
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 5,
+    borderRadius: 5,
+    gap: 4
   },
   tagText: {
-    fontWeight: "bold",
-    fontSize: 13,
-    color: "#555",
+    fontWeight: "600",
+    fontSize: 12,
+    textTransform: 'capitalize',
   },
   normalTitle: {
     fontSize: 18,
@@ -654,7 +712,7 @@ const styles = StyleSheet.create({
     fontWeight: "500",
   },
 
-  // Trending Feed Card
+  // Rest of the styles remain the same...
   trendingCard: {
     width: 280,
     height: 180,
@@ -679,7 +737,6 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: 0,
     padding: 15,
-
     height: "100%",
     justifyContent: "flex-end",
   },
@@ -699,7 +756,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#F8F8F8",
   },
-
   modalHeaderGradientContainer: {
     flex: 1,
     position: "absolute",
@@ -711,13 +767,11 @@ const styles = StyleSheet.create({
     opacity: 0.7,
     paddingBottom: 5,
   },
-
   modalHeaderGradient: {
     flexDirection: "row",
     justifyContent: "space-between",
     paddingVertical: 10,
     paddingHorizontal: 15,
-    // backgroundColor: "rgba(0,0,0,0.2)",
   },
   modalGradientOverlay: {
     padding: 15,
@@ -739,7 +793,6 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     padding: 8,
   },
-
   feedDetailImageContainer: {
     height: 250,
   },
@@ -828,7 +881,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   feedDescriptionSection: {
-    marginBottom: 30, // Space at the bottom
+    marginBottom: 30,
   },
   feedDescriptionTitle: {
     fontSize: 20,
@@ -850,16 +903,14 @@ const styles = StyleSheet.create({
   },
   feedDescriptionImg: {
     width: "100%",
-    height: 200, // Fixed height for inline image
+    height: 200,
     resizeMode: "cover",
     borderRadius: 10,
     marginVertical: 15,
   },
-
-  // Full Image Modal Styles
   fullImageModalContainer: {
     flex: 1,
-    backgroundColor: "rgba(0,0,0,0.9)", // Darker, semi-transparent background
+    backgroundColor: "rgba(0,0,0,0.9)",
     justifyContent: "center",
     alignItems: "center",
   },
@@ -868,13 +919,13 @@ const styles = StyleSheet.create({
     top: 40,
     left: 20,
     zIndex: 1,
-    backgroundColor: "rgba(0,0,0,0.6)", // Slightly darker background for button
+    backgroundColor: "rgba(0,0,0,0.6)",
     borderRadius: 30,
     padding: 5,
   },
   fullImage: {
-    width: "90%", // Max width
-    height: "80%", // Max height
+    width: "90%",
+    height: "80%",
   },
 });
 

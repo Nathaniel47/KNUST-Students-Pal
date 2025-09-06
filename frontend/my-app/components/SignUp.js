@@ -276,7 +276,7 @@ const SignUp = ({ navigation }) => {
               </View>
 
               <View style={styles.guestButtonContainer}>
-                <TouchableHighlight style={styles.guestButton}>
+                <TouchableHighlight style={styles.guestButton} onPress={() => navigation.navigate("GuestSignUp")} underlayColor={null}>
                   <Text style={styles.guestButtonText}>Sign up as a guest</Text>
                 </TouchableHighlight>
               </View>

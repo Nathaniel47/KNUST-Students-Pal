@@ -113,7 +113,7 @@ const NewsPage = () => {
 
   const onRefreshing = async () => {
     setRefreshing(true);
-    const response = await fetchUpdates("all");
+    const response = await fetchUpdates("news");
     if (response.error) {
       showToast(
         "Couldn't refresh feeds. Check your internet connection",

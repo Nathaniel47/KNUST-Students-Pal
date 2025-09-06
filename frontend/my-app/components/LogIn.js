@@ -185,7 +185,7 @@ const LogIn = ({ navigation }) => {
               <TouchableOpacity
                 style={styles.button2}
                 onPress={() => {
-                  navigation.navigate("HomeTabs");
+                  navigation.navigate("GuestSignIn");
                 }}
               >
                 <Text style={styles.buttonText2}>Guest Sign in</Text>

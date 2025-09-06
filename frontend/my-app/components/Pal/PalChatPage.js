@@ -20,8 +20,10 @@ import {
   Pressable,
   TouchableHighlight,
   Animated,
+  Alert,
+  Share,
 } from "react-native";
-import { useFocusEffect, useNavigation } from "@react-navigation/native";
+import { useFocusEffect, useNavigation, useRoute } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
 import { Ionicons } from "@expo/vector-icons";
 import LottieView from "lottie-react-native";
@@ -29,13 +31,17 @@ import { useTabBarVisibility } from "../utility/TabBarVisibilityContext";
 import BottomSheet from "@gorhom/bottom-sheet";
 import axios from "axios";
 import { BASE_URL } from "../utility/config";
+import * as Clipboard from 'expo-clipboard'; 
+import * as Speech from 'expo-speech';
+import { useToast } from "../utility/ToastContext";
+import { useContext } from "react";
+import { AuthContext } from "../utility/AuthProvider";
 
-
-const AnimatedTouchableOpacity =
-  Animated.createAnimatedComponent(TouchableOpacity);
+const AnimatedTouchableOpacity = Animated.createAnimatedComponent(TouchableOpacity);
 
 const PalChatPage = () => {
   const navigation = useNavigation();
+  const route = useRoute();
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -43,6 +49,7 @@ const PalChatPage = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [goLiveModal, setGoLiveModal] = useState(false);
   const [editingMsgId, setEditingMsgId] = useState(null);
+  const [speakingMessageId, setSpeakingMessageId] = useState(null);
   const scrollViewRef = useRef(null);
   const FABAnim = useRef(new Animated.Value(0)).current;
   const [scrollIndicatorVisible, setScrollIndicatorVisible] = useState(false);
@@ -50,8 +57,256 @@ const PalChatPage = () => {
   const fadeAnim = useRef(new Animated.Value(0.1)).current;
   const bottomSheetRef = useRef(null);
   const { setTabBarVisible } = useTabBarVisibility();
+  const hasAutoSentRef = useRef(false); 
+  const {showToast} = useToast();
+  const {user} = useContext(AuthContext);
+  const {userName,setUserName} = useState('');
 
   const snapPoints = useMemo(() => ["20%", "25%"]);
+
+  // Check speech availability on component mount
+  useEffect(() => {
+
+
+    const checkSpeechAvailability = async () => {
+      try {
+        const voices = await Speech.getAvailableVoicesAsync();
+        console.log('Available voices:', voices.length);
+        if (voices.length === 0) {
+          console.warn('No speech voices available');
+        }
+      } catch (error) {
+        console.log('Speech not available:', error);
+      }
+    };
+
+    checkSpeechAvailability();
+  }, []);
+
+  // Handle auto-send when navigating from quick actions
+  useEffect(() => {
+    const { initialQuery, category, autoSend } = route.params || {};
+    
+    if (initialQuery && autoSend && !hasAutoSentRef.current) {
+      setMessage(initialQuery);
+      
+      setTimeout(() => {
+        handleAutoSend(initialQuery, category);
+        hasAutoSentRef.current = true;
+      }, 300);
+    }
+  }, [route.params]);
+
+  // Reset the auto-sent flag when component unmounts or new chat starts
+  useEffect(() => {
+    return () => {
+      hasAutoSentRef.current = false;
+      Speech.stop();
+    };
+  }, []);
+
+  const handleAutoSend = async (queryText, category) => {
+    if (!queryText.trim()) return;
+
+    const userMsg = {
+      id: Date.now().toString(),
+      text: queryText.trim(),
+      type: "sent",
+      category: category || null,
+    };
+
+    const loadingMsg = {
+      id: "loading",
+      text: "wait a sec...",
+      type: "loading",
+    };
+
+    // Add messages in chronological order (newest at end)
+    setMessages(prev => [...prev, userMsg, loadingMsg]);
+    setMessage("");
+    setEnableNewChat(true);
+    setLoading(true);
+
+    // Scroll to bottom to show newest messages
+    setTimeout(() => {
+      scrollViewRef.current?.scrollToEnd({ animated: true });
+    }, 100);
+
+    try {
+      const palResponse = await axios.post(`${BASE_URL}/chatbot/`, {
+        message: queryText,
+        category: category,
+      });
+      
+      console.log("Pal response: ", palResponse.data);
+      
+      if (palResponse.data && palResponse.data.response) {
+        const responseText = palResponse.data.response;
+        
+        setMessages((prev) => [
+          ...prev.filter((m) => m.id !== "loading"),
+          {
+            id: (Date.now() + 1).toString(),
+            text: responseText,
+            type: "received",
+            originalPrompt: queryText,
+          }
+        ]);
+        setLoading(false);
+
+        // Scroll to bottom after response
+        setTimeout(() => {
+          scrollViewRef.current?.scrollToEnd({ animated: true });
+        }, 100);
+      }
+    } catch (error) {
+      console.log("Error sending message to Pal: ", error);
+      setMessages((prev) => [
+        ...prev.filter((m) => m.id !== "loading"),
+        {
+          id: (Date.now() + 1).toString(),
+          text: "Sorry, I'm having trouble connecting right now. Please try again.",
+          type: "received",
+          isError: true,
+        }
+      ]);
+      setLoading(false);
+    }
+  };
+
+  // Function to regenerate response
+  const handleRegenerateResponse = async (messageId) => {
+    const messageToRegenerate = messages.find(msg => msg.id === messageId);
+    if (!messageToRegenerate || !messageToRegenerate.originalPrompt) {
+      Alert.alert("Error", "Cannot regenerate this response");
+      return;
+    }
+
+    const loadingMsg = {
+      id: "loading-regen",
+      text: "Wait a sec...",
+      type: "loading",
+    };
+
+    setMessages((prev) => 
+      prev.map(msg => msg.id === messageId ? loadingMsg : msg)
+    );
+    setLoading(true);
+
+    try {
+      const palResponse = await axios.post(`${BASE_URL}/chatbot/`, {
+        message: messageToRegenerate.originalPrompt,
+        category: messageToRegenerate.category,
+      });
+      
+      if (palResponse.data && palResponse.data.response) {
+        const responseText = palResponse.data.response;
+        
+        setMessages((prev) => 
+          prev.map(msg => 
+            msg.id === "loading-regen" ? {
+              id: messageId,
+              text: responseText,
+              type: "received",
+              originalPrompt: messageToRegenerate.originalPrompt,
+              category: messageToRegenerate.category,
+            } : msg
+          )
+        );
+        setLoading(false);
+      }
+    } catch (error) {
+      console.log("Error regenerating response: ", error);
+      setMessages((prev) => 
+        prev.map(msg => 
+          msg.id === "loading-regen" ? {
+            id: messageId,
+            text: "Sorry, I'm having trouble regenerating the response. Please try again.",
+            type: "received",
+            isError: true,
+            originalPrompt: messageToRegenerate.originalPrompt,
+          } : msg
+        )
+      );
+      setLoading(false);
+    }
+  };
+
+  // Function to copy response to clipboard
+  const handleCopyResponse = async (text) => {
+    try {
+      await Clipboard.setStringAsync(text);
+      showToast('Response copied successfully', 3000, '#333');
+    } catch (error) {
+      console.log("Error copying to clipboard: ", error);
+      Alert.alert("Error", "Failed to copy to clipboard");
+    }
+  };
+
+  // Function to share response
+  const handleShareResponse = async (text) => {
+    try {
+      const result = await Share.share({
+        message: text,
+        title: "Pal Response",
+      });
+      
+      if (result.action === Share.sharedAction) {
+        if (result.activityType) {
+          console.log("Shared with activity type: ", result.activityType);
+        } else {
+          console.log("Response shared successfully");
+        }
+      } else if (result.action === Share.dismissedAction) {
+        console.log("Share dismissed");
+      }
+    } catch (error) {
+      console.log("Error sharing response: ", error);
+      Alert.alert("Error", "Failed to share response");
+    }
+  };
+
+  // Enhanced speech function with better error handling
+  const handleSpeakResponse = async (text, messageId) => {
+    try {
+      if (speakingMessageId === messageId) {
+        await Speech.stop();
+        setSpeakingMessageId(null);
+        return;
+      }
+
+      await Speech.stop();
+      setSpeakingMessageId(messageId);
+
+      const speakOptions = {
+        language: 'en-US',
+        pitch: 1.0,
+        rate: 0.8,
+        onDone: () => {
+          console.log('Speech finished');
+          setSpeakingMessageId(null);
+        },
+        onStopped: () => {
+          console.log('Speech stopped');
+          setSpeakingMessageId(null);
+        },
+        onError: (error) => {
+          console.log("Speech error: ", error);
+          setSpeakingMessageId(null);
+          Alert.alert("Error", "Failed to read response aloud");
+        },
+      };
+
+      setTimeout(() => {
+        Speech.speak(text, speakOptions);
+      }, 100);
+
+    } catch (error) {
+      console.log("Speech initialization error: ", error);
+      setSpeakingMessageId(null);
+      Alert.alert("Error", "Speech feature is not available");
+    }
+  };
 
   const handleOpenSheet = () => {
     bottomSheetRef.current.expand();
@@ -102,21 +357,23 @@ const PalChatPage = () => {
     if (loading) {
       handleStopResponse();
     }
+    Speech.stop();
+    setSpeakingMessageId(null);
     setMessages([]);
     setEnableNewChat(false);
     setEditingMsgId(null);
     setScrollIndicatorVisible(false);
     FABAnim.setValue(50);
+    hasAutoSentRef.current = false;
   };
 
   const handleStopResponse = useCallback(() => {
     if (responseTimeoutRef.current) {
-      clearTimeout(responseTimeoutRef.current); // Clear the pending timeout
-      responseTimeoutRef.current = null; // Reset the ref
+      clearTimeout(responseTimeoutRef.current);
+      responseTimeoutRef.current = null;
     }
-    setLoading(false); // Stop loading animation
-    // Remove the "loading" message if it's still present
-    setMessages((prev) => prev.filter((msg) => msg.id !== "loading"));
+    setLoading(false);
+    setMessages((prev) => prev.filter((msg) => msg.id !== "loading" && msg.id !== "loading-regen"));
   }, []);
 
   const handleSend = async () => {
@@ -136,45 +393,57 @@ const PalChatPage = () => {
       type: "loading",
     };
 
-    // Add user message and loading message
+    // Add messages in chronological order (newest at end)
     setMessages((prev) => [...prev, userMsg, loadingMsg]);
+    const currentMessage = message;
     setMessage("");
     setEnableNewChat(true);
     setLoading(true);
 
-    //pal's response
+    // Scroll to bottom to show new messages
+    setTimeout(() => {
+      scrollViewRef.current?.scrollToEnd({ animated: true });
+    }, 100);
 
-    try{
-     const  palResponse = await axios.post(`${BASE_URL}/chatbot/`,{message:message});
-     console.log("Pal response: ", palResponse.data);
-     if(palResponse.data && palResponse.data.response){
-      const responseText = palResponse.data.response;
-          // --- MODIFIED PART ---
-    responseTimeoutRef.current = 
-
-      setMessages((prev) => {
-        // Filter out ONLY the loading message, then add the new message
-        return [
+    try {
+      const palResponse = await axios.post(`${BASE_URL}/chatbot/`, {
+        message: currentMessage
+      });
+      
+      console.log("Pal response: ", palResponse.data);
+      
+      if (palResponse.data && palResponse.data.response) {
+        const responseText = palResponse.data.response;
+        
+        setMessages((prev) => [
           ...prev.filter((m) => m.id !== "loading"),
           {
             id: (Date.now() + 1).toString(),
             text: responseText,
             type: "received",
-          },
-        ];
-      });
+            originalPrompt: currentMessage,
+          }
+        ]);
+        setLoading(false);
+
+        // Scroll to bottom after response is added
+        setTimeout(() => {
+          scrollViewRef.current?.scrollToEnd({ animated: true });
+        }, 100);
+      }
+    } catch (error) {
+      console.log("Error sending message to Pal: ", error);
+      setMessages((prev) => [
+        ...prev.filter((m) => m.id !== "loading"),
+        {
+          id: (Date.now() + 1).toString(),
+          text: "Sorry, I'm having trouble connecting right now. Please try again.",
+          type: "received",
+          isError: true,
+        }
+      ]);
       setLoading(false);
-      responseTimeoutRef.current = null; // Clear the ref after timeout completes
-  
-  }
-    // --- END MODIFIED PART ---
-
-    }catch(error){
-       console.log("Error sending message to Pal: ", error);
     }
-
-
-
   };
 
   useFocusEffect(
@@ -184,13 +453,13 @@ const PalChatPage = () => {
 
       grandParent?.setOptions({
         headerTitle: "Pal",
-        headerTitleStyle: {padding:10},
+        headerTitleStyle: { padding: 10 },
         headerRight: () => (
           <View style={[styles.headerRight, {
-            flexDirection:'row',
-            gap:10,
-            marginRight:10,
-            alignItems:'center'
+            flexDirection: 'row',
+            gap: 10,
+            marginRight: 10,
+            alignItems: 'center'
           }]}>
             <TouchableOpacity onPress={() => setModalVisible(true)}>
               <Ionicons name="chatbox-outline" size={24} />
@@ -211,25 +480,25 @@ const PalChatPage = () => {
       return () => {
         grandParent?.setOptions({
           headerTitle: "",
-          headerTitleStyle:{},
-           headerRight: () => (
-                    <View
-                      style={{
-                        marginRight: 20,
-                        flexDirection: 'row',
-                        gap: 10,
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        paddingVertical: 10,
-                      }}>
-                      <TouchableOpacity>
-                        <Ionicons name="notifications-outline" size={24}></Ionicons>
-                      </TouchableOpacity>
-                      <TouchableOpacity>
-                        <Ionicons name="person-circle-outline" size={24}></Ionicons>
-                      </TouchableOpacity>
+          headerTitleStyle: {},
+          headerRight: () => (
+            <View
+              style={{
+                marginRight: 20,
+                flexDirection: 'row',
+                gap: 10,
+                alignItems: 'center',
+                justifyContent: 'center',
+                paddingVertical: 10,
+              }}>
+              <TouchableOpacity>
+                <Ionicons name="notifications-outline" size={24}></Ionicons>
+              </TouchableOpacity>
+              <TouchableOpacity>
+                <Ionicons name="person-circle-outline" size={24}></Ionicons>
+              </TouchableOpacity>
             </View>
-        ),
+          ),
         });
         setTabBarVisible(true);
 
@@ -237,6 +506,9 @@ const PalChatPage = () => {
           clearTimeout(responseTimeoutRef.current);
           responseTimeoutRef.current = null;
         }
+        
+        Speech.stop();
+        setSpeakingMessageId(null);
       };
     }, [enableNewChat, navigation, handleClear])
   );
@@ -247,6 +519,7 @@ const PalChatPage = () => {
         style={[
           styles.messageBubble,
           msg.type === "sent" ? styles.sentMessage : styles.receivedMessage,
+          msg.isError ? styles.errorMessage : null,
         ]}
       >
         {msg.type === "loading" ? (
@@ -264,23 +537,50 @@ const PalChatPage = () => {
             <Text style={styles.messageText}>{msg.text}</Text>
           </TouchableHighlight>
         ) : (
-          <Text style={styles.messageText}>{msg.text}</Text>
+          <Text style={[styles.messageText, msg.isError ? styles.errorText : null]}>
+            {msg.text}
+          </Text>
         )}
       </View>
 
-      {msg.type === "received" ? (
+      {msg.type === "received" && !msg.isError ? (
         <View style={styles.editIcons}>
-          <TouchableOpacity>
-            <Ionicons name="reload-outline" size={18} />
+          <TouchableOpacity 
+            onPress={() => handleRegenerateResponse(msg.id)}
+            disabled={loading}
+            style={[styles.iconButton, loading && styles.disabledIcon]}
+          >
+            <Ionicons 
+              name="reload-outline" 
+              size={18} 
+              color={loading ? "#ccc" : "#000"}
+            />
           </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity 
+            onPress={() => handleCopyResponse(msg.text)}
+            style={styles.iconButton}
+          >
             <Ionicons name="copy-outline" size={18} />
           </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity 
+            onPress={() => handleShareResponse(msg.text)}
+            style={styles.iconButton}
+          >
             <Ionicons name="share-outline" size={18} />
           </TouchableOpacity>
-          <TouchableOpacity>
-            <Ionicons name="volume-high-outline" size={18} />
+          <TouchableOpacity 
+            onPress={() => handleSpeakResponse(msg.text, msg.id)}
+            style={[
+              styles.iconButton, 
+              speakingMessageId === msg.id && styles.speakingButton
+            ]}
+            disabled={loading}
+          >
+            <Ionicons 
+              name={speakingMessageId === msg.id ? "stop" : "volume-high-outline"} 
+              size={18} 
+              color={speakingMessageId === msg.id ? "#ff6b6b" : (loading ? "#ccc" : "#000")}
+            />
           </TouchableOpacity>
         </View>
       ) : editingMsgId === msg.id ? (
@@ -288,7 +588,7 @@ const PalChatPage = () => {
           <TouchableOpacity>
             <Ionicons name="pencil" size={18} />
           </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => handleCopyResponse(msg.text)}>
             <Ionicons name="copy-outline" size={18} />
           </TouchableOpacity>
         </View>
@@ -316,17 +616,28 @@ const PalChatPage = () => {
             keyExtractor={(item) => item.id}
             ref={scrollViewRef}
             contentContainerStyle={styles.scrollContent}
-            onContentSizeChange={() =>
-              scrollViewRef.current?.scrollToEnd({
-                animated: true,
-              })
-            }
+            showsVerticalScrollIndicator={false}
+            onContentSizeChange={() => {
+              // Auto scroll to bottom when content size changes (new message added)
+              if (messages.length > 0) {
+                setTimeout(() => {
+                  scrollViewRef.current?.scrollToEnd({ animated: true });
+                }, 50);
+              }
+            }}
+            onLayout={() => {
+              // Auto scroll to bottom on layout changes
+              if (messages.length > 0) {
+                setTimeout(() => {
+                  scrollViewRef.current?.scrollToEnd({ animated: false });
+                }, 50);
+              }
+            }}
             onScroll={({ nativeEvent }) => {
-              const { layoutMeasurement, contentOffset, contentSize } =
-                nativeEvent;
-              const isAtBottom =
-                layoutMeasurement.height + contentOffset.y >=
-                contentSize.height - 20;
+              const { layoutMeasurement, contentOffset, contentSize } = nativeEvent;
+              
+              // Check if user is at the bottom of the list
+              const isAtBottom = layoutMeasurement.height + contentOffset.y >= contentSize.height - 50;
 
               if (isAtBottom) {
                 moveDown();
@@ -340,10 +651,11 @@ const PalChatPage = () => {
             ListEmptyComponent={
               <View style={styles.introBox}>
                 <Text style={styles.title}>Ask Anything</Text>
-                <Text style={styles.subtitle}>Pal is ready...</Text>
+                <Text style={styles.subtitle}>Pal is ready {user ? user.split(' ')[1] : 'Gee'}</Text>
               </View>
             }
             renderItem={renderItem}
+            removeClippedSubviews={false}
           />
 
           {scrollIndicatorVisible && (
@@ -363,7 +675,7 @@ const PalChatPage = () => {
 
         <View style={styles.bottomTab}>
           <TextInput
-            placeholder="Message Pal...."
+            placeholder={`What is on your mind ${user ? user.split(' ')[1] : 'Gee'}?`}
             style={styles.input}
             multiline
             value={message}
@@ -561,15 +873,26 @@ const PalChatPage = () => {
 const styles = StyleSheet.create({
   flex1: { flex: 1 },
   container: { flex: 1, position: "relative" },
-  scrollContent: { padding: 20 },
-  introBox: { alignSelf: "center" },
+  scrollContent: { 
+    padding: 20,
+    flexGrow: 1,
+    justifyContent: 'flex-end'
+  },
+  introBox: { 
+    alignSelf: "center",
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
   title: { fontSize: 30, fontWeight: "bold" },
   subtitle: { fontSize: 15, textAlign: "center" },
   messageContainer: { marginVertical: 5 },
   messageBubble: { padding: 10, borderRadius: 10, maxWidth: "100%" },
   sentMessage: { backgroundColor: "#dcf8c6", alignSelf: "flex-end" },
   receivedMessage: { paddingBottom: 10 },
+  errorMessage: { backgroundColor: "#ffebee" },
   messageText: { fontSize: 16 },
+  errorText: { color: "#d32f2f" },
   loadingRow: { flexDirection: "row", alignItems: "center" },
   editIcons: {
     flexDirection: "row",
@@ -583,7 +906,17 @@ const styles = StyleSheet.create({
     alignSelf: "flex-end",
     padding: 5,
   },
-
+  iconButton: {
+    padding: 5,
+    borderRadius: 5,
+  },
+  disabledIcon: {
+    opacity: 0.5,
+  },
+  speakingButton: {
+    backgroundColor: '#ffebee',
+    borderRadius: 5,
+  },
   bottomTab: {
     padding: 10,
     borderRadius: 20,
@@ -612,14 +945,6 @@ const styles = StyleSheet.create({
     bottom: 0,
     borderRadius: 20,
   },
-  // headerRight: {
-  //   flexDirection: "row",
-  //   justifyContent: "center",
-  //   gap: 20,
-  //   padding: 10,
-  //   alignItems: "center",
-  //   margin: 10,
-  // },
   modalContainer: { backgroundColor: "#f0f0f0", flex: 1 },
   modalClose: { padding: 20 },
   modalTitle: { padding: 20, fontSize: 16 },

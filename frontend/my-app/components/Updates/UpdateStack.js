@@ -4,6 +4,7 @@ import UpdateMaterialTopTabs from "./UpdateMaterialTopTabs";
 import { NavigationContainer } from "@react-navigation/native";
 import NewsPage from "./NewsPage";
 import { Ionicons } from "@expo/vector-icons";
+import { StatusBar } from "react-native";
 
 const CustomHeader = () => (
   <View style={styles.searchBox}>

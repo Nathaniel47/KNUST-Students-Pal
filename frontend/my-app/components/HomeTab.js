@@ -4,11 +4,15 @@ import {
   TouchableWithoutFeedback,
   TouchableOpacity,
   Pressable,
+  StyleSheet,
+  Image,
+  Alert,
 } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createDrawerNavigator, DrawerItem } from "@react-navigation/drawer";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import { useContext } from "react";
 import Scheduler from "./Scheduler";
 import Resources from "./Resources";
 import CareerHub from "./CareerHub";
@@ -19,6 +23,7 @@ import { DrawerContentScrollView } from "@react-navigation/drawer";
 import CustomBottomTabBar from "./CustomBottomTabBar";
 import SearchPage from "./SearchPage";
 import { useDrawerHeaderContext } from "./utility/DrawerHeaderContext";
+import { AuthContext } from "./utility/AuthProvider";
 
 const BOTTOM_TAB_BAR_HEIGHT = 70;
 
@@ -43,7 +48,7 @@ const CustomDrawerIcon = ({ navigation }) => (
     <View
       style={{
         width: 24,
-        height: 2,
+        height: 1.8,
         backgroundColor: "#333",
         borderRadius: 2,
         marginBottom: 4,
@@ -52,7 +57,7 @@ const CustomDrawerIcon = ({ navigation }) => (
     <View
       style={{
         width: 18,
-        height: 2,
+        height: 1.8,
         backgroundColor: "#333",
         borderRadius: 2,
         marginBottom: 4,
@@ -61,13 +66,159 @@ const CustomDrawerIcon = ({ navigation }) => (
     <View
       style={{
         width: 12,
-        height: 2,
+        height: 1.8,
         backgroundColor: "#333",
         borderRadius: 2,
       }}
     />
   </Pressable>
 );
+
+const CustomDrawerContent = (props) => {
+  const { user, logout } = useContext(AuthContext);
+
+  const handleLogout = async () => {
+    Alert.alert(
+      "Logout",
+      "Are you sure you want to logout?",
+      [
+        {
+          text: "Cancel",
+          style: "cancel",
+        },
+        {
+          text: "Logout",
+          style: "destructive",
+          onPress: async () => {
+            const result = await logout();
+            if (result.success) {
+              props.navigation.reset({
+                index: 0,
+                routes: [{ name: 'Main' }],
+              });
+            }
+          },
+        },
+      ],
+    );
+  };
+
+  const menuItems = [
+    {
+      label: "Profile",
+      icon: "person-outline",
+      onPress: () => {
+        // Navigate to profile screen or show profile modal
+        console.log("Navigate to Profile");
+      },
+    },
+    {
+      label: "Settings",
+      icon: "settings-outline",
+      onPress: () => {
+        // Navigate to settings screen
+        console.log("Navigate to Settings");
+      },
+    },
+    {
+      label: "Notifications",
+      icon: "notifications-outline",
+      onPress: () => {
+        // Navigate to notifications settings
+        console.log("Navigate to Notifications");
+      },
+    },
+    {
+      label: "Help & Support",
+      icon: "help-circle-outline",
+      onPress: () => {
+        // Navigate to help screen
+        console.log("Navigate to Help");
+      },
+    },
+    {
+      label: "About",
+      icon: "information-circle-outline",
+      onPress: () => {
+        // Show about information
+        console.log("Show About");
+      },
+    },
+    {
+      label: "Privacy Policy",
+      icon: "shield-checkmark-outline",
+      onPress: () => {
+        // Navigate to privacy policy
+        console.log("Navigate to Privacy Policy");
+      },
+    },
+  ];
+
+  return (
+    <DrawerContentScrollView {...props} style={styles.drawerContainer}>
+      {/* User Profile Section */}
+      <View style={styles.userSection}>
+        <LinearGradient
+          colors={["#00BF63", "#00A855"]}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 1 }}
+          style={styles.userBackground}
+        >
+          <View style={styles.userInfo}>
+            <View style={styles.avatarContainer}>
+              <Ionicons name="person" size={32} color="white" />
+            </View>
+            <View style={styles.userTextContainer}>
+              <Text style={styles.userName}>{user || "User"}</Text>
+              <Text style={styles.userEmail}>Welcome back!</Text>
+            </View>
+          </View>
+        </LinearGradient>
+      </View>
+
+      {/* Menu Items */}
+      <View style={styles.menuSection}>
+        {menuItems.map((item, index) => (
+          <DrawerItem
+            key={index}
+            label={item.label}
+            icon={({ color, size }) => (
+              <Ionicons name={item.icon} size={size} color={color} />
+            )}
+            onPress={item.onPress}
+            labelStyle={styles.menuItemLabel}
+            style={styles.menuItem}
+            activeTintColor="#00BF63"
+            inactiveTintColor="#666"
+          />
+        ))}
+      </View>
+
+      {/* Divider */}
+      <View style={styles.divider} />
+
+      {/* Logout Section */}
+      <View style={styles.logoutSection}>
+        <DrawerItem
+          label="Logout"
+          icon={({ color, size }) => (
+            <Ionicons name="log-out-outline" size={size} color={color} />
+          )}
+          onPress={handleLogout}
+          labelStyle={[styles.menuItemLabel, styles.logoutLabel]}
+          style={styles.menuItem}
+          activeTintColor="#FF4444"
+          inactiveTintColor="#FF4444"
+        />
+      </View>
+
+      {/* App Version */}
+      <View style={styles.versionContainer}>
+        <Text style={styles.versionText}>Version 1.0.0</Text>
+      </View>
+    </DrawerContentScrollView>
+  );
+};
 
 const BottomTab = () => {
   const navigation = useNavigation();
@@ -98,7 +249,7 @@ const BottomTab = () => {
               iconName = focused ? "calendar" : "calendar-outline";
               break;
             default:
-              iconName = "help-circle-outline"; // Fallback icon
+              iconName = "help-circle-outline";
           }
 
           if (isPal) {
@@ -139,19 +290,16 @@ const BottomTab = () => {
         },
         tabBarInactiveTintColor: "gray",
         tabBarActiveTintColor: "#00BF63",
-        // tabBarStyle is now set dynamically by the useEffect above
-        // Remove the fixed height: 70 here, as it will be managed by tabBarAnimatedStyle
         tabBarStyle: {
-          // Default styles, these can be overridden by the animated style
           backgroundColor: "white",
           height: BOTTOM_TAB_BAR_HEIGHT,
         },
-        headerShown: false, // Ensure headers are handled by nested navigators
+        headerShown: false,
       })}
     >
       <Tabs.Screen
         name="Updates"
-        component={UpdateStack} // Your UpdateStack component
+        component={UpdateStack}
         options={{
           tabBarButton: (props) => <NoHighlightTabButton {...props} />,
         }}
@@ -165,7 +313,7 @@ const BottomTab = () => {
       />
       <Tabs.Screen
         name="Pal"
-        component={PalStack} // Your PalStack component
+        component={PalStack}
         options={{
           tabBarLabel: () => null,
           tabBarButton: (props) => <NoHighlightTabButton {...props} />,
@@ -192,14 +340,7 @@ const BottomTab = () => {
 const HomeTabs = () => {
   return (
     <Drawer.Navigator
-      drawerContent={(props) => (
-        <DrawerContentScrollView {...props}>
-          <View>
-            <Text>hello people</Text>
-          </View>
-          <DrawerItem label="Settings" />
-        </DrawerContentScrollView>
-      )}
+      drawerContent={(props) => <CustomDrawerContent {...props} />}
       screenOptions={({ navigation }) => {
         return {
           headerTitle: "",
@@ -217,7 +358,6 @@ const HomeTabs = () => {
               style={{ flex: 1 }}
             />
           ),
-
           headerRight: () => (
             <View
               style={{
@@ -233,29 +373,14 @@ const HomeTabs = () => {
                 onPress={() => {
                   navigation.navigate("Search");
                 }}
-                style={{
-                  flexDirection: "row",
-                  gap: 10,
-                  alignItems: "center",
-                  borderWidth: 1,
-                  borderRadius: 20,
-                  paddingHorizontal: 20,
-                  alignSelf: "center",
-                  width: 230,
-                  marginTop: 2,
-                  backgroundColor: "#fff",
-                  paddingVertical: 10,
-                  height: 40,
-                }}
               >
-                <Ionicons name="search-outline" size={20} />
-                <Text>Search updates....</Text>
+                <Ionicons name="search-outline" size={24} />
               </TouchableOpacity>
               <TouchableOpacity>
-                <Ionicons name="notifications-outline" size={24}></Ionicons>
+                <Ionicons name="notifications-outline" size={24} />
               </TouchableOpacity>
               <TouchableOpacity>
-                <Ionicons name="person-circle-outline" size={24}></Ionicons>
+                <Ionicons name="person-circle-outline" size={24} />
               </TouchableOpacity>
             </View>
           ),
@@ -266,11 +391,89 @@ const HomeTabs = () => {
       <Drawer.Screen
         name="BottomTab"
         component={BottomTab}
-        options={{ headerTitle: "" }}
+        options={{ headerTitle: "Updates", headerTitleStyle: { padding: 10 } }}
       />
       <Drawer.Screen name="Search" component={SearchPage} />
     </Drawer.Navigator>
   );
 };
+
+const styles = StyleSheet.create({
+  drawerContainer: {
+    flex: 1,
+    backgroundColor: "#fff",
+  },
+  userSection: {
+    marginBottom: 20,
+  },
+  userBackground: {
+    padding: 0,
+    margin: 0,
+  },
+  userInfo: {
+    flexDirection: "row",
+    alignItems: "center",
+    padding: 20,
+    paddingTop: 40,
+    paddingBottom: 25,
+  },
+  avatarContainer: {
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    backgroundColor: "rgba(255, 255, 255, 0.2)",
+    justifyContent: "center",
+    alignItems: "center",
+    marginRight: 15,
+  },
+  userTextContainer: {
+    flex: 1,
+  },
+  userName: {
+    fontSize: 18,
+    fontWeight: "bold",
+    color: "white",
+    marginBottom: 4,
+  },
+  userEmail: {
+    fontSize: 14,
+    color: "rgba(255, 255, 255, 0.8)",
+  },
+  menuSection: {
+    flex: 1,
+    paddingTop: 10,
+  },
+  menuItem: {
+    marginVertical: 2,
+    borderRadius: 8,
+    marginHorizontal: 10,
+  },
+  menuItemLabel: {
+    fontSize: 18,
+    marginLeft: -5,
+  },
+  divider: {
+    height: 1,
+    backgroundColor: "#E0E0E0",
+    marginHorizontal: 20,
+    marginVertical: 20,
+  },
+  logoutSection: {
+    paddingBottom: 10,
+  },
+  logoutLabel: {
+    color: "#FF4444",
+  },
+  versionContainer: {
+    padding: 20,
+    alignItems: "center",
+    borderTopWidth: 1,
+    borderTopColor: "#E0E0E0",
+  },
+  versionText: {
+    fontSize: 12,
+    color: "#999",
+  },
+});
 
 export default HomeTabs;

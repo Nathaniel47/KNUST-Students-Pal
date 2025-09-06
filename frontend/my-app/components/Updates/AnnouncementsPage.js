@@ -12,6 +12,7 @@ import {
   ActivityIndicator,
   RefreshControl,
   useWindowDimensions,
+  StatusBar,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { Ionicons } from "@expo/vector-icons";
@@ -25,16 +26,141 @@ import { useToast } from "../utility/ToastContext";
 import RenderHTML from "react-native-render-html";
 
 const getTagColor = (tag) => {
-  switch (tag) {
-    case "News":
-      return "#E74C3C"; // A shade of red
-    case "Events":
-      return "#9B59B6"; // A shade of purple
-    case "Announcements":
-      return "#F39C12"; // A shade of orange
-    default:
-      return "#3498DB"; // Default blue
-  }
+  const colors = {
+    News: {
+      primary: "#FF6B6B",
+      secondary: "#FFE5E5",
+      accent: "#FF8E8E"
+    },
+    Events: {
+      primary: "#6C5CE7",
+      secondary: "#E8E5FF",
+      accent: "#8B7EE8"
+    },
+    Announcements: {
+       primary: "#FF6B6B",
+      secondary: "#FFE5E5",
+      accent: "#FF8E8E"
+    },
+    default: {
+      // primary: "#00BF63",
+      // secondary: "#E5FFF2",
+      // accent: "#4DD390"
+
+         primary: "#FF6B6B",
+      secondary: "#FFE5E5",
+      accent: "#FF8E8E"
+    }
+  };
+  return colors[tag] || colors.default;
+};
+
+const formatTimeAgo = (dateString) => {
+  const now = new Date();
+  const date = new Date(dateString);
+  const diffInHours = Math.floor((now - date) / (1000 * 60 * 60));
+  
+  if (diffInHours < 1) return "Just now";
+  if (diffInHours < 24) return `${diffInHours}h ago`;
+  if (diffInHours < 48) return "Yesterday";
+  return `${Math.floor(diffInHours / 24)}d ago`;
+};
+
+const AnnouncementCard = ({ item, onPress, onComment, onLike, onShare, onSave }) => {
+  const tagColors = getTagColor(item.tag);
+  
+  return (
+    <Pressable
+      style={({ pressed }) => [
+        styles.modernCard,
+        { transform: [{ scale: pressed ? 0.98 : 1 }] }
+      ]}
+      onPress={() => onPress(item)}
+      android_ripple={{ color: '#f0f0f0' }}
+    >
+      {/* Card Header */}
+      <View style={styles.cardHeader}>
+        <View style={styles.authorSection}>
+          <View style={styles.avatarContainer}>
+            <Ionicons name="business" size={20} color={tagColors.primary} />
+          </View>
+          <View style={styles.authorInfo}>
+            <Text style={styles.authorName}>{item.category}</Text>
+            <Text style={styles.timeStamp}>{formatTimeAgo(item.date)}</Text>
+          </View>
+        </View>
+        
+        <View style={[styles.modernTag, { backgroundColor: tagColors.secondary }]}>
+          <View style={[styles.tagDot, { backgroundColor: tagColors.primary }]} />
+          <Text style={[styles.tagText, { color: tagColors.primary }]}>{item.tag}</Text>
+        </View>
+      </View>
+
+      {/* Card Content */}
+      <View style={styles.cardContent}>
+        <Text style={styles.modernTitle} numberOfLines={2}>{item.title}</Text>
+        <Text style={styles.modernSummary} numberOfLines={3}>{item.summary}</Text>
+      </View>
+
+      {/* Card Image */}
+      <View style={styles.imageContainer}>
+        <Image
+          source={require("../../assets/knust-logo.png")}
+          style={styles.modernImage}
+          resizeMode="cover"
+        />
+        <LinearGradient
+          colors={['transparent', 'rgba(0,0,0,0.1)']}
+          style={styles.imageOverlay}
+        />
+      </View>
+
+      {/* Engagement Stats */}
+      <View style={styles.engagementSection}>
+        <View style={styles.statsContainer}>
+          <View style={styles.statItem}>
+            <Ionicons name="eye" size={14} color="#666" />
+            <Text style={styles.statNumber}>2.4k</Text>
+          </View>
+          <View style={styles.statItem}>
+            <Ionicons name="chatbubble" size={14} color="#666" />
+            <Text style={styles.statNumber}>124</Text>
+          </View>
+          <View style={styles.statItem}>
+            <Ionicons name="heart" size={14} color="#666" />
+            <Text style={styles.statNumber}>89</Text>
+          </View>
+        </View>
+        
+        <Pressable style={styles.readMoreBtn}>
+          <Text style={[styles.readMoreText, { color: tagColors.primary }]}>Read More</Text>
+          <Ionicons name="arrow-forward" size={14} color={tagColors.primary} />
+        </Pressable>
+      </View>
+
+      {/* Action Buttons */}
+      <View style={styles.actionBar}>
+        <TouchableOpacity style={styles.actionButton} onPress={onComment}>
+          <Ionicons name="chatbubble-outline" size={18} color="#666" />
+          <Text style={styles.actionText}>Comment</Text>
+        </TouchableOpacity>
+        
+        <TouchableOpacity style={styles.actionButton} onPress={onLike}>
+          <Ionicons name="heart-outline" size={18} color="#666" />
+          <Text style={styles.actionText}>Like</Text>
+        </TouchableOpacity>
+        
+        <TouchableOpacity style={styles.actionButton} onPress={onShare}>
+          <Ionicons name="share-social-outline" size={18} color="#666" />
+          <Text style={styles.actionText}>Share</Text>
+        </TouchableOpacity>
+        
+        <TouchableOpacity style={styles.actionButton} onPress={onSave}>
+          <Ionicons name="bookmark-outline" size={18} color="#666" />
+        </TouchableOpacity>
+      </View>
+    </Pressable>
+  );
 };
 
 const AnnouncementPage = () => {
@@ -48,33 +174,23 @@ const AnnouncementPage = () => {
   const { width } = useWindowDimensions();
 
   const { showToast } = useToast();
-
   const { fetchUpdates } = useFetchContext();
-
   const { scrollY, previousScrollY, scrollDirection } = useScrollContext();
-
   const { open: openSheet, close: closeSheet } = useGlobalBottomSheet();
 
   const scrollHandler = useAnimatedScrollHandler({
     onScroll: (event) => {
       "worklet";
-
       const currentScrollY = event.contentOffset.y;
 
-      // Determine scroll direction
       if (currentScrollY > previousScrollY.value && currentScrollY > 0) {
-        // Scrolling down and not at the very top
         scrollDirection.value = "down";
       } else if (currentScrollY < previousScrollY.value) {
-        // Scrolling up
         scrollDirection.value = "up";
-        // console.log("scrolling up", scrollDirection.value); // You can keep or remove this console log
       } else if (currentScrollY <= 0) {
-        // At the very top or overscrolling up
-        scrollDirection.value = "up"; // Ensure header is visible
+        scrollDirection.value = "up";
       }
 
-      // Always update previousScrollY and scrollY values
       previousScrollY.value = currentScrollY;
       scrollY.value = currentScrollY;
     },
@@ -82,7 +198,6 @@ const AnnouncementPage = () => {
 
   useEffect(() => {
     loadFeeds();
-    console.log(new Date());
   }, []);
 
   const loadFeeds = async () => {
@@ -92,9 +207,9 @@ const AnnouncementPage = () => {
     if (response.error) {
       setNetworkError(true);
       showToast(
-        "Network error. Make sure you are connected to the internet",
+        "Network error. Please check your connection",
         3000,
-        "#222",
+        "#FF6B6B",
         "bottom"
       );
     } else {
@@ -103,27 +218,19 @@ const AnnouncementPage = () => {
     setLoadingFeeds(false);
   };
 
-  function shuffleFeeds(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-  }
-
   const onRefreshing = async () => {
     setRefreshing(true);
-    const response = await fetchUpdates("all");
+    const response = await fetchUpdates("announcements");
     if (response.error) {
       showToast(
-        "Couldn't refresh feeds. Check your internet connection",
-        6000,
-        "#222",
+        "Couldn't refresh feeds. Check your connection",
+        3000,
+        "#FF6B6B",
         "top"
       );
     } else {
-      setFeeds(shuffleFeeds(response.data));
-      showToast("Updates refreshed successfully", 6000, "#222", "top");
+      setFeeds(response.data);
+      showToast("Updates refreshed successfully", 2000, "#00BF63", "top");
     }
     setRefreshing(false);
   };
@@ -133,176 +240,96 @@ const AnnouncementPage = () => {
     setModalVisible(true);
   };
 
-  const handleOpenComments = ({ comments }) => {
+  const handleOpenComments = () => {
     openSheet({ content: <CommentPage /> });
   };
 
-  return (
-    <View style={[styles.container]}>
-      <LinearGradient
-        colors={["white", "white"]}
-        start={{ x: 0, y: 0 }}
-        end={{ x: 0, y: 1 }}
-        style={{ flex: 1 }}
-      >
-        {loadingFeeds ? (
-          <View style={styles.centeredLoading}>
+  const handleLike = () => {
+    showToast("Liked!", 1000, "#FF6B6B", "bottom");
+  };
+
+  const handleShare = () => {
+    showToast("Shared!", 1000, "#00BF63", "bottom");
+  };
+
+  const handleSave = () => {
+    showToast("Saved!", 1000, "#6C5CE7", "bottom");
+  };
+
+  if (loadingFeeds) {
+    return (
+      <View style={styles.container}>
+        <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
+        <View style={styles.loadingContainer}>
+          <View style={styles.loadingContent}>
             <ActivityIndicator size="large" color="#00BF63" />
-            <Text style={styles.loadingText}>Loading feeds...</Text>
+            <Text style={styles.loadingText}>Loading announcements...</Text>
           </View>
-        ) : networkError ? (
-          <View
-            style={{
-              flex: 1,
-              justifyContent: "center",
-              alignItems: "center",
-              marginTop: 50,
-            }}
-          >
-            <Text style={{ fontSize: 20, color: "red", fontWeight: "bold" }}>
-              Network Error
-            </Text>
-            <Text style={{ fontWeight: 300, padding: 10, textAlign: "center" }}>
-              Make sure you have your data ON and connected to the internet.
-              Press reload to load updates
-            </Text>
-            <TouchableOpacity
-              onPress={loadFeeds}
-              style={{
-                padding: 10,
-                borderRadius: 20,
-                backgroundColor: "blue",
-                borderColor: "white",
-              }}
-            >
-              <Text style={{ color: "white" }}>Reload</Text>
-            </TouchableOpacity>
-          </View>
-        ) : (
-          <View style={[styles.innerContainer]}>
-            <Animated.FlatList
-              showsVerticalScrollIndicator={false}
-              contentContainerStyle={{ position: "absolute", top: 50 }}
-              onScroll={scrollHandler}
-              scrollEventThrottle={16}
-              refreshControl={
-                <RefreshControl
-                  refreshing={refreshing}
-                  onRefresh={onRefreshing}
-                  progressViewOffset={30}
-                />
-              }
-              data={feeds}
-              keyExtractor={(item) => item.id.toString()}
-              renderItem={({ item }) => (
-                <Pressable
-                  style={({ pressed }) => [
-                    styles.normalCard,
-                    {
-                      backgroundColor: pressed ? "#f1f1f1" : "#fff",
-                    },
-                  ]}
-                  onPress={() => handleOpenFeedModal(item)}
-                >
-                  <View style={styles.normalCardHeader}>
-                    <TouchableHighlight
-                      underlayColor="#f0f0f0"
-                      onPress={() => console.log("Source pressed")}
-                      style={styles.sourceHighlight}
-                    >
-                      <View style={styles.sourceInfo}>
-                        <Ionicons
-                          name="person-circle-outline"
-                          size={28}
-                          color="#555"
-                        />
-                        <Text style={styles.sourceText}>{item.category}</Text>
-                      </View>
-                    </TouchableHighlight>
-                    <View
-                      style={[
-                        styles.tagBadge,
-                        { borderBottomColor: getTagColor(item.tag) },
-                      ]}
-                    >
-                      <Text style={styles.tagText}>{item.tag}</Text>
-                    </View>
-                  </View>
-                  <Text style={styles.normalTitle}>{item.title}</Text>
-                  <Pressable>
-                    <Image
-                      source={require("../../assets/knust-logo.png")}
-                      style={styles.normalImage}
-                      resizeMode="cover"
-                    />
-                  </Pressable>
+        </View>
+      </View>
+    );
+  }
 
-                  <View style={styles.normalContent}>
-                    <Text style={styles.normalDescription}>{item.summary}</Text>
-                    <Pressable
-                      style={styles.readMoreButton}
-                      onPress={() => {
-                        handleOpenFeedModal(item);
-                      }}
-                    >
-                      <Text style={styles.readMoreText}>Read More</Text>
-                    </Pressable>
-                  </View>
+  if (networkError) {
+    return (
+      <View style={styles.container}>
+        <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
+        <View style={styles.errorContainer}>
+          <Ionicons name="cloud-offline" size={64} color="#FF6B6B" />
+          <Text style={styles.errorTitle}>Connection Problem</Text>
+          <Text style={styles.errorMessage}>
+            Please check your internet connection and try again
+          </Text>
+          <TouchableOpacity style={styles.retryButton} onPress={loadFeeds}>
+            <Ionicons name="refresh" size={20} color="#FFFFFF" />
+            <Text style={styles.retryText}>Try Again</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    );
+  }
 
-                  <View style={styles.statisticsContainer}>
-                    <Pressable>
-                      <Text style={styles.hashtag}>#TreatAsUrgent</Text>
-                    </Pressable>
+  return (
+    <View style={styles.container}>
+      <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
+      
+      {/* Header */}
+      <View style={styles.headerContainer}>
+        <Text style={styles.headerTitle}>Announcements</Text>
+        <Text style={styles.headerSubtitle}>{feeds.length} updates available</Text>
+      </View>
 
-                    <View style={styles.statsIcons}>
-                      <Pressable style={styles.statItem}>
-                        <Text style={styles.statText}>24k</Text>
-
-                        <Ionicons name="chatbubble" color="#3498DB" size={16} />
-                      </Pressable>
-                      <Pressable style={styles.statItem}>
-                        <Text style={styles.statText}>220</Text>
-                        <Ionicons name="heart" color="#E74C3C" size={16} />
-                      </Pressable>
-                    </View>
-                  </View>
-
-                  <View style={styles.interactionIconsContainer}>
-                    <Pressable
-                      style={styles.interactionButton}
-                      onPress={handleOpenComments}
-                    >
-                      <Ionicons
-                        name="chatbubble-outline"
-                        size={18}
-                        color="#555"
-                      />
-                      <Text style={styles.interactionButtonText}>Comment</Text>
-                    </Pressable>
-                    <Pressable style={styles.interactionButton}>
-                      <Ionicons name="heart-outline" size={18} color="#555" />
-                      <Text style={styles.interactionButtonText}>Like</Text>
-                    </Pressable>
-                    <Pressable style={styles.interactionButton}>
-                      <Ionicons name="share-outline" size={18} color="#555" />
-                      <Text style={styles.interactionButtonText}>Share</Text>
-                    </Pressable>
-                    <Pressable style={styles.interactionButton}>
-                      <Ionicons
-                        name="bookmark-outline"
-                        size={18}
-                        color="#555"
-                      />
-                      <Text style={styles.interactionButtonText}>Save</Text>
-                    </Pressable>
-                  </View>
-                </Pressable>
-              )}
-            />
-          </View>
+      {/* Feed List */}
+      <Animated.FlatList
+        data={feeds}
+        keyExtractor={(item) => item.id.toString()}
+        showsVerticalScrollIndicator={false}
+        onScroll={scrollHandler}
+        scrollEventThrottle={16}
+        contentContainerStyle={styles.listContainer}
+        refreshControl={
+          <RefreshControl
+            refreshing={refreshing}
+            onRefresh={onRefreshing}
+            colors={["#00BF63"]}
+            tintColor="#00BF63"
+            progressViewOffset={10}
+          />
+        }
+        renderItem={({ item, index }) => (
+          <AnnouncementCard
+            item={item}
+            onPress={handleOpenFeedModal}
+            onComment={handleOpenComments}
+            onLike={handleLike}
+            onShare={handleShare}
+            onSave={handleSave}
+          />
         )}
-      </LinearGradient>
+        ItemSeparatorComponent={() => <View style={styles.separator} />}
+      />
 
+      {/* Detail Modal */}
       <Modal
         visible={modalVisible}
         onRequestClose={() => setModalVisible(false)}
@@ -310,137 +337,143 @@ const AnnouncementPage = () => {
         presentationStyle="fullScreen"
       >
         <View style={styles.modalContainer}>
-          <LinearGradient
-            colors={["#222", "#444", "#777", "#888", "transparent"]}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 0, y: 1 }}
-            style={styles.modalHeaderGradientContainer}
-          >
-            <View style={styles.modalHeaderGradient}>
-              <Pressable
-                style={styles.modalBackButton}
-                onPress={() => setModalVisible(false)}
-              >
-                <Ionicons name="close" size={28} color="#fff" />
-              </Pressable>
-              <View style={styles.modalHeaderActions}>
-                <Pressable
-                  style={styles.modalActionButton}
-                  onPress={() => setImageModalVisible(true)}
-                >
-                  <Ionicons name="image" size={24} color="#fff" />
-                </Pressable>
-                <Pressable style={styles.modalActionButton}>
-                  <Ionicons name="ellipsis-vertical" size={24} color="#fff" />
-                </Pressable>
-              </View>
+          <StatusBar barStyle="light-content" backgroundColor="rgba(0,0,0,0.8)" />
+          
+          {/* Modal Header */}
+          <View style={styles.modalHeader}>
+            <TouchableOpacity
+              style={styles.modalCloseButton}
+              onPress={() => setModalVisible(false)}
+            >
+              <Ionicons name="arrow-back" size={24} color="#FFFFFF" />
+            </TouchableOpacity>
+            <View style={styles.modalActions}>
+              <TouchableOpacity style={styles.modalActionButton}>
+                <Ionicons name="share-social" size={20} color="#FFFFFF" />
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.modalActionButton}>
+                <Ionicons name="bookmark" size={20} color="#FFFFFF" />
+              </TouchableOpacity>
             </View>
-          </LinearGradient>
+          </View>
 
           {selectedFeed && (
-            <ScrollView showsVerticalScrollIndicator={false}>
-              <View style={styles.feedDetailImageContainer}>
+            <ScrollView style={styles.modalContent} showsVerticalScrollIndicator={false}>
+              {/* Featured Image */}
+              <View style={styles.modalImageContainer}>
                 <Image
                   source={require("../../assets/knust-logo.png")}
-                  style={styles.feedDetailImage}
+                  style={styles.modalImage}
                 />
-                <View
-                  style={[
-                    styles.feedDetailRoundedImageContainer,
-                    { borderColor: getTagColor(selectedFeed.tag) },
-                  ]}
-                >
-                  <Image
-                    source={require("../../assets/knust-logo.png")}
-                    style={styles.feedDetailRoundedImage}
-                  />
-                </View>
+                <LinearGradient
+                  colors={['transparent', 'rgba(0,0,0,0.1)']}
+                  style={styles.modalImageOverlay}
+                />
               </View>
 
-              <View style={styles.feedDetailContent}>
-                <View style={styles.feedDetailHeader}>
-                  <View style={styles.feedDetailSource}>
-                    <Text style={styles.feedDetailSourceText}>
-                      {selectedFeed.source}
-                    </Text>
-                    <Ionicons
-                      name="person-circle-outline"
-                      size={24}
-                      color="#555"
-                      style={styles.feedDetailSourceIcon}
-                    />
+              {/* Content Section */}
+              <View style={styles.modalBody}>
+                {/* Article Header */}
+                <View style={styles.articleHeader}>
+                  <View style={styles.modalAuthorSection}>
+                    <View style={styles.modalAvatarContainer}>
+                      <Ionicons name="business" size={24} color={getTagColor(selectedFeed.tag).primary} />
+                    </View>
+                    <View>
+                      <Text style={styles.modalAuthorName}>{selectedFeed.category}</Text>
+                      <Text style={styles.modalTimestamp}>{formatTimeAgo(selectedFeed.date)}</Text>
+                    </View>
                   </View>
-                  <View
-                    style={[
-                      styles.feedDetailTag,
-                      { borderBottomColor: getTagColor(selectedFeed.tag) },
-                    ]}
-                  >
-                    <Text style={styles.feedDetailTagText}>
+                  
+                  <View style={[
+                    styles.modalTag, 
+                    { backgroundColor: getTagColor(selectedFeed.tag).secondary }
+                  ]}>
+                    <Text style={[
+                      styles.modalTagText, 
+                      { color: getTagColor(selectedFeed.tag).primary }
+                    ]}>
                       {selectedFeed.tag}
                     </Text>
                   </View>
                 </View>
 
-                <Text style={styles.feedDetailTitle}>{selectedFeed.title}</Text>
+                {/* Article Title */}
+                <Text style={styles.modalTitle}>{selectedFeed.title}</Text>
 
-                <View style={styles.feedDetailMetaInfo}>
-                  <View style={styles.metaItem}>
-                    <Ionicons name="calendar-outline" size={16} color="#777" />
+                {/* Article Meta */}
+                <View style={styles.articleMeta}>
+                  <View style={styles.metaRow}>
+                    <Ionicons name="calendar-outline" size={16} color="#888" />
                     <Text style={styles.metaText}>{selectedFeed.date}</Text>
                   </View>
-                  <View style={styles.metaItem}>
-                    <Ionicons name="time-outline" size={16} color="#777" />
-                    <Text style={styles.metaText}>{selectedFeed.date}</Text>
-                  </View>
-                  <TouchableOpacity>
-                    <Text style={styles.feedDetailSourceLink} numberOfLines={1}>
-                      {selectedFeed.link}
-                    </Text>
-                  </TouchableOpacity>
+                  {selectedFeed.link && (
+                    <TouchableOpacity style={styles.metaRow}>
+                      <Ionicons name="link-outline" size={16} color="#007AFF" />
+                      <Text style={styles.linkText} numberOfLines={1}>
+                        {selectedFeed.link}
+                      </Text>
+                    </TouchableOpacity>
+                  )}
                 </View>
 
-                <View style={styles.feedDescriptionSection}>
-                  <Text style={styles.feedDescriptionTitle}>
-                    {selectedFeed.title}
-                  </Text>
-                  <Text style={styles.feedDescriptionLabel}>Description</Text>
-
+                {/* Article Content */}
+                <View style={styles.articleContent}>
                   <RenderHTML
                     tagsStyles={{
-                      p: { fontSize: 15, lineHeight: 28, fontWeight: 300 },
-                      img: { margin: 20, width: 350, borderRadius: 10 },
-                      figure: { margin: 10 },
+                      p: { 
+                        fontSize: 16, 
+                        lineHeight: 26, 
+                        fontWeight: '400',
+                        color: '#333',
+                        marginBottom: 16
+                      },
+                      h1: { 
+                        fontSize: 24, 
+                        fontWeight: '700',
+                        color: '#1a1a1a',
+                        marginBottom: 16
+                      },
+                      h2: { 
+                        fontSize: 20, 
+                        fontWeight: '600',
+                        color: '#1a1a1a',
+                        marginBottom: 12
+                      },
+                      img: { 
+                        marginVertical: 16, 
+                        borderRadius: 12,
+                        overflow: 'hidden'
+                      },
                     }}
-                    contentWidth={width}
-                    source={{ html: selectedFeed.content }}
+                    contentWidth={width - 40}
+                    source={{ html: selectedFeed.content || '<p>No content available</p>' }}
                   />
+                </View>
+
+                {/* Engagement Section */}
+                <View style={styles.modalEngagement}>
+                  <View style={styles.engagementStats}>
+                    <Text style={styles.engagementText}>2.4k views • 124 comments • 89 likes</Text>
+                  </View>
+                  
+                  <View style={styles.modalActionBar}>
+                    <TouchableOpacity style={styles.modalActionBtn}>
+                      <Ionicons name="chatbubble-outline" size={20} color="#666" />
+                      <Text style={styles.modalActionText}>Comment</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.modalActionBtn}>
+                      <Ionicons name="heart-outline" size={20} color="#666" />
+                      <Text style={styles.modalActionText}>Like</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.modalActionBtn}>
+                      <Ionicons name="share-social-outline" size={20} color="#666" />
+                      <Text style={styles.modalActionText}>Share</Text>
+                    </TouchableOpacity>
+                  </View>
                 </View>
               </View>
             </ScrollView>
-          )}
-        </View>
-      </Modal>
-
-      <Modal
-        visible={imageModalVisible}
-        onRequestClose={() => setImageModalVisible(false)}
-        animationType="fade"
-        transparent={true}
-      >
-        <View style={styles.fullImageModalContainer}>
-          <Pressable
-            style={styles.fullImageModalCloseButton}
-            onPress={() => setImageModalVisible(false)}
-          >
-            <Ionicons name="close-circle" color="#fff" size={40} />
-          </Pressable>
-          {selectedFeed && (
-            <Image
-              source={{ uri: selectedFeed.image }}
-              resizeMode="contain"
-              style={styles.fullImage}
-            />
           )}
         </View>
       </Modal>
@@ -451,430 +484,413 @@ const AnnouncementPage = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#F8FAFB',
   },
-  gradientBackground: {
+  
+  // Loading States
+  loadingContainer: {
     flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#FFFFFF',
   },
-  innerContainer: {
-    flex: 1,
-    paddingHorizontal: 10,
-    paddingTop: 10,
-  },
-  centeredLoading: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+  loadingContent: {
+    alignItems: 'center',
+    gap: 16,
   },
   loadingText: {
-    marginTop: 10,
     fontSize: 16,
-    color: "#555",
+    color: '#666',
+    fontWeight: '500',
   },
-
-  // Section Headers (Urgent & Trending)
-  sectionContainer: {},
-  sectionHeaderContainer: {
-    paddingLeft: 5,
+  
+  // Error States
+  errorContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 32,
+    backgroundColor: '#FFFFFF',
   },
-  sectionHeaderText: {
-    fontSize: 22,
-    fontWeight: "800",
-    color: "#333",
-    padding: 5,
-  },
-
-  // Urgent Feed Card
-  urgentCard: {
-    width: 250,
-    marginRight: 5,
-    borderRadius: 15,
-    backgroundColor: "#fff",
-    elevation: 1,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 2,
-    overflow: "hidden",
-  },
-  urgentImage: {
-    width: "100%",
-    height: 150,
-    resizeMode: "cover",
-  },
-  urgentContent: {
-    padding: 15,
-  },
-  urgentTitle: {
-    fontSize: 16,
-    fontWeight: "bold",
+  errorTitle: {
+    fontSize: 20,
+    fontWeight: '700',
+    color: '#1a1a1a',
+    marginTop: 16,
     marginBottom: 8,
-    color: "#333",
   },
-  urgentMeta: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    marginTop: 5,
+  errorMessage: {
+    fontSize: 14,
+    color: '#666',
+    textAlign: 'center',
+    lineHeight: 20,
+    marginBottom: 24,
   },
-  urgentSourceText: {
-    fontSize: 13,
-    color: "#777",
-  },
-  urgentTag: {
-    paddingVertical: 5,
-    paddingHorizontal: 10,
-    borderRadius: 20,
-  },
-  urgentTagText: {
-    color: "#fff",
-    fontWeight: "600",
-    fontSize: 12,
-  },
-
-  // Normal Feed Card
-  normalCard: {
-    marginVertical: 5,
-    borderRadius: 20,
-    backgroundColor: "#f0f0f0",
-    elevation: 1,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 1,
-    overflow: "hidden",
-  },
-  normalCardHeader: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    padding: 15,
-    paddingBottom: 0,
-  },
-  sourceInfo: {
-    flexDirection: "row",
-    alignItems: "center",
+  retryButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#00BF63',
+    paddingHorizontal: 24,
+    paddingVertical: 12,
+    borderRadius: 24,
     gap: 8,
   },
-  sourceHighlight: {
+  retryText: {
+    color: '#FFFFFF',
+    fontSize: 16,
+    fontWeight: '600',
+  },
+
+  // Header
+  headerContainer: {
+    paddingHorizontal: 20,
+    paddingVertical: 16,
+    backgroundColor: '#FFFFFF',
+    borderBottomWidth: 0.5,
+    borderBottomColor: '#E5E7EB',
+  },
+  headerTitle: {
+    fontSize: 27,
+    fontWeight: '800',
+    color: '#1a1a1a',
+    marginBottom: 4,
+  },
+  headerSubtitle: {
+    fontSize: 14,
+    color: '#666',
+    fontWeight: '500',
+  },
+
+  // List
+  listContainer: {
+    paddingHorizontal: 10,
+    paddingVertical: 16,
+  },
+  separator: {
+    height: 16,
+  },
+
+  // Modern Card
+  modernCard: {
+    backgroundColor: '#FFFFFF',
+    borderRadius: 16,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.04,
+    shadowRadius: 4,
+    elevation: 2,
+    overflow: 'hidden',
+  },
+
+  // Card Header
+  cardHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: 16,
+    paddingTop: 16,
+    paddingBottom: 12,
+  },
+  authorSection: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+  },
+  avatarContainer: {
+    width: 40,
+    height: 40,
     borderRadius: 20,
-    padding: 5,
+    backgroundColor: '#F0F0F0',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  sourceText: {
+  authorInfo: {
+    gap: 2,
+  },
+  authorName: {
     fontSize: 15,
-    fontWeight: "600",
-    color: "#333",
+    fontWeight: '600',
+    color: '#1a1a1a',
   },
-  tagBadge: {
-    borderBottomWidth: 3,
-    paddingBottom: 2,
-    alignSelf: "flex-start",
+  timeStamp: {
+    fontSize: 12,
+    color: '#888',
+    fontWeight: '500',
+  },
+  modernTag: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 16,
+    gap: 6,
+  },
+  tagDot: {
+    width: 6,
+    height: 6,
+    borderRadius: 3,
   },
   tagText: {
-    fontWeight: "bold",
-    fontSize: 13,
-    color: "#555",
-  },
-  normalTitle: {
-    fontSize: 18,
-    fontWeight: "700",
-    paddingHorizontal: 15,
-    paddingVertical: 10,
-    color: "#333",
-  },
-  normalImage: {
-    width: "100%",
-    height: 350,
-    resizeMode: "cover",
-    marginTop: 10,
-  },
-  normalContent: {
-    paddingHorizontal: 15,
-    paddingVertical: 15,
-  },
-  normalDescription: {
-    fontSize: 16,
-    lineHeight: 20,
-    color: "#666",
-    marginBottom: 10,
-  },
-  readMoreButton: {
-    alignSelf: "flex-end",
-    paddingVertical: 5,
-    paddingHorizontal: 10,
-  },
-  readMoreText: {
-    color: "#007AFF",
-    fontWeight: "bold",
-    fontSize: 13,
-  },
-  statisticsContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    paddingHorizontal: 15,
-    paddingBottom: 15,
-    borderBottomWidth: 0.5,
-    borderBottomColor: "#eee",
-  },
-  hashtag: {
-    fontSize: 13,
-    color: "#007AFF",
-    fontWeight: "500",
-  },
-  statsIcons: {
-    flexDirection: "row",
-    gap: 15,
-  },
-  statItem: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 5,
-  },
-  statText: {
-    fontSize: 13,
-    color: "#555",
-  },
-  interactionIconsContainer: {
-    flexDirection: "row",
-    padding: 10,
-    justifyContent: "space-around",
-  },
-  interactionButton: {
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-    gap: 5,
-    paddingVertical: 5,
-    paddingHorizontal: 10,
-    borderRadius: 8,
-  },
-  interactionButtonText: {
-    fontSize: 13,
-    color: "#555",
-    fontWeight: "500",
+    fontSize: 12,
+    fontWeight: '600',
   },
 
-  // Trending Feed Card
-  trendingCard: {
-    width: 280,
-    height: 180,
-    marginHorizontal: 10,
-    borderRadius: 15,
-    overflow: "hidden",
-    elevation: 3,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    marginBottom: 5,
+  // Card Content
+  cardContent: {
+    paddingHorizontal: 16,
+    paddingBottom: 16,
   },
-  trendingImageBackground: {
-    flex: 1,
-    justifyContent: "flex-end",
-    padding: 15,
+  modernTitle: {
+    fontSize: 18,
+    fontWeight: '700',
+    color: '#1a1a1a',
+    lineHeight: 24,
+    marginBottom: 8,
   },
-  trendingOverlay: {
-    position: "absolute",
+  modernSummary: {
+    fontSize: 14,
+    color: '#666',
+    lineHeight: 20,
+  },
+
+  // Image
+  imageContainer: {
+    position: 'relative',
+    height: 200,
+    marginHorizontal: 16,
+    borderRadius: 12,
+    overflow: 'hidden',
+    marginBottom: 16,
+  },
+  modernImage: {
+    width: '100%',
+    height: '100%',
+  },
+  imageOverlay: {
+    position: 'absolute',
+    bottom: 0,
     left: 0,
     right: 0,
-    bottom: 0,
-    padding: 15,
+    height: 40,
+  },
 
-    height: "100%",
-    justifyContent: "flex-end",
+  // Engagement
+  engagementSection: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: 16,
+    paddingBottom: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: '#F0F0F0',
   },
-  trendingTitle: {
-    fontSize: 18,
-    fontWeight: "bold",
-    color: "#fff",
-    marginBottom: 5,
+  statsContainer: {
+    flexDirection: 'row',
+    gap: 16,
   },
-  trendingDescription: {
+  statItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+  },
+  statNumber: {
+    fontSize: 12,
+    color: '#666',
+    fontWeight: '500',
+  },
+  readMoreBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+  },
+  readMoreText: {
     fontSize: 13,
-    color: "#eee",
+    fontWeight: '600',
+  },
+
+  // Action Bar
+  actionBar: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+  },
+  actionButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 8,
+    paddingHorizontal: 12,
+    borderRadius: 20,
+    gap: 6,
+  },
+  actionText: {
+    fontSize: 13,
+    color: '#666',
+    fontWeight: '500',
   },
 
   // Modal Styles
   modalContainer: {
     flex: 1,
-    backgroundColor: "#F8F8F8",
+    backgroundColor: '#FFFFFF',
   },
-
-  modalHeaderGradientContainer: {
-    flex: 1,
-    position: "absolute",
-    width: "100%",
+  modalHeader: {
+    position: 'absolute',
     top: 0,
     left: 0,
     right: 0,
     zIndex: 10,
-    opacity: 0.6,
-    paddingBottom: 5,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: 16,
+    paddingTop: StatusBar.currentHeight || 20,
+    paddingBottom: 14,
+    backgroundColor: 'rgba(0,0,0,0.05)',
   },
-
-  modalHeaderGradient: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    paddingVertical: 10,
-    paddingHorizontal: 15,
-    // backgroundColor: "rgba(0,0,0,0.2)",
+  modalCloseButton: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: 'rgba(255,255,255,0.2)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor:'black',
   },
-  modalGradientOverlay: {
-    padding: 15,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-  },
-  modalBackButton: {
-    backgroundColor: "rgba(0,0,0,0.4)",
-    borderRadius: 25,
-    padding: 8,
-  },
-  modalHeaderActions: {
-    flexDirection: "row",
-    gap: 10,
+  modalActions: {
+    flexDirection: 'row',
+    gap: 12,
   },
   modalActionButton: {
-    backgroundColor: "rgba(0,0,0,0.4)",
-    borderRadius: 25,
-    padding: 8,
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: 'rgba(255,255,255,0.2)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor:'black'
   },
-
-  feedDetailImageContainer: {
-    height: 250,
+  modalContent: {
+    flex: 1,
   },
-  feedDetailImage: {
-    width: "100%",
-    height: "100%",
-    resizeMode: "cover",
+  modalImageContainer: {
+    height: 300,
+    position: 'relative',
   },
-  feedDetailRoundedImageContainer: {
-    position: "relative",
-    bottom: 60,
-    marginLeft: 20,
-    borderWidth: 4,
-    alignSelf: "flex-start",
-    borderRadius: 60,
-    overflow: "hidden",
-    backgroundColor: "#fff",
-    padding: 2,
+  modalImage: {
+    width: '100%',
+    height: '100%',
   },
-  feedDetailRoundedImage: {
-    width: 100,
+  modalImageOverlay: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
     height: 100,
-    borderRadius: 50,
   },
-  feedDetailContent: {
-    paddingHorizontal: 20,
+  modalBody: {
+    padding: 20,
   },
-  feedDetailHeader: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    marginBottom: 10,
-  },
-  feedDetailSource: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 8,
-    paddingTop: 70,
-  },
-  feedDetailSourceText: {
-    fontSize: 20,
-    fontWeight: "bold",
-    color: "#333",
-  },
-  feedDetailSourceIcon: {
-    opacity: 0.8,
-  },
-  feedDetailTag: {
-    borderBottomWidth: 3,
-    paddingBottom: 2,
-    alignSelf: "flex-start",
-    margin: 10,
-  },
-  feedDetailTagText: {
-    fontWeight: "bold",
-    fontSize: 14,
-    color: "#555",
-  },
-  feedDetailTitle: {
-    fontSize: 18,
-    fontWeight: 500,
-    marginBottom: 15,
-    color: "#333",
-  },
-  feedDetailMetaInfo: {
-    alignItems: "flex-start",
-    gap: 15,
+  articleHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     marginBottom: 20,
-    borderBottomWidth: 0.5,
-    borderBottomColor: "#eee",
-    paddingBottom: 20,
-    padding: 10,
   },
-  metaItem: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 5,
+  modalAuthorSection: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+  },
+  modalAvatarContainer: {
+    width: 48,
+    height: 48,
+    borderRadius: 24,
+    backgroundColor: '#F0F0F0',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  modalAuthorName: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#1a1a1a',
+    marginBottom: 2,
+  },
+  modalTimestamp: {
+    fontSize: 13,
+    color: '#888',
+  },
+  modalTag: {
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    borderRadius: 20,
+  },
+  modalTagText: {
+    fontSize: 13,
+    fontWeight: '600',
+  },
+  modalTitle: {
+    fontSize: 24,
+    fontWeight: '800',
+    color: '#1a1a1a',
+    lineHeight: 32,
+    marginBottom: 16,
+  },
+  articleMeta: {
+    gap: 12,
+    marginBottom: 24,
+    paddingBottom: 24,
+    borderBottomWidth: 1,
+    borderBottomColor: '#F0F0F0',
+  },
+  metaRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
   },
   metaText: {
     fontSize: 13,
-    color: "#777",
+    color: '#888',
   },
-  feedDetailSourceLink: {
-    color: "#007AFF",
+  linkText: {
     fontSize: 13,
-    fontWeight: "bold",
-  },
-  feedDescriptionSection: {
-    marginBottom: 30, // Space at the bottom
-  },
-  feedDescriptionTitle: {
-    fontSize: 20,
-    fontWeight: "bold",
-    marginBottom: 10,
-    color: "#333",
-  },
-  feedDescriptionLabel: {
-    fontSize: 16,
-    fontWeight: "600",
-    color: "#444",
-    marginBottom: 8,
-  },
-  feedDescriptionText: {
-    fontSize: 15,
-    lineHeight: 24,
-    color: "#555",
-    marginBottom: 15,
-  },
-  feedDescriptionImg: {
-    width: "100%",
-    height: 200, // Fixed height for inline image
-    resizeMode: "cover",
-    borderRadius: 10,
-    marginVertical: 15,
-  },
-
-  // Full Image Modal Styles
-  fullImageModalContainer: {
+    color: '#007AFF',
+    fontWeight: '500',
     flex: 1,
-    backgroundColor: "rgba(0,0,0,0.9)", // Darker, semi-transparent background
-    justifyContent: "center",
-    alignItems: "center",
   },
-  fullImageModalCloseButton: {
-    position: "absolute",
-    top: 40,
-    left: 20,
-    zIndex: 1,
-    backgroundColor: "rgba(0,0,0,0.6)", // Slightly darker background for button
-    borderRadius: 30,
-    padding: 5,
+  articleContent: {
+    marginBottom: 32,
   },
-  fullImage: {
-    width: "90%", // Max width
-    height: "80%", // Max height
+  modalEngagement: {
+    borderTopWidth: 1,
+    borderTopColor: '#F0F0F0',
+    paddingTop: 20,
+  },
+  engagementStats: {
+    marginBottom: 20,
+  },
+  engagementText: {
+    fontSize: 13,
+    color: '#888',
+    textAlign: 'center',
+  },
+  modalActionBar: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    paddingVertical: 12,
+  },
+  modalActionBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    borderRadius: 24,
+    gap: 8,
+  },
+  modalActionText: {
+    fontSize: 14,
+    color: '#666',
+    fontWeight: '500',
   },
 });
 

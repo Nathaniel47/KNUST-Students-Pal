@@ -11,10 +11,12 @@ const ToastContext = createContext();
 
 export const ToastProvider = ({ children }) => {
   const [message, setMessage] = useState("");
+  const [backgroundColor, setBackgroundColor] = useState(null);
   const fadeAnim = useRef(new Animated.Value(0)).current;
 
-  const showToast = (msg = "", duration = 3000) => {
+  const showToast = (msg = "", duration = 3000, backgroundColor) => {
     setMessage(msg);
+    setBackgroundColor(backgroundColor);
 
     Animated.sequence([
       Animated.timing(fadeAnim, {
@@ -35,7 +37,7 @@ export const ToastProvider = ({ children }) => {
     <ToastContext.Provider value={{ showToast }}>
       {children}
       {message ? (
-        <Animated.View style={[styles.toast, { opacity: fadeAnim }]}>
+        <Animated.View style={[styles.toast, { opacity: fadeAnim, backgroundColor: backgroundColor || '#FF3B30',  }]}>
           <Text style={styles.toastText}>{message}</Text>
         </Animated.View>
       ) : null}

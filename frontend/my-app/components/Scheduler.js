@@ -51,7 +51,7 @@ const Scheduler = () => {
   ]);
 
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [currentView, setCurrentView] = useState('today'); // today, week, all
+  const [currentView, setCurrentView] = useState('all'); // all, today, week
   const [editingTask, setEditingTask] = useState(null);
 
   const navigation = useNavigation();
@@ -92,8 +92,8 @@ const Scheduler = () => {
           if (parent) {
             // Reset header options on the parent navigator
             parent.setOptions({
-              headerTitle: '', // Clear the title
-              headerTitleStyle: {}, // Reset style if needed
+              headerTitle: 'Updates', // Clear the title
+              headerTitleStyle: {padding:10}, // Reset style if needed
               headerRight: () => ( // Set back to your default headerRight for other tabs
                 <View
                   style={{
@@ -108,22 +108,23 @@ const Scheduler = () => {
                     onPress={() => {
                       navigation.navigate('Search');
                     }}
-                    style={{
-                      flexDirection: 'row',
-                      gap: 10,
-                      alignItems: 'center',
-                      borderWidth: 1,
-                      borderRadius: 20,
-                      paddingHorizontal: 20,
-                      alignSelf: 'center',
-                      width: 230,
-                      marginTop: 2,
-                      backgroundColor: '#fff',
-                      paddingVertical: 10,
-                      height: 40,
-                    }}>
-                    <Ionicons name="search-outline" size={20} />
-                    <Text>Search updates....</Text>
+                    // style={{
+                    //   flexDirection: 'row',
+                    //   gap: 10,
+                    //   alignItems: 'center',
+                    //   borderWidth: 1,
+                    //   borderRadius: 20,
+                    //   paddingHorizontal: 20,
+                    //   alignSelf: 'center',
+                    //   width: 230,
+                    //   marginTop: 2,
+                    //   backgroundColor: '#fff',
+                    //   paddingVertical: 10,
+                    //   height: 40,
+                    // }}
+                    >
+                    <Ionicons name="search-outline" size={24} />
+                    {/* <Text>Search updates....</Text> */}
                   </TouchableOpacity>
                   <TouchableOpacity>
                     <Ionicons name="notifications-outline" size={24}></Ionicons>
@@ -327,9 +328,9 @@ const Scheduler = () => {
 
       <View style={styles.taskFooter}>
         <Text style={[
-          styles.taskDate,
-          isOverdue(item.dueDate) && !item.completed && styles.taskOverdue
-        ]}>
+            styles.taskDate,
+            isOverdue(item.dueDate) && !item.completed && styles.taskOverdue
+          ]}>
           Due: {formatDate(item.dueDate)}
           {isOverdue(item.dueDate) && !item.completed && ' (Overdue)'}
         </Text>
@@ -374,7 +375,7 @@ const Scheduler = () => {
       </View>
 
       <View style={styles.filterContainer}>
-        {['today', 'week', 'all'].map((view) => (
+        {['all', 'today', 'week'].map((view) => (
           <TouchableOpacity
             key={view}
             style={[
@@ -387,7 +388,7 @@ const Scheduler = () => {
               styles.filterText,
               currentView === view && styles.filterTextActive
             ]}>
-              {view === 'today' ? 'Today' : view === 'week' ? 'This Week' : 'All Tasks'}
+              {view === 'all' ? 'All Tasks' : view === 'today' ? 'Today' : 'This Week'}
             </Text>
           </TouchableOpacity>
         ))}
